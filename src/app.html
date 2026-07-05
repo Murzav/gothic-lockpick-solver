@@ -4,9 +4,125 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="text-scale" content="scale" />
+    <meta name="theme-color" content="#181209" />
+    <meta name="color-scheme" content="dark" />
+
+    <title>Gothic 1 Remake Lockpick Solver — Free Online Tool</title>
+    <meta
+      name="description"
+      content="Free browser tool that solves the Gothic 1 Remake lockpicking puzzle. Enter your lock's plates, positions and links to get the shortest sequence of moves that opens it."
+    />
+    <meta
+      name="keywords"
+      content="gothic 1 remake, gothic remake lockpicking, lockpick solver, gothic lock solver, gothic 1 chest solver, gothic remake locks, gothic pin puzzle"
+    />
+    <meta name="author" content="Viktor Murzak" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://gothic-lockpick-solver.v-be8.workers.dev/" />
+
+    <!-- Icons & manifest -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gothic Lockpick Solver" />
+    <meta property="og:url" content="https://gothic-lockpick-solver.v-be8.workers.dev/" />
+    <meta property="og:title" content="Gothic 1 Remake Lockpick Solver" />
+    <meta
+      property="og:description"
+      content="Enter your lock's plates, their positions and links — get the shortest safe sequence of moves that opens it. Free, in your browser, in 19 languages."
+    />
+    <meta property="og:image" content="https://gothic-lockpick-solver.v-be8.workers.dev/og.webp" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Gothic 1 Remake Lockpick Solver" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="de_DE" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta property="og:locale:alternate" content="it_IT" />
+    <meta property="og:locale:alternate" content="pt_PT" />
+    <meta property="og:locale:alternate" content="pt_BR" />
+    <meta property="og:locale:alternate" content="pl_PL" />
+    <meta property="og:locale:alternate" content="nl_NL" />
+    <meta property="og:locale:alternate" content="cs_CZ" />
+    <meta property="og:locale:alternate" content="sk_SK" />
+    <meta property="og:locale:alternate" content="hu_HU" />
+    <meta property="og:locale:alternate" content="ro_RO" />
+    <meta property="og:locale:alternate" content="tr_TR" />
+    <meta property="og:locale:alternate" content="uk_UA" />
+    <meta property="og:locale:alternate" content="ca_ES" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gothic 1 Remake Lockpick Solver" />
+    <meta
+      name="twitter:description"
+      content="Enter your lock, get the shortest safe sequence of moves that opens it. Free, in your browser, in 19 languages."
+    />
+    <meta name="twitter:image" content="https://gothic-lockpick-solver.v-be8.workers.dev/og.webp" />
+    <meta name="twitter:image:alt" content="Gothic 1 Remake Lockpick Solver" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Gothic 1 Remake Lockpick Solver",
+        "url": "https://gothic-lockpick-solver.v-be8.workers.dev/",
+        "description": "Free browser tool that solves the Gothic 1 Remake lockpicking puzzle. Enter your lock's plates, their starting positions and how the plates are linked, and it returns the shortest safe sequence of moves that opens the lock.",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript",
+        "isAccessibleForFree": true,
+        "inLanguage": [
+          "en",
+          "ru",
+          "uk",
+          "es",
+          "es-419",
+          "de",
+          "pt",
+          "pt-BR",
+          "fr",
+          "pl",
+          "nl",
+          "cs",
+          "hu",
+          "it",
+          "tr",
+          "zh",
+          "sk",
+          "ro",
+          "ca"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "image": "https://gothic-lockpick-solver.v-be8.workers.dev/og.webp",
+        "screenshot": "https://gothic-lockpick-solver.v-be8.workers.dev/og.webp",
+        "author": {
+          "@type": "Person",
+          "name": "Viktor Murzak",
+          "url": "https://github.com/Murzav"
+        },
+        "about": "Lockpicking mini-game in the Gothic 1 Remake"
+      }
+    </script>
+
     %sveltekit.head%
   </head>
   <body data-sveltekit-preload-data="hover">
     <div style="display: contents">%sveltekit.body%</div>
+    <noscript>
+      <h1>Gothic 1 Remake Lockpick Solver</h1>
+      <p>
+        This free browser tool solves the Gothic 1 Remake lockpicking mini-game. Enter your lock's
+        plates, their starting positions, and how the plates are linked, and it returns the shortest
+        safe sequence of moves that brings every plate to the open position. Please enable
+        JavaScript to use the solver.
+      </p>
+    </noscript>
   </body>
 </html>

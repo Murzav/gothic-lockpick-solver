@@ -1,0 +1,13 @@
+{
+  "name": "Gothic 1 Remake Lockpick Solver",
+  "short_name": "Lockpick Solver",
+  "description": "Solve the Gothic 1 Remake lockpicking mini-game: enter your lock and get the shortest safe sequence of moves.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#181209",
+  "theme_color": "#181209",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" },
+    { "src": "/apple-touch-icon.png", "type": "image/png", "sizes": "180x180" }
+  ]
+}

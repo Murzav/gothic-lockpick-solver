@@ -1,3 +1,24 @@
-# allow crawling everything by default
+# Gothic 1 Remake Lockpick Solver — robots.txt
+
 User-agent: *
-Disallow:
+Allow: /
+
+# AI crawlers that drive search / answer-engine visibility — allowed
+User-agent: Google-Extended
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://gothic-lockpick-solver.v-be8.workers.dev/sitemap.xml
