@@ -31,10 +31,8 @@ describe("LockBoard", () => {
   it("setting a connection updates lockStore.coupling", async () => {
     const screen = render(LockBoard);
 
-    await screen
-      .getByRole("group", { name: "Plate 1 → plate 2" })
-      .getByRole("button", { name: "»" })
-      .click();
+    // One click cycles the toggle none → same (+1).
+    await screen.getByRole("button", { name: /Plate 1 → plate 2/ }).click();
 
     expect(lockStore.coupling[0][1]).toBe(1);
   });

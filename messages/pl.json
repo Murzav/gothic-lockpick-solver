@@ -36,8 +36,11 @@
   "connection_aria": "Płytka {from} → płytka {to}",
   "board_connections_aria": "Powiązania płytki {n}",
 
-  "form_legend": "Po lewej pozycja startowa płytki (1–7, cel to 4). Po prawej to, co robią pozostałe płytki, gdy przesuwasz tę jedną: » tak samo, ⇄ na odwrót, — brak powiązania.",
   "form_move_caption": "gdy przesuwasz P{n}",
+  "link_self": "bieżąca płytka",
+  "link_same": "tak samo",
+  "link_opposite": "na odwrót",
+  "link_none": "brak powiązania",
 
   "result_title": "Wynik",
   "result_unsolvable": "Z tej pozycji startowej i przy takich powiązaniach celu nie da się osiągnąć.",

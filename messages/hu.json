@@ -36,8 +36,11 @@
   "connection_aria": "{from}. lemez → {to}. lemez",
   "board_connections_aria": "{n}. lemez kapcsolatai",
 
-  "form_legend": "Balra a lemez kiindulási pozíciója (1–7, a cél a 4). Jobbra az, hogy mit csinál a többi lemez, amikor ezt mozdítod: » ugyanarra, ⇄ ellenkezőre, — sehogy.",
   "form_move_caption": "L{n} mozdításakor",
+  "link_self": "ez a lemez",
+  "link_same": "ugyanarra",
+  "link_opposite": "ellenkezőre",
+  "link_none": "sehogy",
 
   "result_title": "Eredmény",
   "result_unsolvable": "Ebből a kiindulási pozícióból, ezekkel a kapcsolatokkal a cél elérhetetlen.",

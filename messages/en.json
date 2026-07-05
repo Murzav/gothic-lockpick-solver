@@ -36,8 +36,11 @@
   "connection_aria": "Plate {from} → plate {to}",
   "board_connections_aria": "Links of plate {n}",
 
-  "form_legend": "On the left, the plate's starting position (1–7, target is 4). On the right, how each other plate reacts when you move this one: » the same way, ⇄ the opposite way, — no link.",
   "form_move_caption": "when you move P{n}",
+  "link_self": "current plate",
+  "link_same": "same direction",
+  "link_opposite": "opposite direction",
+  "link_none": "no link",
 
   "result_title": "Result",
   "result_unsolvable": "From this starting position, with these links, the target cannot be reached.",

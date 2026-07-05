@@ -36,8 +36,11 @@
   "connection_aria": "Platnička {from} → platnička {to}",
   "board_connections_aria": "Väzby platničky {n}",
 
-  "form_legend": "Vľavo je štartová pozícia platničky (1–7, cieľ je 4). Vpravo je to, ako reagujú ostatné platničky, keď túto pohneš: » rovnakým smerom, ⇄ opačným smerom, — žiadna väzba.",
   "form_move_caption": "keď pohneš P{n}",
+  "link_self": "táto platnička",
+  "link_same": "rovnakým smerom",
+  "link_opposite": "opačným smerom",
+  "link_none": "žiadna väzba",
 
   "result_title": "Výsledok",
   "result_unsolvable": "Z tejto štartovej pozície a s týmito väzbami je cieľ nedosiahnuteľný.",

@@ -4,7 +4,7 @@ Crack any lock in _Gothic 1 Remake_. Describe the lock in front of you and get t
 
 **▶ Use it now: [gothic-lockpick-solver.v-be8.workers.dev](https://gothic-lockpick-solver.v-be8.workers.dev)**
 
-![The lockpick solver](./.github/preview.png)
+![The lockpick solver](./.github/preview.webp)
 
 ## What is this?
 
@@ -18,7 +18,7 @@ Everything runs in your browser. No account, no ads, nothing is uploaded anywher
 
 1. **Pick the number of plates** (4 to 7, depending on the lock).
 2. **Set each plate's starting position** — where its pin sits the moment you open the lock (1 to 7; the centre, and the goal, is 4).
-3. **Enter the links.** For each plate, mark what the _other_ plates do when you move it right: left, nothing, or right.
+3. **Enter the links.** For each plate, mark how the _other_ plates react when you move it — the same way (`»`), the opposite way (`⇄`), or not at all (`—`). Each link is one button that cycles through the three states.
 4. **Press Solve.** You get a numbered list of moves. Step through them and watch the right plate light up on the board as you go.
 
 The app has a short "Where to count from" note near the top. Read it before you start — a mismatched frame of reference is the usual reason a lock "looks right but won't solve."

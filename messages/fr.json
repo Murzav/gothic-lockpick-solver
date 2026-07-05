@@ -36,8 +36,11 @@
   "connection_aria": "Plaque {from} → plaque {to}",
   "board_connections_aria": "Liaisons de la plaque {n}",
 
-  "form_legend": "À gauche, la position de départ de la plaque (1–7, cible 4). À droite, comment réagit chaque autre plaque quand tu bouges celle-ci : » dans le même sens, ⇄ en sens inverse, — aucune liaison.",
   "form_move_caption": "quand tu bouges P{n}",
+  "link_self": "plaque actuelle",
+  "link_same": "même sens",
+  "link_opposite": "sens inverse",
+  "link_none": "aucune liaison",
 
   "result_title": "Résultat",
   "result_unsolvable": "Depuis cette position de départ, avec ces liaisons, la cible est hors d'atteinte.",

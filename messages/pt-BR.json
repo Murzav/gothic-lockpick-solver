@@ -36,8 +36,11 @@
   "connection_aria": "Placa {from} → placa {to}",
   "board_connections_aria": "Ligações da placa {n}",
 
-  "form_legend": "À esquerda, a posição inicial da placa (1–7, o alvo é 4). À direita, como cada uma das outras placas reage quando você move esta: » no mesmo sentido, ⇄ no sentido oposto, — sem ligação.",
   "form_move_caption": "quando você move P{n}",
+  "link_self": "placa atual",
+  "link_same": "mesmo sentido",
+  "link_opposite": "sentido oposto",
+  "link_none": "sem ligação",
 
   "result_title": "Resultado",
   "result_unsolvable": "Dessa posição inicial, com essas ligações, não dá para chegar ao alvo.",

@@ -36,11 +36,12 @@
     align-items: center;
     justify-content: flex-end;
     gap: 0.4rem;
-    /* Slots fill the row: big and tactile on a laptop, shrinking to fit 7
-       across on a phone rather than a fixed size that is too small either way. */
+    /* Slots share the row evenly, growing to a tactile size on a laptop and
+       shrinking to still fit 7 across on a phone. Capped so they stay pin-like
+       rather than stretching into wide bars; the row centres the slack. */
     flex: 1 1 0;
     min-width: 2.1rem;
-    max-width: 3.4rem;
+    max-width: 3.6rem;
     height: 4rem;
     padding: 0.45rem 0 0.5rem;
     background: var(--surface);

@@ -7,12 +7,10 @@
     /**
      * `accent` (default) fills the active state with ember — for a single
      * meaningful choice among a few (view/direction/plate-count). `neutral`
-     * gives a quiet active state, so a "no effect" option (coupling 0) does
-     * not scream for attention when it is merely the default. `positive` /
-     * `negative` colour the active state green / red — used by the coupling
-     * buttons so "same direction" and "opposite direction" read at a glance.
+     * gives a quiet active state, so a "no effect" option does not scream for
+     * attention when it is merely the default.
      */
-    tone?: "accent" | "neutral" | "positive" | "negative";
+    tone?: "accent" | "neutral";
   }
 
   const { value, active, label, onSelect, tone = "accent" }: Props = $props();
@@ -23,8 +21,6 @@
   class="seg-button"
   class:active
   class:neutral={tone === "neutral"}
-  class:positive={tone === "positive"}
-  class:negative={tone === "negative"}
   aria-pressed={active}
   onclick={() => onSelect(value)}
 >
@@ -65,19 +61,5 @@
     color: var(--text);
     background: color-mix(in oklch, var(--surface) 78%, var(--brass) 22%);
     border-color: color-mix(in oklch, var(--brass) 55%, var(--border));
-  }
-
-  /* Same direction (»): green. Opposite (⇄): red. Only the selected
-     coupling carries colour, so a row reads as calm until a link is set. */
-  .seg-button.positive.active {
-    color: var(--bg);
-    background: var(--goal);
-    border-color: var(--goal);
-  }
-
-  .seg-button.negative.active {
-    color: var(--bg);
-    background: var(--danger);
-    border-color: var(--danger);
   }
 </style>

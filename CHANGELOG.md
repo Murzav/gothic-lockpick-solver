@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Plate links are entered as **same / opposite / no-link** (`»` / `⇄` / `—`, colour-coded green / red / grey) instead of left/right arrows, in both board and table. A link is now defined relative to the plate you move — same way, opposite way, or no reaction — which is independent of which side you call "right" and sidesteps the direction convention entirely. The table keeps its per-plate caption ("when you move Pn") and a legend explaining the three glyphs.
+- Plate links are entered as **same / opposite / no-link** (`»` green / `⇄` red / `—`) instead of left/right arrows, in both board and table. Each link is a single button that cycles through the three states on click, so a plate's couplings are a short row rather than a dense three-buttons-per-target grid. The plate you are editing shows up in that row as a dimmed `⊙` anchor, and a colour-coded legend spells out what every icon means. A link is defined relative to the plate you move — same way, opposite way, or no reaction — which is independent of which side you call "right" and sidesteps the direction convention entirely.
 - Board pin-slots grow to fill the row — larger and more tactile on a laptop while still fitting seven across on a phone.
 - The solver's `directionLabel` became a locale-free `physicalDirection` returning a `right`/`left` token; the UI now localizes it. The lock configuration is persisted to localStorage so it survives reloads (including a language switch).
 

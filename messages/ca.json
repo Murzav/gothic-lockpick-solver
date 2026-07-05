@@ -36,8 +36,11 @@
   "connection_aria": "Placa {from} → placa {to}",
   "board_connections_aria": "Vincles de la placa {n}",
 
-  "form_legend": "A l'esquerra, la posició inicial de la placa (1–7, l'objectiu és el 4). A la dreta, com reacciona cada altra placa quan mous aquesta: » en el mateix sentit, ⇄ en sentit contrari, — sense vincle.",
   "form_move_caption": "quan mous P{n}",
+  "link_self": "placa actual",
+  "link_same": "mateix sentit",
+  "link_opposite": "sentit contrari",
+  "link_none": "sense vincle",
 
   "result_title": "Resultat",
   "result_unsolvable": "Des d'aquesta posició inicial i amb aquests vincles, l'objectiu és inabastable.",

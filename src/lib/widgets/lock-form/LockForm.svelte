@@ -1,7 +1,8 @@
 <script lang="ts">
   import { lockStore } from "$lib/entities/lock/model/lock-store.svelte";
   import SegButton from "$lib/shared/ui/SegButton.svelte";
-  import { COUPLING_OPTIONS } from "$lib/features/edit-connections/lib/coupling-options";
+  import ConnectionToggle from "$lib/features/edit-connections/ui/ConnectionToggle.svelte";
+  import CouplingLegend from "$lib/features/edit-connections/ui/CouplingLegend.svelte";
   import { MAX_POS, MIN_POS } from "$lib/shared/config";
   import { m } from "$lib/paraglide/messages.js";
 
@@ -16,7 +17,7 @@
 </script>
 
 <div class="lock-form">
-  <p class="legend">{m.form_legend()}</p>
+  <CouplingLegend />
 
   <div class="matrix">
     {#each plateIndices as i (i)}
@@ -45,29 +46,23 @@
           >
           <div class="connections">
             {#each plateIndices as j (j)}
-              {#if j !== i}
-                <div
-                  class="connection"
-                  class:has-link={lockStore.coupling[i][j] !== 0}
-                >
+              {#if j === i}
+                <div class="connection is-self" aria-hidden="true">
                   <span class="conn-target mono"
                     >{m.plate_short({ n: j + 1 })}</span
                   >
-                  <div
-                    class="connection-group"
-                    role="group"
-                    aria-label={m.connection_aria({ from: i + 1, to: j + 1 })}
+                  <span class="self-mark">⊙</span>
+                </div>
+              {:else}
+                <div class="connection">
+                  <span class="conn-target mono"
+                    >{m.plate_short({ n: j + 1 })}</span
                   >
-                    {#each COUPLING_OPTIONS as option (option.value)}
-                      <SegButton
-                        value={option.value}
-                        label={option.label}
-                        active={lockStore.coupling[i][j] === option.value}
-                        tone={option.tone}
-                        onSelect={(v) => lockStore.setCoupling(i, j, v)}
-                      />
-                    {/each}
-                  </div>
+                  <ConnectionToggle
+                    label={m.connection_aria({ from: i + 1, to: j + 1 })}
+                    value={lockStore.coupling[i][j]}
+                    onChange={(v) => lockStore.setCoupling(i, j, v)}
+                  />
                 </div>
               {/if}
             {/each}
@@ -83,12 +78,6 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-  }
-
-  .legend {
-    margin: 0;
-    font-size: 0.85rem;
-    color: var(--text-muted);
   }
 
   .matrix {
@@ -147,24 +136,27 @@
     padding: 0.15rem 0.35rem;
     border: 1px solid var(--border);
     border-radius: 6px;
-    transition: border-color var(--transition-fast);
   }
 
-  .connection.has-link {
-    border-color: color-mix(in oklch, var(--ember) 55%, var(--border));
+  /* The current plate itself: dimmed, non-interactive anchor. */
+  .connection.is-self {
+    opacity: 0.5;
+  }
+
+  .self-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.4rem;
+    padding: 0.4rem 0.7rem;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    line-height: 1;
+    color: var(--text-muted);
   }
 
   .conn-target {
     font-size: 0.72rem;
     color: var(--text-muted);
-  }
-
-  .connection.has-link .conn-target {
-    color: var(--ember);
-  }
-
-  .connection-group {
-    display: flex;
-    gap: 0.15rem;
   }
 </style>

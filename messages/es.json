@@ -36,8 +36,11 @@
   "connection_aria": "Placa {from} → placa {to}",
   "board_connections_aria": "Conexiones de la placa {n}",
 
-  "form_legend": "A la izquierda, la posición inicial de la placa (1–7, el objetivo es el 4). A la derecha, cómo reacciona cada una de las demás placas cuando mueves esta: » igual, ⇄ al revés, — sin conexión.",
   "form_move_caption": "cuando mueves P{n}",
+  "link_self": "placa actual",
+  "link_same": "igual",
+  "link_opposite": "al revés",
+  "link_none": "sin conexión",
 
   "result_title": "Resultado",
   "result_unsolvable": "Desde esta posición inicial, con estas conexiones, el objetivo es inalcanzable.",
