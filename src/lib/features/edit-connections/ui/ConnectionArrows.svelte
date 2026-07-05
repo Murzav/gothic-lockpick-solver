@@ -1,5 +1,6 @@
 <script lang="ts">
   import SegButton from "$lib/shared/ui/SegButton.svelte";
+  import { COUPLING_OPTIONS } from "$lib/features/edit-connections/lib/coupling-options";
 
   interface Props {
     label: string;
@@ -8,21 +9,15 @@
   }
 
   const { label, value, onChange }: Props = $props();
-
-  const options = [
-    { value: -1, label: "←" },
-    { value: 0, label: "0" },
-    { value: 1, label: "→" },
-  ];
 </script>
 
 <div class="connection-arrows" role="group" aria-label={label}>
-  {#each options as option (option.value)}
+  {#each COUPLING_OPTIONS as option (option.value)}
     <SegButton
       value={option.value}
       label={option.label}
       active={value === option.value}
-      tone={option.value === 0 ? "neutral" : "accent"}
+      tone={option.tone}
       onSelect={onChange}
     />
   {/each}

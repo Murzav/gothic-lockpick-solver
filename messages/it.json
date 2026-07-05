@@ -36,8 +36,8 @@
   "connection_aria": "Piastra {from} → piastra {to}",
   "board_connections_aria": "Collegamenti della piastra {n}",
 
-  "form_legend": "A sinistra, la posizione di partenza della piastra (1–7, l’obiettivo è 4). A destra, cosa fanno le altre piastre quando muovi questa a destra: ← sinistra, 0 ferma, → destra.",
-  "form_move_caption": "muovo P{n} a destra →",
+  "form_legend": "A sinistra, la posizione di partenza della piastra (1–7, l’obiettivo è 4). A destra, come reagisce ogni altra piastra quando muovi questa: » nello stesso verso, ⇄ nel verso opposto, — nessun collegamento.",
+  "form_move_caption": "quando muovi P{n}",
 
   "result_title": "Risultato",
   "result_unsolvable": "Da questa posizione di partenza, con questi collegamenti, l’obiettivo è irraggiungibile.",

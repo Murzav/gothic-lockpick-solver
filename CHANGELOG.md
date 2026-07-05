@@ -13,10 +13,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Cloudflare Workers deployment via `@sveltejs/adapter-cloudflare` + `wrangler.jsonc` (live at https://gothic-lockpick-solver.v-be8.workers.dev).
 - A shared plate-count control (4–7) above the view switch, so the count can be changed in board mode too (previously only in the table).
 - A "Reset" button that restores the default lock.
+- Full SEO: descriptive `<title>` and meta description, Open Graph and Twitter cards with a 1200×630 WebP share image, JSON-LD `WebApplication` structured data listing all 19 languages, canonical URL, `sitemap.xml`, `robots.txt` that welcomes search-driving AI crawlers, a lock-shaped favicon, an Apple touch icon, and a web app manifest. A `<noscript>` fallback describes the tool for crawlers that do not run JavaScript.
 
 ### Changed
 
-- Table view now labels every connection with its source and target plate (a per-plate "move Pi right →" caption, each group tagged with its target Pj) and carries a legend explaining ←/0/→.
+- Plate links are entered as **same / opposite / no-link** (`»` / `⇄` / `—`, colour-coded green / red / grey) instead of left/right arrows, in both board and table. A link is now defined relative to the plate you move — same way, opposite way, or no reaction — which is independent of which side you call "right" and sidesteps the direction convention entirely. The table keeps its per-plate caption ("when you move Pn") and a legend explaining the three glyphs.
 - Board pin-slots grow to fill the row — larger and more tactile on a laptop while still fitting seven across on a phone.
 - The solver's `directionLabel` became a locale-free `physicalDirection` returning a `right`/`left` token; the UI now localizes it. The lock configuration is persisted to localStorage so it survives reloads (including a language switch).
 

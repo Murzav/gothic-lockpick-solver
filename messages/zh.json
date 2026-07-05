@@ -36,8 +36,8 @@
   "connection_aria": "{from} 号转盘 → {to} 号转盘",
   "board_connections_aria": "{n} 号转盘的联动关系",
 
-  "form_legend": "左边是这块转盘的初始位置（1–7，目标是 4）。右边是你把它往右拨时其他转盘各自的反应：← 左移，0 不动，→ 右移。",
-  "form_move_caption": "把盘{n}往右拨 →",
+  "form_legend": "左边是这块转盘的初始位置（1–7，目标是 4）。右边是你拨动它时其他转盘各自的反应：» 同向跟着动，⇄ 反向动，— 没有联动。",
+  "form_move_caption": "你拨动盘{n}时",
 
   "result_title": "结果",
   "result_unsolvable": "从这个初始位置出发，按这套联动关系，目标是达不到的。",

@@ -1,6 +1,7 @@
 <script lang="ts">
   import { lockStore } from "$lib/entities/lock/model/lock-store.svelte";
   import SegButton from "$lib/shared/ui/SegButton.svelte";
+  import { COUPLING_OPTIONS } from "$lib/features/edit-connections/lib/coupling-options";
   import { MAX_POS, MIN_POS } from "$lib/shared/config";
   import { m } from "$lib/paraglide/messages.js";
 
@@ -8,11 +9,6 @@
     { length: MAX_POS - MIN_POS + 1 },
     (_, i) => MIN_POS + i,
   );
-  const connectionOptions = [
-    { value: -1, label: "←" },
-    { value: 0, label: "0" },
-    { value: 1, label: "→" },
-  ];
 
   const plateIndices = $derived(
     Array.from({ length: lockStore.plateCount }, (_, i) => i),
@@ -62,12 +58,12 @@
                     role="group"
                     aria-label={m.connection_aria({ from: i + 1, to: j + 1 })}
                   >
-                    {#each connectionOptions as option (option.value)}
+                    {#each COUPLING_OPTIONS as option (option.value)}
                       <SegButton
                         value={option.value}
                         label={option.label}
                         active={lockStore.coupling[i][j] === option.value}
-                        tone={option.value === 0 ? "neutral" : "accent"}
+                        tone={option.tone}
                         onSelect={(v) => lockStore.setCoupling(i, j, v)}
                       />
                     {/each}

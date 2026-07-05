@@ -42,7 +42,7 @@ describe("LockForm", () => {
 
     await screen
       .getByRole("group", { name: "Plate 1 → plate 2" })
-      .getByRole("button", { name: "→" })
+      .getByRole("button", { name: "»" })
       .click();
 
     expect(lockStore.coupling[0][1]).toBe(1);

@@ -36,8 +36,8 @@
   "connection_aria": "Plăcuța {from} → plăcuța {to}",
   "board_connections_aria": "Legăturile plăcuței {n}",
 
-  "form_legend": "În stânga — poziția de start a plăcuței (1–7, ținta — 4). În dreapta — ce fac celelalte plăcuțe când o miști pe asta spre dreapta: ← stânga, 0 stă pe loc, → dreapta.",
-  "form_move_caption": "mișc P{n} spre dreapta →",
+  "form_legend": "În stânga — poziția de start a plăcuței (1–7, ținta — 4). În dreapta — cum reacționează celelalte plăcuțe când o miști pe asta: » în același sens, ⇄ în sens invers, — fără legătură.",
+  "form_move_caption": "când miști P{n}",
 
   "result_title": "Rezultat",
   "result_unsolvable": "Din această poziție de start, cu aceste legături, ținta nu poate fi atinsă.",

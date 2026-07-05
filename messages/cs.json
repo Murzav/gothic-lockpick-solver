@@ -36,8 +36,8 @@
   "connection_aria": "Destička {from} → destička {to}",
   "board_connections_aria": "Vazby destičky {n}",
 
-  "form_legend": "Vlevo je výchozí pozice destičky (1–7, cíl je 4). Vpravo to, co dělají ostatní destičky, když tuhle posuneš doprava: ← doleva, 0 stojí, → doprava.",
-  "form_move_caption": "posouvám D{n} doprava →",
+  "form_legend": "Vlevo je výchozí pozice destičky (1–7, cíl je 4). Vpravo to, jak reaguje každá další destička, když tuhle posuneš: » stejným směrem, ⇄ opačným směrem, — žádná vazba.",
+  "form_move_caption": "když posuneš D{n}",
 
   "result_title": "Výsledek",
   "result_unsolvable": "Z téhle výchozí pozice a s těmihle vazbami je cíl nedosažitelný.",

@@ -36,8 +36,8 @@
   "connection_aria": "Placa {from} → placa {to}",
   "board_connections_aria": "Ligações da placa {n}",
 
-  "form_legend": "À esquerda, a posição inicial da placa (1–7, o objetivo é 4). À direita, o que fazem as outras placas quando moves esta para a direita: ← esquerda, 0 fica parada, → direita.",
-  "form_move_caption": "movo P{n} para a direita →",
+  "form_legend": "À esquerda, a posição inicial da placa (1–7, o objetivo é 4). À direita, como reage cada uma das outras placas quando moves esta: » no mesmo sentido, ⇄ no sentido contrário, — sem ligação.",
+  "form_move_caption": "quando moves a P{n}",
 
   "result_title": "Resultado",
   "result_unsolvable": "A partir desta posição inicial, com estas ligações, o objetivo é inatingível.",

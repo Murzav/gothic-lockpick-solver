@@ -36,8 +36,8 @@
   "connection_aria": "Platte {from} → Platte {to}",
   "board_connections_aria": "Verbindungen von Platte {n}",
 
-  "form_legend": "Links die Startposition der Platte (1–7, Ziel ist 4). Rechts, was die anderen Platten tun, wenn du diese nach rechts bewegst: ← links, 0 bleibt stehen, → rechts.",
-  "form_move_caption": "bewege P{n} nach rechts →",
+  "form_legend": "Links die Startposition der Platte (1–7, Ziel ist 4). Rechts, wie jede andere Platte reagiert, wenn du diese bewegst: » in dieselbe Richtung, ⇄ in die entgegengesetzte, — keine Verbindung.",
+  "form_move_caption": "wenn du P{n} bewegst",
 
   "result_title": "Ergebnis",
   "result_unsolvable": "Aus dieser Startposition ist das Ziel mit diesen Verbindungen nicht erreichbar.",

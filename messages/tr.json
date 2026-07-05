@@ -36,8 +36,8 @@
   "connection_aria": "Plaka {from} → plaka {to}",
   "board_connections_aria": "Plaka {n} bağlantıları",
 
-  "form_legend": "Solda — plakanın başlangıç konumu (1–7, hedef 4). Sağda — bunu sağa hareket ettirdiğinde diğer plakaların ne yaptığı: ← sol, 0 sabit, → sağ.",
-  "form_move_caption": "P{n} sağa →",
+  "form_legend": "Solda — plakanın başlangıç konumu (1–7, hedef 4). Sağda — bu plakayı hareket ettirdiğinde diğer plakaların nasıl tepki verdiği: » aynı yönde, ⇄ ters yönde, — bağlantı yok.",
+  "form_move_caption": "P{n} hareket ettiğinde",
 
   "result_title": "Sonuç",
   "result_unsolvable": "Bu başlangıç konumundan, bu bağlantılarla hedefe ulaşılamaz.",

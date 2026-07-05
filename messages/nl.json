@@ -36,8 +36,8 @@
   "connection_aria": "Plaat {from} → plaat {to}",
   "board_connections_aria": "Koppelingen van plaat {n}",
 
-  "form_legend": "Links: de startpositie van de plaat (1–7, doel is 4). Rechts: wat de andere platen doen als je deze naar rechts beweegt: ← links, 0 blijft staan, → rechts.",
-  "form_move_caption": "P{n} naar rechts →",
+  "form_legend": "Links: de startpositie van de plaat (1–7, doel is 4). Rechts: hoe elke andere plaat reageert als je deze beweegt: » dezelfde kant op, ⇄ de andere kant op, — geen koppeling.",
+  "form_move_caption": "als je P{n} beweegt",
 
   "result_title": "Resultaat",
   "result_unsolvable": "Vanuit deze startpositie is het doel met deze koppelingen niet te bereiken.",
