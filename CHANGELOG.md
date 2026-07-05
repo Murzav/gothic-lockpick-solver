@@ -1,0 +1,53 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+### Added
+
+- Full internationalization with Paraglide JS: the interface ships in 19 locales (en, de, pl, cs, sk, hu, ro, uk, ru, es, es-419, ca, pt, pt-BR, it, fr, nl, tr, zh). On the first visit the site picks the browser's preferred language; a manual choice is remembered in localStorage. A switcher in the top-right corner lists every language by its own name and flag, and the lock you are building survives a language switch.
+- Cloudflare Workers deployment via `@sveltejs/adapter-cloudflare` + `wrangler.jsonc` (live at https://gothic-lockpick-solver.v-be8.workers.dev).
+- A shared plate-count control (4–7) above the view switch, so the count can be changed in board mode too (previously only in the table).
+- A "Reset" button that restores the default lock.
+
+### Changed
+
+- Table view now labels every connection with its source and target plate (a per-plate "move Pi right →" caption, each group tagged with its target Pj) and carries a legend explaining ←/0/→.
+- Board pin-slots grow to fill the row — larger and more tactile on a laptop while still fitting seven across on a phone.
+- The solver's `directionLabel` became a locale-free `physicalDirection` returning a `right`/`left` token; the UI now localizes it. The lock configuration is persisted to localStorage so it survives reloads (including a language switch).
+
+## [0.1.0] - 2026-07-05
+
+### Added
+
+- SvelteKit + FSD project scaffold, oxc + Vitest tooling.
+- Lock domain types and shared configuration constants: `LockState`, `CouplingMatrix`, `Move`, `Solution`, and plate position bounds. Enables type-safe solver implementation and config-driven constraints across shared and domain layers.
+- Pure lock mechanics: `clampPosition`, `isGoalState`, `encodeState`, `applyMove`. Atomic move validation ensures coupled plates never leave [1,7] bounds; state encoding provides unique positional hash for visited-state tracking.
+- BFS solver `solvePuzzle`: level-order search over lock states returning the shortest wall-safe move sequence, or `solvable:false` once the reachable state space is exhausted.
+- Move grouping and direction labeling: `groupMoves` merges consecutive identical (plate,dir) moves into single grouped moves with count; `directionLabel` maps solver directions to physical labels (вправо/влево) based on convention (right-increases/right-decreases).
+- `runSolver` wrapper running `solvePuzzle` inside a dedicated Vite module worker (`solver.worker.ts`), keeping the BFS search off the UI thread while resolving with the same `Solution` shape.
+- `lockStore`: reactive runes-based store (`$state`) acting as the single source of truth for plate count, positions, coupling matrix, direction convention, view mode, and solve result. Resizing the plate count reshapes `positions`/`coupling` and clears any stale result, keeping the UI and solver input always in sync.
+- Global OKLCH design tokens (`--bg`, `--surface`, `--border`, `--text`, `--text-muted`, `--ember`, `--brass`, `--goal`, `--danger`), self-hosted Cinzel/Inter/JetBrains Mono fonts via `@fontsource`, minimal reset, and `prefers-reduced-motion` support. All text/background pairs verified at WCAG AA contrast or better.
+- Shared UI primitives (`src/lib/shared/ui`): `SegButton` (toggle button with `aria-pressed`, used for position/plate-count selectors), `Toggle` (accessible segmented `radiogroup` control), `Card` (panel with a brass hairline edge), and `Button` (primary/secondary action button). All styling is token-driven, keyboard-focusable with visible focus rings.
+- Plate entity UI (`src/lib/entities/lock/ui`): `PinSlot` (single position button with a raised-pin marker for the active slot) and `PlateRow` (`radiogroup` of 7 `PinSlot`s per plate, highlighting position 4 as the goal and switching to the `--goal` accent once reached).
+- `ConnectionArrows` (`src/lib/features/edit-connections/ui`): a `←/0/→` segmented control for one ordered plate-pair coupling value, built from `SegButton`.
+- `LockBoard` widget (`src/lib/widgets/lock-board`): the visual board input — one `PlateRow` per plate plus, under each plate, a `ConnectionArrows` control for every other plate it can affect. Reads `plateCount`/`positions`/`coupling` straight from `lockStore` and writes back via `setPosition`/`setCoupling`, so the board and the solve result stay in sync with no local state.
+- `LockForm` widget (`src/lib/widgets/lock-form`): a compact matrix alternative to the board — a plate-count `SegButton` row (4–7), then one row per plate with a `SegButton` position selector and a `←/0/→` connection chip per other plate. Reads and writes the same `lockStore` fields as `LockBoard`, so switching view modes never desyncs the two inputs.
+- `DirectionToggle` feature (`src/lib/features/toggle-direction`): a two-option `Toggle` for the physical direction convention ("Вправо = номер растёт" / "падает"). Switching calls `lockStore.setConvention`, which also clears any stale solve result so a displayed solution never contradicts the selected convention.
+- `SolveButton` and `ResultPanel` (`src/lib/features/solve-lock/ui`): `SolveButton` triggers `lockStore.solve()` and disables itself while the worker is running. `ResultPanel` renders `lockStore.result` — a grouped, directional move list with step-by-step playback (prev/next through each grouped move) when solvable, an "already open" note when the start position is the goal, and a corrected Master-perk explanation for the unsolvable case: framed as a beneficial simplification that can occasionally make one specific lock unsolvable, never as a plain defect.
+- Composed solver page (`src/routes/+page.svelte`): hero, an "Откуда считать" convention card (coordinate-system agreement + `DirectionToggle`), a "Замок" card with a board/form view switch (`lockStore.viewMode`) wrapping `LockBoard`/`LockForm`, `SolveButton`, `ResultPanel`, and a ported "Как правильно снять связи" help `<details>` section. Plate-count copy now says 4–7 (never 3), and the Master-perk step in the help text is corrected to the beneficial-simplification framing.
+- Solution playback highlights the plate currently being moved on the board — not only in the move list — so the sequence is something you watch, tuned to look right on a 16" laptop and an iPhone-sized screen.
+
+### Changed
+
+- Desktop layout is a two-column reference/tool "workbench" inside a wider container, so a large laptop uses its width instead of a single narrow strip; the phone layout stays one column. Ember is reserved for meaningful state (the active pin, a real coupling) rather than every neutral `0`, and the goal slot carries a persistent target marker.
+- Solve orchestration moved from the entity store into the `solve-lock` feature (`solveCurrentLock`) to keep FSD imports strictly downward; the store holds state only and exposes `snapshotConfig()`.
+
+### Fixed
+
+- Editing a position or coupling now clears the displayed solution and the board highlight, and a per-edit generation token stops a solve that finishes after an edit from overwriting the lock with a stale answer.
+- Corrected the "how to read the links" help: you quicksave _before_ opening a lock (you can't save once the mini-game is open), and a reload doesn't change the lock — its layout is fixed. Fixed across every locale.

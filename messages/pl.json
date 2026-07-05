@@ -1,0 +1,65 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "app_title": "Diagnostyka zamka",
+  "app_tagline": "Wklep powiązania między płytkami i ich pozycje startowe — narzędzie uczciwie policzy, czy zamek w ogóle da się otworzyć, a jeśli tak, poda dokładną kolejność ruchów.",
+
+  "convention_title": "Od czego liczyć",
+  "convention_intro": "Zanim cokolwiek wpiszesz, umów się sam ze sobą co do układu współrzędnych. To właśnie tutaj najczęściej rodzi się „niby wszystko się zgadza, a nie chce się otworzyć”.",
+  "convention_plate1_label": "Która płytka to nr 1:",
+  "convention_plate1_body": "w grze płytki wybierasz strzałkami w górę i w dół, a pierwsza jest ta na samym dole. Licz od dołu do góry, a nie według tego, co bliżej kamery czy ciebie.",
+  "convention_side_label": "Która strona to pozycja 1:",
+  "convention_side_body": "nie ma tu jednego kanonu i solverowi to obojętne — liczy się nie „poprawna” strona, tylko twoja własna, niezmienna umowa z samym sobą. Wybierz jeden punkt odniesienia (na przykład „trzpień do końca w lewo = pozycja 1”) i stosuj go tak samo dla każdej płytki, bez wyjątków.",
+  "convention_goal_label": "Do czego dążymy:",
+  "convention_goal_body": "niezależnie od wybranej strony cel jest zawsze ten sam — pozycja 4 (środek) na każdej płytce.",
+
+  "direction_intro_label": "Jeszcze jedna rzecz, niezależna od strony:",
+  "direction_intro_body": "kiedy fizycznie wciskasz „w prawo” w grze, numer pozycji ci rośnie czy maleje? Jeśli rozwiązanie każe iść „w prawo” z płytki na pozycji 1 i wygląda to bez sensu (nie ma już gdzie rosnąć), prawie na pewno chodzi właśnie o ten przełącznik, a nie o błąd w powiązaniach.",
+  "direction_hint": "Szybki test: wciśnij fizyczne „w prawo” raz na dowolnej płytce — liczba wzrosła czy spadła? Wpisanych już powiązań nie musisz ruszać, przełącznik po prostu przeliczy je na nowo.",
+  "direction_right_increases": "W prawo = numer rośnie",
+  "direction_right_decreases": "W prawo = numer maleje",
+
+  "lock_title": "Zamek",
+  "lock_intro": "Od 4 do 7 płytek, pozycja startowa każdej to 1–7, cel to 4 (środek). Plansza i tabela to dwa widoki tych samych danych — przełączaj się swobodnie, nic nie ginie.",
+  "field_plate_count": "Płytki",
+  "field_view": "Widok",
+  "view_board": "Plansza",
+  "view_table": "Tabela",
+
+  "action_solve": "Rozwiąż",
+  "action_solving": "Rozwiązuję…",
+  "action_reset": "Resetuj",
+
+  "plate_name": "Płytka {n}",
+  "plate_short": "P{n}",
+  "plate_position_aria": "Pozycja płytki {n}",
+  "connection_aria": "Płytka {from} → płytka {to}",
+  "board_connections_aria": "Powiązania płytki {n}",
+
+  "form_legend": "Po lewej — pozycja startowa płytki (1–7, cel to 4). Po prawej — co robią pozostałe płytki, gdy przesuwasz tę w prawo: ← w lewo, 0 stoi, → w prawo.",
+  "form_move_caption": "przesuwam P{n} w prawo →",
+
+  "result_title": "Wynik",
+  "result_unsolvable": "Z tej pozycji startowej i przy takich powiązaniach celu nie da się osiągnąć.",
+  "result_unsolvable_note": "Umiejętność otwierania zamków to przydatne ułatwienie: usuwa jedno losowe powiązanie i ułatwia otwarcie. Czasem zdejmuje akurat to powiązanie, które było potrzebne do rozwiązania tego konkretnego zamka — i wtedy cel staje się nieosiągalny. Twoje dane raczej nie mają z tym nic wspólnego: jeśli po uczciwym sprawdzeniu powiązań wynik jest ten sam, ten zamek lepiej odpuścić.",
+  "result_already_open": "Zamek w tej pozycji jest już otwarty — nie trzeba wykonywać żadnych ruchów.",
+  "result_states_checked": "Sprawdzonych stanów: {count}",
+  "result_states_explored": "Przejrzanych stanów: {count}",
+  "move_line": "Płytka {plate} → {direction}{times}",
+  "dir_right": "w prawo",
+  "dir_left": "w lewo",
+  "playback_aria": "Odtwarzanie rozwiązania",
+  "playback_prev": "← Wstecz",
+  "playback_next": "Dalej →",
+  "playback_step": "Krok {step} z {total}",
+
+  "help_summary": "Jak poprawnie odczytać powiązania (gdy solver mówi, że się nie da)",
+  "help_step1": "Zrób quicksave, ZANIM otworzysz zamek — to twój punkt odniesienia (baseline). Kiedy minigra jest już otwarta, zapisać się nie da, więc musisz to zrobić wcześniej.",
+  "help_step2": "Przesuń tylko jedną płytkę o jeden krok w prawo. Zapisz, które inne płytki się poruszyły i w którą stronę.",
+  "help_step3": "Zrób quickload z tego zapisu, zanim przetestujesz następną płytkę. Wczytanie zapisu nie zmienia zamka — jego układ jest stały — więc wraca dokładnie ten sam zamek, nietknięty. To najczęstszy powód, dla którego powiązania „niby się zgadzają”, a rozwiązania nie ma: jeśli nie cofniesz się do punktu wyjścia, drugie powiązanie nakłada się na już zmieniony stan pierwszej płytki i cała mapa powiązań się rozjeżdża.",
+  "help_step4": "Powtórz to dla każdej płytki. Jeśli po uczciwym powtórzeniu z cofaniem solver dalej mówi, że się nie da, najprawdopodobniej nie chodzi o błąd we wpisanych danych. Rozwinięta umiejętność otwierania zamków to przydatne ułatwienie: zdejmuje jedno losowe powiązanie i ułatwia otwarcie, ale robi to na ślepo i raz na jakiś czas zdejmuje akurat to powiązanie, które było potrzebne do rozwiązania tego konkretnego zamka.",
+  "help_step5": "Jeśli natomiast solver podał rozwiązanie, ale etykiety „w prawo/w lewo” nie zgadzają się z grą (każe iść w prawo tam, gdzie w prawo nie ma już jak), dane nie są zepsute — po prostu przełącznik „Od czego liczyć” jest ustawiony nie pod twój układ odniesienia. Przełącz go i wciśnij „Rozwiąż” jeszcze raz, nic nie trzeba wpisywać od nowa.",
+  "help_step6": "Solver nigdy nie zaproponuje ruchu, w którym powiązana płytka blokuje się na krańcu — w grze to blokuje zupełnie wszystko, łącznie z płytką, którą przesuwasz bezpośrednio, i tylko niepotrzebnie zużywa wytrzymałość wytrycha. Takie ruchy po prostu nic nie przesuwają, więc rozwiązanie zawsze składa się wyłącznie z ruchów, które naprawdę działają.",
+
+  "language_label": "Język"
+}

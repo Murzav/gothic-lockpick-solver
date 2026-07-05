@@ -1,0 +1,65 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "app_title": "Diagnostika zámku",
+  "app_tagline": "Zadej vazby mezi destičkami a jejich výchozí pozice – nástroj poctivě spočítá, jestli vůbec existuje řešení, a pokud ano, dá ti přesnou sekvenci tahů.",
+
+  "convention_title": "Odkud počítat",
+  "convention_intro": "Než začneš cokoli zadávat, domluv se sám se sebou na souřadnicovém systému. Právě tady totiž obvykle vzniká to „vypadá to správně, ale nejde to vyřešit“.",
+  "convention_plate1_label": "Která destička je č. 1:",
+  "convention_plate1_body": "ve hře se destičky přepínají nahoru a dolů a ta první je úplně dole. Počítej odspoda nahoru, ne podle toho, co je nejblíž kameře nebo tobě.",
+  "convention_side_label": "Která strana je pozice 1:",
+  "convention_side_body": "žádný závazný standard neexistuje a solveru je to jedno – nejde o „správnou“ stranu, ale o tvoji vlastní, neměnnou dohodu se sebou samým. Vyber si jeden orientační bod (třeba „kolík úplně vlevo = pozice 1“) a používej ho stejně u každé destičky, bez výjimek.",
+  "convention_goal_label": "Kam míříš:",
+  "convention_goal_body": "bez ohledu na zvolenou stranu je cíl vždycky stejný – pozice 4 (střed) na každé destičce.",
+
+  "direction_intro_label": "Ještě jedna věc, se stranou nesouvisí:",
+  "direction_intro_body": "když ve hře fyzicky zmáčkneš „doprava“, roste ti číslo pozice, nebo klesá? Když řešení chce „doprava“ u destičky na pozici 1 a nedává to smysl (není kam růst), skoro jistě je to tímhle přepínačem, a ne chybou ve vazbách.",
+  "direction_hint": "Rychlý test: zmáčkni fyzické „doprava“ jednou na kterékoli destičce – vyrostlo číslo, nebo kleslo? Už zadané vazby není třeba měnit, přepínač je jen přepočítá znovu.",
+  "direction_right_increases": "Doprava = číslo roste",
+  "direction_right_decreases": "Doprava = číslo klesá",
+
+  "lock_title": "Zámek",
+  "lock_intro": "Čtyři až sedm destiček, každá startuje někde mezi 1–7, cíl je 4 (střed). Deska a tabulka jsou dva pohledy na stejná data, přepínej mezi nimi, jak chceš, nic se neztratí.",
+  "field_plate_count": "Destičky",
+  "field_view": "Zobrazení",
+  "view_board": "Deska",
+  "view_table": "Tabulka",
+
+  "action_solve": "Vyřešit",
+  "action_solving": "Řeším…",
+  "action_reset": "Resetovat",
+
+  "plate_name": "Destička {n}",
+  "plate_short": "D{n}",
+  "plate_position_aria": "Pozice destičky {n}",
+  "connection_aria": "Destička {from} → destička {to}",
+  "board_connections_aria": "Vazby destičky {n}",
+
+  "form_legend": "Vlevo je výchozí pozice destičky (1–7, cíl je 4). Vpravo to, co dělají ostatní destičky, když tuhle posuneš doprava: ← doleva, 0 stojí, → doprava.",
+  "form_move_caption": "posouvám D{n} doprava →",
+
+  "result_title": "Výsledek",
+  "result_unsolvable": "Z téhle výchozí pozice a s těmihle vazbami je cíl nedosažitelný.",
+  "result_unsolvable_note": "Dovednost páčení zámků je užitečná zkratka: shodí náhodnou vazbu, aby bylo páčení snazší. Občas shodí přesně tu vazbu, kterou tenhle konkrétní zámek potřeboval, a cíl je rázem nedosažitelný. Tvoje zadání je nejspíš v pořádku – když ti poctivá kontrola vazeb dá stejný výsledek, tenhle zámek radši vynech.",
+  "result_already_open": "Zámek je v téhle pozici už otevřený – žádné tahy nejsou potřeba.",
+  "result_states_checked": "Zkontrolováno stavů: {count}",
+  "result_states_explored": "Prozkoumáno stavů: {count}",
+  "move_line": "Destička {plate} → {direction}{times}",
+  "dir_right": "doprava",
+  "dir_left": "doleva",
+  "playback_aria": "Přehrání řešení",
+  "playback_prev": "← Zpět",
+  "playback_next": "Dál →",
+  "playback_step": "Krok {step} z {total}",
+
+  "help_summary": "Jak správně zjistit vazby (když solver říká „nemá řešení“)",
+  "help_step1": "Quicksave si dej DŘÍV, než otevřeš zámek – to je tvůj výchozí bod (baseline). Uvnitř minihry už uložit nejde, takže to musí být napřed.",
+  "help_step2": "Posuň jen jednu destičku o jeden krok doprava. Zapiš si, které další destičky se pohnuly a kterým směrem.",
+  "help_step3": "Než začneš testovat další destičku, dej si quickload zpátky na ten quicksave. Načtení pozice zámek nezmění – jeho rozložení je pevně dané – takže se vrátí ten samý zámek, netknutý. To je nejčastější důvod, proč vazby „vypadají správně“, ale nic se nevyřeší: když se nevrátíš do stejného výchozího bodu, druhá vazba se navrství na už změněný stav té první a celá mapa vazeb se rozjede.",
+  "help_step4": "Zopakuj to u každé destičky. Když jsi poctivě prošel všechny s vracením a solver pořád tvrdí „nemá řešení“, nejspíš nejde o chybu v zadání. Vylepšená dovednost páčení je užitečná zkratka: shodí náhodnou vazbu a usnadní páčení, jenže to dělá naslepo a jednou za čas shodí přesně tu vazbu, která byla pro tenhle konkrétní zámek potřeba.",
+  "help_step5": "Jestli ti naopak solver řešení dal, ale popisky „doprava/doleva“ v něm fyzicky nesedí (chce doprava tam, kde už doprava nemáš kam), data nejsou rozbitá – jen přepínač „Odkud počítat“ není nastavený na tvoji vztažnou soustavu. Přepni ho, zmáčkni znovu „Vyřešit“ a nemusíš nic zadávat od začátku.",
+  "help_step6": "Solver ti nikdy nenavrhne tah, u kterého se zasekne propojená destička – ve hře to zablokuje úplně všechno včetně té destičky, kterou tlačíš přímo, a jen zbytečně ubírá odolnost paklíče. Takové tahy nikam nepohnou, takže řešení se vždycky skládá jen z tahů, které opravdu fungují.",
+
+  "language_label": "Jazyk"
+}

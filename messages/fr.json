@@ -1,0 +1,65 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "app_title": "Diagnostic de serrure",
+  "app_tagline": "Saisis les liaisons entre les plaques et leurs positions de départ : l'outil calcule honnêtement s'il existe une solution, et si oui, te donne la séquence exacte des mouvements.",
+
+  "convention_title": "D'où compter",
+  "convention_intro": "Avant de saisir quoi que ce soit, mets-toi d'accord avec toi-même sur un système de coordonnées. C'est précisément là que naît le fameux « tout a l'air bon, mais ça ne se résout pas ».",
+  "convention_plate1_label": "Quelle plaque est la #1 :",
+  "convention_plate1_body": "dans le jeu, tu choisis les plaques avec les touches haut et bas, et la première, c'est celle du bas. Compte de bas en haut, pas à partir de celle qui est la plus proche de la caméra ou de toi.",
+  "convention_side_label": "Quel côté est la position 1 :",
+  "convention_side_body": "il n'y a pas de règle établie là-dessus, et le solveur s'en moque. Ce qui compte, ce n'est pas le « bon » côté, mais ton propre choix, appliqué sans jamais en changer. Choisis un repère (disons : goupille tout à gauche = position 1) et applique-le de la même façon à chaque plaque, sans exception.",
+  "convention_goal_label": "Ce que tu vises :",
+  "convention_goal_body": "quel que soit le côté choisi, la cible est toujours la même : la position 4 (le centre) sur chaque plaque.",
+
+  "direction_intro_label": "Encore un point, distinct du côté :",
+  "direction_intro_body": "quand tu appuies physiquement sur « droite » dans le jeu, ton numéro de position monte ou descend ? Si la solution demande « droite » sur une plaque déjà en position 1 et que ça n'a aucun sens (impossible d'aller plus loin), c'est presque à coup sûr ce réglage qui est en cause, pas une erreur dans tes liaisons.",
+  "direction_hint": "Test rapide : sur n'importe quelle plaque, appuie une fois sur la « droite » physique — le numéro est monté ou descendu ? Pas besoin de toucher aux liaisons déjà saisies, le réglage se contente de les relire autrement.",
+  "direction_right_increases": "Droite = le numéro monte",
+  "direction_right_decreases": "Droite = le numéro descend",
+
+  "lock_title": "La serrure",
+  "lock_intro": "De 4 à 7 plaques, chacune démarrant quelque part entre 1 et 7, la cible est 4 (le centre). Le plateau et le tableau sont deux vues des mêmes données, alors passe de l'un à l'autre quand tu veux, rien ne se perd.",
+  "field_plate_count": "Plaques",
+  "field_view": "Affichage",
+  "view_board": "Plateau",
+  "view_table": "Tableau",
+
+  "action_solve": "Résoudre",
+  "action_solving": "Résolution…",
+  "action_reset": "Réinitialiser",
+
+  "plate_name": "Plaque {n}",
+  "plate_short": "P{n}",
+  "plate_position_aria": "Position de la plaque {n}",
+  "connection_aria": "Plaque {from} → plaque {to}",
+  "board_connections_aria": "Liaisons de la plaque {n}",
+
+  "form_legend": "À gauche, la position de départ de la plaque (1–7, cible 4). À droite, ce que font les autres plaques quand tu bouges celle-ci vers la droite : ← gauche, 0 immobile, → droite.",
+  "form_move_caption": "je bouge P{n} vers la droite →",
+
+  "result_title": "Résultat",
+  "result_unsolvable": "Depuis cette position de départ, avec ces liaisons, la cible est hors d'atteinte.",
+  "result_unsolvable_note": "La compétence de crochetage est un coup de pouce bien pratique : elle supprime une liaison au hasard pour faciliter l'ouverture. Parfois, elle enlève justement la liaison dont cette serrure-là avait besoin, et là, la cible devient impossible à atteindre. Ta saisie n'y est sans doute pour rien : si tu revérifies honnêtement les liaisons et arrives au même résultat, c'est une serrure à laisser tomber.",
+  "result_already_open": "La serrure est déjà ouverte dans cette position, aucun mouvement nécessaire.",
+  "result_states_checked": "États vérifiés : {count}",
+  "result_states_explored": "États explorés : {count}",
+  "move_line": "Plaque {plate} → {direction}{times}",
+  "dir_right": "droite",
+  "dir_left": "gauche",
+  "playback_aria": "Lecture de la solution",
+  "playback_prev": "← Précédent",
+  "playback_next": "Suivant →",
+  "playback_step": "Étape {step} sur {total}",
+
+  "help_summary": "Comment relever les liaisons correctement (quand le solveur dit que c'est insoluble)",
+  "help_step1": "Fais un quicksave AVANT d'ouvrir la serrure — c'est ton point de référence (baseline). Une fois le mini-jeu lancé, impossible de sauvegarder : il faut donc t'y prendre avant.",
+  "help_step2": "Bouge une seule plaque d'un cran vers la droite. Note quelles autres plaques ont bougé, et dans quel sens.",
+  "help_step3": "Fais un quickload pour revenir à la baseline avant de tester la plaque suivante. Un rechargement ne change pas la serrure — sa disposition est figée — donc c'est exactement la même serrure qui revient, intacte. C'est la cause la plus fréquente de « les liaisons ont l'air bonnes, mais rien ne se résout » : si tu ne reviens pas au même point de départ, la deuxième liaison se greffe sur l'état déjà modifié de la première, et toute la carte des liaisons se décale.",
+  "help_step4": "Recommence pour chaque plaque. Si, après un passage honnête avec retours en arrière, le solveur dit toujours que c'est insoluble, le problème ne vient probablement pas de ta saisie. La compétence de crochetage améliorée est un coup de pouce bien pratique : elle supprime une liaison au hasard et facilite l'ouverture, mais elle le fait à l'aveugle, et de temps en temps elle enlève justement la liaison dont cette serrure-là avait besoin.",
+  "help_step5": "Si au contraire le solveur t'a bien donné une solution, mais que ses indications « droite/gauche » ne collent pas avec le jeu (il demande d'aller à droite là où il n'y a plus de droite possible), tes données ne sont pas cassées. C'est juste que le réglage « D'où compter » n'est pas calé sur ton système de référence. Bascule-le, appuie de nouveau sur « Résoudre », et pas besoin de tout ressaisir.",
+  "help_step6": "Le solveur ne te proposera jamais de mouvement où une plaque liée se retrouve bloquée : dans le jeu, ça bloque tout, y compris la plaque que tu pousses directement, et ça ne fait qu'user ton crochet pour rien. Ces mouvements ne déplacent rien du tout, donc une solution n'est faite que de mouvements qui marchent vraiment.",
+
+  "language_label": "Langue"
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "app_title": "Zárdiagnosztika",
+  "app_tagline": "Írd be a lemezek közti kapcsolatokat és a kiindulási pozíciókat — a program becsületesen kiszámolja, van-e egyáltalán megoldás, és ha igen, megadja a lépések pontos sorrendjét.",
+
+  "convention_title": "Honnan számolj",
+  "convention_intro": "Mielőtt bármit is beírnál, állapodj meg magaddal egy koordináta-rendszerben. Pontosan innen szokott jönni a „minden stimmel, mégse megy” érzés.",
+  "convention_plate1_label": "Melyik lemez a #1:",
+  "convention_plate1_body": "a játékban a lemezek közt fel-le gombbal váltasz, és az első a legalsó. Alulról felfelé számolj, ne az alapján, ami épp a kamerához vagy hozzád van közelebb.",
+  "convention_side_label": "Melyik oldal az 1-es pozíció:",
+  "convention_side_body": "erre nincs egységes szabály, és a megoldót sem érdekli — nem a „helyes” oldal számít, hanem a saját, következetes döntésed. Válassz egy viszonyítási pontot (mondjuk: a tű bal szélső állása = 1-es pozíció), és minden lemezre ugyanúgy alkalmazd, kivétel nélkül.",
+  "convention_goal_label": "Mi a cél:",
+  "convention_goal_body": "bármelyik oldalt is választottad, a cél mindig ugyanaz — a 4-es pozíció (a közép) minden lemezen.",
+
+  "direction_intro_label": "Még egy dolog, az oldaltól függetlenül:",
+  "direction_intro_body": "amikor a játékban fizikailag „jobbra” nyomsz — nő vagy csökken a pozíció száma? Ha a megoldás „jobbra” kér egy 1-es pozíción álló lemeznél, és ennek semmi értelme (nincs hova tovább nőni), akkor szinte biztosan ez a kapcsoló a ludas, nem a kapcsolatok hibája.",
+  "direction_hint": "Gyors teszt: nyomj egyszer fizikai „jobbra”-t bármelyik lemezen — nőtt vagy csökkent a szám? A már beírt kapcsolatokhoz nem kell nyúlnod, a kapcsoló egyszerűen újraértelmezi őket.",
+  "direction_right_increases": "Jobbra = nő a szám",
+  "direction_right_decreases": "Jobbra = csökken a szám",
+
+  "lock_title": "A zár",
+  "lock_intro": "Négytől hét lemezig, mindegyik valahol 1–7 közt indul, a cél a 4 (a közép). A tábla és a táblázat ugyanannak az adatnak a két nézete, szabadon válts köztük, semmi sem vész el.",
+  "field_plate_count": "Lemezek",
+  "field_view": "Nézet",
+  "view_board": "Tábla",
+  "view_table": "Táblázat",
+
+  "action_solve": "Megoldás",
+  "action_solving": "Megoldás keresése…",
+  "action_reset": "Visszaállítás",
+
+  "plate_name": "{n}. lemez",
+  "plate_short": "L{n}",
+  "plate_position_aria": "{n}. lemez pozíciója",
+  "connection_aria": "{from}. lemez → {to}. lemez",
+  "board_connections_aria": "{n}. lemez kapcsolatai",
+
+  "form_legend": "Balra a lemez kiindulási pozíciója (1–7, a cél a 4). Jobbra az, hogy mit csinál a többi lemez, amikor ezt jobbra mozdítod: ← balra, 0 marad, → jobbra.",
+  "form_move_caption": "L{n} jobbra →",
+
+  "result_title": "Eredmény",
+  "result_unsolvable": "Ebből a kiindulási pozícióból, ezekkel a kapcsolatokkal a cél elérhetetlen.",
+  "result_unsolvable_note": "A zárnyitás készség hasznos egyszerűsítés: eldob egy véletlenszerű kapcsolatot, hogy könnyebb legyen kinyitni a zárat. Néha épp azt a kapcsolatot dobja el, amelyik ehhez a konkrét zárhoz kellett volna, és ilyenkor a cél elérhetetlenné válik. A te bevitelednek valószínűleg semmi köze hozzá — ha egy becsületes újraellenőrzés után is ugyanezt kapod, ezt a zárat érdemes kihagyni.",
+  "result_already_open": "A zár ebben a pozícióban már nyitva van — nem kell lépned semmit.",
+  "result_states_checked": "Ellenőrzött állapotok: {count}",
+  "result_states_explored": "Bejárt állapotok: {count}",
+  "move_line": "{plate}. lemez → {direction}{times}",
+  "dir_right": "jobbra",
+  "dir_left": "balra",
+  "playback_aria": "A megoldás lejátszása",
+  "playback_prev": "← Vissza",
+  "playback_next": "Tovább →",
+  "playback_step": "{step}. lépés / {total}",
+
+  "help_summary": "Hogyan olvasd le helyesen a kapcsolatokat (ha a megoldó azt mondja, nem megoldható)",
+  "help_step1": "Nyomj quicksave-et, MIELŐTT kinyitod a zárat — ez a viszonyítási pontod (baseline). A megnyílt minijátékban már nem tudsz menteni, úgyhogy ennek muszáj legelőször megtörténnie.",
+  "help_step2": "Mozdíts el csak egyetlen lemezt egy lépéssel jobbra. Jegyezd fel, melyik lemezek mozdultak még, és merre.",
+  "help_step3": "Quickload vissza erre a mentésre, mielőtt a következő lemezt tesztelnéd. Az újratöltés nem változtat a záron — az elrendezése fix — úgyhogy ugyanaz a zár tér vissza, érintetlenül. Ez a leggyakoribb oka annak, hogy a kapcsolatok „helyesnek tűnnek”, mégsincs megoldás: ha nem térsz vissza ugyanahhoz a kiindulóponthoz, a második kapcsolat rárakódik az első lemez már megváltozott állapotára, és az egész kapcsolattérkép elcsúszik.",
+  "help_step4": "Ismételd meg minden lemezre. Ha becsületesen, visszatöltésekkel végigcsináltad, és a megoldó még mindig azt mondja, „nem megoldható”, akkor valószínűleg nem a beviteleddel van a baj. A felfejlesztett zárnyitás készség hasznos egyszerűsítés: eldob egy véletlenszerű kapcsolatot, hogy könnyebb legyen a nyitás, de ezt válogatás nélkül teszi, és időnként épp azt a kapcsolatot dobja el, amelyik ehhez a konkrét zárhoz kellett volna.",
+  "help_step5": "Ha viszont a megoldó adott megoldást, de a benne szereplő „jobbra/balra” feliratok fizikailag nem stimmelnek (ott kér jobbra, ahol már nincs hova) — az adataid nem romlottak el, csak a „Honnan számolj” kapcsoló nincs a te viszonyítási rendszeredhez állítva. Kapcsold át, nyomd meg újra a „Megoldás” gombot, és nem kell mindent újra beírnod.",
+  "help_step6": "A megoldó soha nem javasol olyan lépést, ahol egy kapcsolt lemez nekiütközik a szélének — a játékban ez beragaszt mindent, azt a lemezt is, amelyiket közvetlenül tolsz, és csak feleslegesen koptatja a tolvajkulcsot. Az ilyen lépések semmit sem mozdítanak, így a megoldás mindig csak ténylegesen működő lépésekből áll.",
+
+  "language_label": "Nyelv"
+}

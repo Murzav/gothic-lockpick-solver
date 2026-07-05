@@ -1,0 +1,65 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "app_title": "Diagnostika zámku",
+  "app_tagline": "Zadaj väzby medzi platničkami a ich štartové pozície — nástroj poctivo vyráta, či vôbec existuje riešenie, a ak áno, dá ti presnú postupnosť ťahov.",
+
+  "convention_title": "Odkiaľ počítať",
+  "convention_intro": "Skôr než začneš čokoľvek zadávať, dohodni sa sám so sebou na súradnicovom systéme. Práve tu sa zvyčajne rodí to „vyzerá to správne, a predsa sa to nedá vyriešiť“.",
+  "convention_plate1_label": "Ktorá platnička je č. 1:",
+  "convention_plate1_body": "v hre sa platničky vyberajú tlačidlami hore a dole a prvá je tá úplne spodná. Počítaj zdola nahor, nie podľa toho, čo je bližšie ku kamere alebo k tebe.",
+  "convention_side_label": "Ktorá strana je pozícia 1:",
+  "convention_side_body": "jednotný kánon na to neexistuje a riešiču je to jedno — nejde o „správnu“ stranu, ale o tvoj vlastný, nemenný dohovor so sebou. Vyber si jeden orientačný bod (napríklad „úplne ľavá poloha pinu = pozícia 1“) a používaj ho rovnako pri každej platničke, bez výnimky.",
+  "convention_goal_label": "Kam smerujeme:",
+  "convention_goal_body": "nech si vyberieš ktorúkoľvek stranu, cieľ je vždy rovnaký — pozícia 4 (stred) na každej platničke.",
+
+  "direction_intro_label": "Ešte jedna vec, oddelene od strany:",
+  "direction_intro_body": "keď v hre fyzicky stlačíš „doprava“, číslo pozície ti rastie alebo klesá? Ak riešenie žiada „doprava“ na platničke, ktorá je už na pozícii 1, a nedáva to zmysel (niet kam ďalej rásť), takmer isto za to môže práve tento prepínač, a nie chyba vo väzbách.",
+  "direction_hint": "Rýchly test: stlač fyzické „doprava“ raz na ktorejkoľvek platničke — číslo stúplo alebo kleslo? Väzby, ktoré si už zadal, nemusíš meniť, prepínač ich len prepočíta nanovo.",
+  "direction_right_increases": "Doprava = číslo rastie",
+  "direction_right_decreases": "Doprava = číslo klesá",
+
+  "lock_title": "Zámok",
+  "lock_intro": "Štyri až sedem platničiek, štartová pozícia každej je 1–7, cieľ je 4 (stred). Doska a tabuľka sú dva pohľady na tie isté dáta, prepínaj podľa ľubovôle, nič sa nestratí.",
+  "field_plate_count": "Platničiek",
+  "field_view": "Zobrazenie",
+  "view_board": "Doska",
+  "view_table": "Tabuľka",
+
+  "action_solve": "Vyriešiť",
+  "action_solving": "Riešim…",
+  "action_reset": "Vynulovať",
+
+  "plate_name": "Platnička {n}",
+  "plate_short": "P{n}",
+  "plate_position_aria": "Pozícia platničky {n}",
+  "connection_aria": "Platnička {from} → platnička {to}",
+  "board_connections_aria": "Väzby platničky {n}",
+
+  "form_legend": "Vľavo je štartová pozícia platničky (1–7, cieľ je 4). Vpravo je to, čo robia ostatné platničky, keď túto pohneš doprava: ← doľava, 0 stojí, → doprava.",
+  "form_move_caption": "posuniem P{n} doprava →",
+
+  "result_title": "Výsledok",
+  "result_unsolvable": "Z tejto štartovej pozície a s týmito väzbami je cieľ nedosiahnuteľný.",
+  "result_unsolvable_note": "Zručnosť páčenia zámkov je užitočné uľahčenie: odstráni jednu náhodnú väzbu, aby sa zámok otváral ľahšie. Občas pritom zoberie práve tú väzbu, ktorá je pre riešenie tohto konkrétneho zámku potrebná, a vtedy sa cieľ stane nedosiahnuteľným. To, čo si zadal, s tým najskôr nemá nič spoločné — ak po poctivej kontrole väzieb vyjde to isté, tento zámok radšej vynechaj.",
+  "result_already_open": "Zámok je v tejto pozícii už otvorený — netreba žiadne ťahy.",
+  "result_states_checked": "Skontrolovaných stavov: {count}",
+  "result_states_explored": "Prehľadaných stavov: {count}",
+  "move_line": "Platnička {plate} → {direction}{times}",
+  "dir_right": "doprava",
+  "dir_left": "doľava",
+  "playback_aria": "Prehrávanie riešenia",
+  "playback_prev": "← Späť",
+  "playback_next": "Ďalej →",
+  "playback_step": "Krok {step} z {total}",
+
+  "help_summary": "Ako správne odčítať väzby (keď riešič hovorí „nedá sa vyriešiť“)",
+  "help_step1": "Daj quicksave PREDTÝM, než otvoríš zámok — to je tvoj východiskový bod (baseline). Kým je minihra otvorená, uložiť sa nedá, takže len vopred.",
+  "help_step2": "Pohni len jednou platničkou o jeden krok doprava. Zapíš si, ktoré ďalšie platničky sa pohli a ktorým smerom.",
+  "help_step3": "Než začneš testovať ďalšiu platničku, daj quickload späť na ten quicksave. Načítanie zámok nezmení — jeho rozloženie je pevne dané — takže sa vráti presne ten istý zámok, nedotknutý. Toto je najčastejší dôvod, prečo väzby „vyzerajú správne“, a pritom sa nič nevyrieši: ak sa nevrátiš na rovnaký východiskový bod, druhá väzba sa navrství na už zmenený stav tej prvej a celá mapa väzieb sa ti rozhodí.",
+  "help_step4": "Zopakuj to pri každej platničke. Ak riešič po poctivom prejdení s návratmi stále hovorí „nedá sa vyriešiť“, chyba najskôr nebude v tom, čo si zadal. Vylepšená zručnosť páčenia zámkov je užitočné uľahčenie: odstráni jednu náhodnú väzbu a otváranie zjednoduší, robí to však bez výberu a raz za čas zoberie práve tú väzbu, ktorá bola pre riešenie tohto konkrétneho zámku potrebná.",
+  "help_step5": "Ak ti riešič naopak riešenie dal, ale označenia „doprava/doľava“ v ňom fyzicky nesedia (žiada doprava tam, kde už niet kam ísť), dáta nie sú pokazené — len prepínač „Odkiaľ počítať“ nie je nastavený na tvoju vzťažnú sústavu. Prepni ho, stlač „Vyriešiť“ ešte raz a nič nemusíš zadávať odznova.",
+  "help_step6": "Riešič nikdy nenavrhne ťah, pri ktorom sa naviazaná platnička zasekne o kraj — v hre to zablokuje pohyb úplne všetkého vrátane tej platničky, ktorou hýbeš priamo, a len zbytočne opotrebuje paklíč. Takéto ťahy nič neposunú, takže riešenie sa vždy skladá len z reálne fungujúcich ťahov.",
+
+  "language_label": "Jazyk"
+}

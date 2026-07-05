@@ -1,0 +1,65 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "app_title": "Diagnóstico de la cerradura",
+  "app_tagline": "Escribe las conexiones entre las placas y sus posiciones iniciales: la herramienta calcula sin rodeos si la cerradura tiene solución, y si la tiene, te da la secuencia exacta de movimientos.",
+
+  "convention_title": "Desde dónde contar",
+  "convention_intro": "Antes de escribir nada, ponte de acuerdo contigo mismo sobre un sistema de coordenadas. Justo ahí es donde suele nacer el clásico «se ve bien, pero no sale».",
+  "convention_plate1_label": "Cuál es la placa n.º 1:",
+  "convention_plate1_body": "en el juego eliges las placas con arriba y abajo, y la primera es la de más abajo. Cuenta de abajo hacia arriba, no por la que quede más cerca de la cámara o de ti.",
+  "convention_side_label": "Qué lado es la posición 1:",
+  "convention_side_body": "no hay una respuesta oficial, y al solucionador le da igual. Lo que importa no es el lado «correcto», sino tu propio criterio, siempre el mismo. Elige una referencia (digamos, el pin todo a la izquierda = posición 1) y úsala igual en todas las placas, sin excepciones.",
+  "convention_goal_label": "A qué apuntas:",
+  "convention_goal_body": "sin importar el lado que hayas elegido, la meta siempre es la misma: la posición 4 (el centro) en cada placa.",
+
+  "direction_intro_label": "Una cosa más, aparte del lado:",
+  "direction_intro_body": "cuando presionas físicamente «derecha» en el juego, ¿el número de la posición sube o baja? Si la solución te pide «derecha» en una placa que ya está en la posición 1 y eso no tiene sentido (no hay hacia dónde subir), casi siempre es por este interruptor, no por un error en tus conexiones.",
+  "direction_hint": "Prueba rápida: presiona físicamente «derecha» una vez en cualquier placa. ¿El número subió o bajó? No necesitas tocar las conexiones que ya ingresaste; el interruptor simplemente las vuelve a leer.",
+  "direction_right_increases": "Derecha = el número sube",
+  "direction_right_decreases": "Derecha = el número baja",
+
+  "lock_title": "La cerradura",
+  "lock_intro": "De 4 a 7 placas, cada una arranca en algún punto del 1 al 7, y la meta es la 4 (el centro). El tablero y la tabla son dos vistas de los mismos datos, así que cambia cuando quieras, no se pierde nada.",
+  "field_plate_count": "Placas",
+  "field_view": "Vista",
+  "view_board": "Tablero",
+  "view_table": "Tabla",
+
+  "action_solve": "Resolver",
+  "action_solving": "Resolviendo…",
+  "action_reset": "Reiniciar",
+
+  "plate_name": "Placa {n}",
+  "plate_short": "P{n}",
+  "plate_position_aria": "Posición de la placa {n}",
+  "connection_aria": "Placa {from} → placa {to}",
+  "board_connections_aria": "Conexiones de la placa {n}",
+
+  "form_legend": "A la izquierda, la posición inicial de la placa (1–7, la meta es la 4). A la derecha, lo que hacen las demás placas cuando mueves esta a la derecha: ← izquierda, 0 no se mueve, → derecha.",
+  "form_move_caption": "muevo P{n} a la derecha →",
+
+  "result_title": "Resultado",
+  "result_unsolvable": "Desde esta posición inicial y con estas conexiones, la meta es inalcanzable.",
+  "result_unsolvable_note": "La habilidad de forzar cerraduras es un atajo útil: elimina una conexión al azar para facilitar la apertura. A veces quita justo la conexión que hacía falta para resolver esta cerradura en concreto, y entonces la meta se vuelve imposible. Lo más probable es que tus datos estén bien: si al revisar las conexiones con calma te da lo mismo, es una cerradura que conviene saltarse.",
+  "result_already_open": "La cerradura ya está abierta en esta posición: no hacen falta movimientos.",
+  "result_states_checked": "Estados revisados: {count}",
+  "result_states_explored": "Estados explorados: {count}",
+  "move_line": "Placa {plate} → {direction}{times}",
+  "dir_right": "derecha",
+  "dir_left": "izquierda",
+  "playback_aria": "Reproducir la solución",
+  "playback_prev": "← Atrás",
+  "playback_next": "Siguiente →",
+  "playback_step": "Paso {step} de {total}",
+
+  "help_summary": "Cómo leer bien las conexiones (cuando el solucionador dice que no tiene solución)",
+  "help_step1": "Haz un quicksave ANTES de abrir la cerradura: ese es tu punto de partida (baseline). Una vez abierto el minijuego ya no puedes guardar, así que tiene que ser antes.",
+  "help_step2": "Mueve una sola placa un paso a la derecha. Anota qué otras placas se movieron y hacia qué lado.",
+  "help_step3": "Haz un quickload de ese quicksave antes de probar la siguiente placa. Recargar no cambia la cerradura (su disposición es fija), así que vuelve la misma cerradura, intacta. Esta es la razón más común de que las conexiones «parezcan correctas» pero nada se resuelva: si no vuelves al mismo punto de inicio, la segunda conexión se monta sobre el estado ya modificado de la primera, y todo el mapa de conexiones se descuadra.",
+  "help_step4": "Repite con cada placa. Si hiciste una pasada honesta con retrocesos y el solucionador sigue diciendo que no tiene solución, lo más probable es que no sea un error tuyo. La habilidad de forzar cerraduras mejorada es un atajo útil: elimina una conexión al azar para facilitar la apertura, pero lo hace a ciegas, y de vez en cuando quita justo la conexión que hacía falta para resolver esta cerradura en concreto.",
+  "help_step5": "Si, al revés, el solucionador sí te dio una solución, pero las etiquetas «derecha/izquierda» no cuadran con el juego (te pide derecha donde ya no hay hacia dónde ir), tus datos no están rotos. Lo que pasa es que el interruptor «Desde dónde contar» no está puesto según tu sistema de referencia. Cámbialo, presiona «Resolver» otra vez y no tendrás que ingresar nada de nuevo.",
+  "help_step6": "El solucionador nunca propone un movimiento en el que una placa conectada se traba. En el juego eso bloquea todo, incluida la placa que estás empujando, y solo desgasta la ganzúa. Esos movimientos no cambian nada, así que la solución se arma únicamente con movimientos que de verdad funcionan.",
+
+  "language_label": "Idioma"
+}

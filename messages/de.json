@@ -1,0 +1,65 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "app_title": "Schloss-Diagnose",
+  "app_tagline": "Trag die Verbindungen zwischen den Platten und ihre Startpositionen ein – das Tool rechnet ehrlich aus, ob es überhaupt eine Lösung gibt, und wenn ja, gibt es dir die genaue Zugfolge.",
+
+  "convention_title": "Von wo aus du zählst",
+  "convention_intro": "Bevor du irgendwas einträgst, einig dich mit dir selbst auf ein Koordinatensystem. Genau daraus entsteht meistens das „sieht richtig aus, lässt sich aber nicht lösen“.",
+  "convention_plate1_label": "Welche Platte ist #1:",
+  "convention_plate1_body": "im Spiel wählst du die Platten mit Hoch und Runter aus, und die erste ist die unterste. Zähl von unten nach oben – nicht danach, was der Kamera oder dir am nächsten liegt.",
+  "convention_side_label": "Welche Seite ist Position 1:",
+  "convention_side_body": "dafür gibt es keinen festen Standard, und dem Solver ist es egal. Wichtig ist nicht die „richtige“ Seite, sondern deine eigene, gleichbleibende Festlegung. Wähl einen Bezugspunkt (etwa: Pin ganz links = Position 1) und wende ihn bei jeder Platte gleich an, ohne Ausnahme.",
+  "convention_goal_label": "Worauf du hinwillst:",
+  "convention_goal_body": "egal, welche Seite du gewählt hast – das Ziel ist immer dasselbe: Position 4 (die Mitte) auf jeder Platte.",
+
+  "direction_intro_label": "Noch eine Sache, unabhängig von der Seite:",
+  "direction_intro_body": "wenn du im Spiel tatsächlich „rechts“ drückst – steigt deine Positionsnummer dann oder sinkt sie? Wenn die Lösung „rechts“ bei einer Platte verlangt, die schon auf Position 1 steht, und das keinen Sinn ergibt (weiter geht’s da nicht), liegt es fast immer an diesem Schalter und nicht an einem Fehler in den Verbindungen.",
+  "direction_hint": "Schnelltest: Drück einmal physisch „rechts“ auf irgendeiner Platte – ist die Zahl gestiegen oder gefallen? Die schon eingetragenen Verbindungen musst du nicht anfassen, der Schalter liest sie einfach neu ein.",
+  "direction_right_increases": "Rechts = Zahl steigt",
+  "direction_right_decreases": "Rechts = Zahl sinkt",
+
+  "lock_title": "Das Schloss",
+  "lock_intro": "Vier bis sieben Platten, jede startet irgendwo bei 1–7, Ziel ist 4 (die Mitte). Brett und Tabelle sind zwei Ansichten derselben Daten – wechsle, wann du willst, es geht nichts verloren.",
+  "field_plate_count": "Platten",
+  "field_view": "Ansicht",
+  "view_board": "Brett",
+  "view_table": "Tabelle",
+
+  "action_solve": "Lösen",
+  "action_solving": "Löse…",
+  "action_reset": "Zurücksetzen",
+
+  "plate_name": "Platte {n}",
+  "plate_short": "P{n}",
+  "plate_position_aria": "Position von Platte {n}",
+  "connection_aria": "Platte {from} → Platte {to}",
+  "board_connections_aria": "Verbindungen von Platte {n}",
+
+  "form_legend": "Links die Startposition der Platte (1–7, Ziel ist 4). Rechts, was die anderen Platten tun, wenn du diese nach rechts bewegst: ← links, 0 bleibt stehen, → rechts.",
+  "form_move_caption": "bewege P{n} nach rechts →",
+
+  "result_title": "Ergebnis",
+  "result_unsolvable": "Aus dieser Startposition ist das Ziel mit diesen Verbindungen nicht erreichbar.",
+  "result_unsolvable_note": "Die Fähigkeit Schlösser knacken ist eine praktische Erleichterung: Sie entfernt eine zufällige Verbindung, damit das Knacken leichter wird. Manchmal erwischt es genau die Verbindung, die dieses Schloss zum Lösen gebraucht hätte – und dann ist das Ziel nicht mehr erreichbar. An deiner Eingabe liegt es höchstwahrscheinlich nicht: Kommt bei einer ehrlichen Nachprüfung der Verbindungen dasselbe raus, ist das ein Schloss zum Liegenlassen.",
+  "result_already_open": "Das Schloss ist in dieser Position schon offen – keine Züge nötig.",
+  "result_states_checked": "Geprüfte Zustände: {count}",
+  "result_states_explored": "Durchsuchte Zustände: {count}",
+  "move_line": "Platte {plate} → {direction}{times}",
+  "dir_right": "rechts",
+  "dir_left": "links",
+  "playback_aria": "Lösung abspielen",
+  "playback_prev": "← Zurück",
+  "playback_next": "Weiter →",
+  "playback_step": "Schritt {step} von {total}",
+
+  "help_summary": "So erfasst du die Verbindungen richtig (wenn der Solver „unlösbar“ sagt)",
+  "help_step1": "Mach einen Quicksave, BEVOR du das Schloss öffnest – das ist dein Ausgangspunkt (Baseline). Sobald das Minispiel offen ist, lässt sich nicht mehr speichern, also muss das vorher passieren.",
+  "help_step2": "Bewege nur eine Platte einen Schritt nach rechts. Notier dir, welche anderen Platten sich bewegt haben und in welche Richtung.",
+  "help_step3": "Mach einen Quickload auf diesen Spielstand, bevor du die nächste Platte testest. Ein Neuladen ändert das Schloss nicht, seine Anordnung liegt fest – es kommt genau dasselbe Schloss unberührt zurück. Das ist der häufigste Grund, warum die Verbindungen „stimmen“, aber trotzdem nichts aufgeht: Kehrst du nicht zum selben Ausgangspunkt zurück, legt sich die zweite Verbindung auf den schon veränderten Zustand der ersten Platte – und die ganze Verbindungskarte verrutscht.",
+  "help_step4": "Wiederhol das für jede Platte. Wenn der Solver nach einem ehrlichen Durchgang mit Rücksetzen immer noch „unlösbar“ sagt, liegt es wahrscheinlich nicht an deiner Eingabe. Die verbesserte Fähigkeit Schlösser knacken ist eine praktische Erleichterung: Sie entfernt eine zufällige Verbindung und macht das Knacken leichter, aber sie tut das wahllos – und ab und zu erwischt sie genau die Verbindung, die dieses Schloss zum Lösen gebraucht hätte.",
+  "help_step5": "Wenn der Solver dir umgekehrt eine Lösung liefert, aber die Angaben „rechts/links“ darin physisch nicht passen (er verlangt rechts, wo rechts schon nicht mehr geht), sind deine Daten nicht kaputt – der Schalter „Von wo aus du zählst“ ist nur nicht auf dein Bezugssystem eingestellt. Stell ihn um und drück nochmal „Lösen“, neu eingeben musst du nichts.",
+  "help_step6": "Der Solver schlägt nie einen Zug vor, bei dem eine verbundene Platte ansteht. Im Spiel blockiert das einfach alles, auch die Platte, die du direkt bewegst, und nutzt bloß deinen Dietrich ab. Solche Züge bewegen gar nichts, also besteht eine Lösung immer nur aus Zügen, die auch wirklich funktionieren.",
+
+  "language_label": "Sprache"
+}

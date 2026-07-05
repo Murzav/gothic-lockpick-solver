@@ -1,0 +1,65 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "app_title": "Diagnóstico da fechadura",
+  "app_tagline": "Introduz as ligações entre as placas e as posições iniciais — a ferramenta diz-te sem rodeios se há sequer solução e, se houver, dá-te a sequência exata de movimentos.",
+
+  "convention_title": "De onde contar",
+  "convention_intro": "Antes de introduzires seja o que for, combina contigo próprio um sistema de coordenadas. É exatamente daqui que costuma nascer o «parece tudo certo, mas não resolve».",
+  "convention_plate1_label": "Qual é a placa n.º 1:",
+  "convention_plate1_body": "no jogo, as placas escolhem-se com os botões para cima/para baixo, e a primeira é a mais baixa. Conta de baixo para cima, e não pela que está mais perto da câmara ou de ti.",
+  "convention_side_label": "Que lado é a posição 1:",
+  "convention_side_body": "não há um cânone único quanto a isto, e para o solucionador tanto faz — o que importa não é o lado «correto», mas a tua própria convenção, sempre a mesma. Escolhe uma referência (por exemplo: «pino todo à esquerda = posição 1») e aplica-a da mesma maneira a cada placa, sem exceções.",
+  "convention_goal_label": "Aonde queremos chegar:",
+  "convention_goal_body": "independentemente do lado que escolheres, o objetivo é sempre o mesmo — a posição 4 (o centro) em cada placa.",
+
+  "direction_intro_label": "Mais um pormenor, à parte da questão do lado:",
+  "direction_intro_body": "quando carregas fisicamente em «direita» no jogo, o número da posição sobe ou desce? Se a solução pede «direita» numa placa que já está na posição 1 e isso parece um disparate (já não há para onde subir), quase de certeza que o problema está neste interruptor, e não num erro nas ligações.",
+  "direction_hint": "Teste rápido: carrega uma vez no «direita» físico em qualquer placa — o número subiu ou desceu? Não precisas de mexer nas ligações que já introduziste; o interruptor limita-se a recalculá-las de outra forma.",
+  "direction_right_increases": "Direita = o número sobe",
+  "direction_right_decreases": "Direita = o número desce",
+
+  "lock_title": "A fechadura",
+  "lock_intro": "De 4 a 7 placas, cada uma a começar num ponto qualquer entre 1 e 7, o objetivo é 4 (o centro). O tabuleiro e a tabela são duas vistas dos mesmos dados — alterna à vontade, não se perde nada.",
+  "field_plate_count": "Placas",
+  "field_view": "Vista",
+  "view_board": "Tabuleiro",
+  "view_table": "Tabela",
+
+  "action_solve": "Resolver",
+  "action_solving": "A resolver…",
+  "action_reset": "Repor",
+
+  "plate_name": "Placa {n}",
+  "plate_short": "P{n}",
+  "plate_position_aria": "Posição da placa {n}",
+  "connection_aria": "Placa {from} → placa {to}",
+  "board_connections_aria": "Ligações da placa {n}",
+
+  "form_legend": "À esquerda, a posição inicial da placa (1–7, o objetivo é 4). À direita, o que fazem as outras placas quando moves esta para a direita: ← esquerda, 0 fica parada, → direita.",
+  "form_move_caption": "movo P{n} para a direita →",
+
+  "result_title": "Resultado",
+  "result_unsolvable": "A partir desta posição inicial, com estas ligações, o objetivo é inatingível.",
+  "result_unsolvable_note": "A perícia de arrombamento é uma ajuda útil: remove uma ligação ao acaso para facilitar a abertura. Às vezes remove justamente a ligação de que esta fechadura em concreto precisava, e então o objetivo torna-se inatingível. O mais provável é que a culpa não seja do que introduziste — se, depois de reveres as ligações com honestidade, o resultado for o mesmo, é uma fechadura para saltar.",
+  "result_already_open": "A fechadura já está aberta nesta posição — não são precisos movimentos.",
+  "result_states_checked": "Estados verificados: {count}",
+  "result_states_explored": "Estados percorridos: {count}",
+  "move_line": "Placa {plate} → {direction}{times}",
+  "dir_right": "direita",
+  "dir_left": "esquerda",
+  "playback_aria": "Reprodução da solução",
+  "playback_prev": "← Anterior",
+  "playback_next": "Seguinte →",
+  "playback_step": "Passo {step} de {total}",
+
+  "help_summary": "Como ler bem as ligações (quando o solucionador diz «sem solução»)",
+  "help_step1": "Faz quicksave ANTES de abrires a fechadura — é o teu ponto de partida (baseline). Com o minijogo aberto já não dá para guardar, por isso tem de ser antes.",
+  "help_step2": "Move apenas uma placa um passo para a direita. Aponta que outras placas se mexeram e para que lado.",
+  "help_step3": "Faz quickload desse save antes de testares a placa seguinte. Uma recarga não altera a fechadura — a sua disposição é fixa — por isso volta a mesma fechadura, intacta. Esta é a causa mais comum de as ligações «parecerem certas» sem que nada se resolva: se não voltares ao mesmo ponto de partida, a segunda ligação sobrepõe-se ao estado já alterado da primeira placa, e o mapa das ligações fica todo desalinhado.",
+  "help_step4": "Repete para cada placa. Se, depois de uma passagem honesta com os devidos recuos, o solucionador continuar a dizer «sem solução», o mais provável é que não tenhas errado a introduzir os dados. Uma perícia de arrombamento evoluída é uma ajuda útil: remove uma ligação ao acaso e facilita a abertura, mas fá-lo às cegas, e de vez em quando remove justamente a ligação que era precisa para resolver esta fechadura em concreto.",
+  "help_step5": "Se, pelo contrário, o solucionador te deu uma solução, mas as etiquetas «direita/esquerda» não batem certo com o jogo (pede direita onde já não dá para ir mais para a direita), os dados não estão estragados — é só o interruptor «De onde contar» que não está afinado ao teu sistema de referência. Muda-o e carrega em «Resolver» outra vez; não precisas de introduzir tudo de novo.",
+  "help_step6": "O solucionador nunca sugere um movimento em que uma placa ligada fique encravada — no jogo, isso bloqueia o movimento de tudo, incluindo a placa que estás a empurrar diretamente, e só gasta a resistência da gazua à toa. Esses movimentos não deslocam nada, por isso a solução é sempre feita apenas de movimentos que funcionam mesmo.",
+
+  "language_label": "Idioma"
+}

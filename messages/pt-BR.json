@@ -1,0 +1,65 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "app_title": "Diagnóstico da fechadura",
+  "app_tagline": "Digite as ligações entre as placas e suas posições iniciais. A ferramenta calcula honestamente se a fechadura tem solução e, se tiver, te dá a sequência exata de movimentos.",
+
+  "convention_title": "De onde contar",
+  "convention_intro": "Antes de digitar qualquer coisa, combine com você mesmo um sistema de coordenadas. É bem daqui que costuma nascer o clássico “parece tudo certo, mas não resolve”.",
+  "convention_plate1_label": "Qual placa é a #1:",
+  "convention_plate1_body": "no jogo você escolhe as placas com cima e baixo, e a primeira é a de baixo de tudo. Conte de baixo para cima, não pela que está mais perto da câmera ou de você.",
+  "convention_side_label": "Qual lado é a posição 1:",
+  "convention_side_body": "não existe consenso sobre isso, e o solucionador não liga — o que importa não é o lado “certo”, e sim a sua escolha, sempre a mesma. Escolha uma referência (por exemplo: “pino todo à esquerda = posição 1”) e use a mesma para todas as placas, sem exceção.",
+  "convention_goal_label": "Aonde queremos chegar:",
+  "convention_goal_body": "não importa o lado que você escolheu, o alvo é sempre o mesmo: posição 4 (o centro) em todas as placas.",
+
+  "direction_intro_label": "Mais uma coisa, e não é sobre o lado:",
+  "direction_intro_body": "quando você aperta “direita” de verdade no jogo, o número da posição sobe ou desce? Se a solução pede “direita” numa placa que já está na posição 1 e isso não faz o menor sentido (não tem para onde crescer), quase sempre a culpa é desse seletor, e não de um erro nas ligações.",
+  "direction_hint": "Teste rápido: aperte “direita” de verdade uma vez em qualquer placa — o número subiu ou desceu? Não precisa mexer nas ligações que você já colocou, o seletor só relê elas do novo jeito.",
+  "direction_right_increases": "Direita = número sobe",
+  "direction_right_decreases": "Direita = número desce",
+
+  "lock_title": "A fechadura",
+  "lock_intro": "De 4 a 7 placas, cada uma começa em algum ponto de 1–7 e o alvo é 4 (o centro). Tabuleiro e tabela são duas visões dos mesmos dados, então alterne à vontade, nada se perde.",
+  "field_plate_count": "Placas",
+  "field_view": "Visão",
+  "view_board": "Tabuleiro",
+  "view_table": "Tabela",
+
+  "action_solve": "Resolver",
+  "action_solving": "Resolvendo…",
+  "action_reset": "Limpar",
+
+  "plate_name": "Placa {n}",
+  "plate_short": "P{n}",
+  "plate_position_aria": "Posição da placa {n}",
+  "connection_aria": "Placa {from} → placa {to}",
+  "board_connections_aria": "Ligações da placa {n}",
+
+  "form_legend": "À esquerda, a posição inicial da placa (1–7, o alvo é 4). À direita, o que as outras placas fazem quando você move esta para a direita: ← esquerda, 0 fica parada, → direita.",
+  "form_move_caption": "movo P{n} para a direita →",
+
+  "result_title": "Resultado",
+  "result_unsolvable": "Dessa posição inicial, com essas ligações, não dá para chegar ao alvo.",
+  "result_unsolvable_note": "A habilidade de arrombamento é um atalho e tanto: ela remove uma ligação aleatória para facilitar a abertura. Às vezes remove justamente a ligação de que esta fechadura precisava, e aí o alvo fica inalcançável. O que você preencheu provavelmente está certo — se você conferir as ligações de novo com honestidade e der no mesmo, é uma fechadura para pular.",
+  "result_already_open": "A fechadura já está aberta nesta posição — não precisa de nenhum movimento.",
+  "result_states_checked": "Estados verificados: {count}",
+  "result_states_explored": "Estados explorados: {count}",
+  "move_line": "Placa {plate} → {direction}{times}",
+  "dir_right": "direita",
+  "dir_left": "esquerda",
+  "playback_aria": "Reprodução da solução",
+  "playback_prev": "← Voltar",
+  "playback_next": "Avançar →",
+  "playback_step": "Passo {step} de {total}",
+
+  "help_summary": "Como mapear as ligações do jeito certo (quando o solucionador diz que não tem solução)",
+  "help_step1": "Dê um quicksave ANTES de abrir a fechadura — esse é o seu ponto de partida (baseline). Depois que o minijogo abre, não dá mais para salvar, então tem que ser antes.",
+  "help_step2": "Mova só uma placa um passo para a direita. Anote quais outras placas se moveram e para que lado.",
+  "help_step3": "Dê um quickload naquele save antes de testar a próxima placa. Recarregar não muda a fechadura — o layout dela é fixo — então volta a mesma fechadura, intacta. Esse é o motivo mais comum de as ligações “parecerem certas” mas nada resolver: se você não voltar ao ponto inicial, a segunda ligação se soma ao estado já alterado da primeira, e o mapa inteiro sai do lugar.",
+  "help_step4": "Repita para cada placa. Se depois de uma passada honesta, com quickload a cada placa, o solucionador ainda disser que não tem solução, provavelmente o problema não é o que você digitou. A habilidade de arrombamento evoluída é um atalho e tanto: ela remove uma ligação aleatória e facilita a abertura, mas faz isso sem critério e, de vez em quando, tira justamente a ligação de que esta fechadura precisava.",
+  "help_step5": "Se, ao contrário, o solucionador deu uma solução, mas os rótulos “direita/esquerda” não batem com o jogo (pede direita onde já não dá para ir mais para a direita), seus dados não estão quebrados. É só o seletor “De onde contar” que não está ajustado ao seu referencial. Vire-o, aperte “Resolver” de novo e não precisa redigitar nada.",
+  "help_step6": "O solucionador nunca sugere um movimento em que uma placa ligada esbarra no limite — no jogo isso trava tudo, inclusive a placa que você está empurrando direto, e só gasta a durabilidade da gazua à toa. Esses movimentos não deslocam nada, então a solução é feita só de movimentos que realmente funcionam.",
+
+  "language_label": "Idioma"
+}

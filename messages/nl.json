@@ -1,0 +1,65 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "app_title": "Slotdiagnose",
+  "app_tagline": "Voer de koppelingen tussen de platen en hun startposities in – de tool rekent eerlijk uit of het slot überhaupt te kraken is, en zo ja, dan krijg je de exacte volgorde van zetten.",
+
+  "convention_title": "Waar je vanaf telt",
+  "convention_intro": "Voordat je iets invoert, spreek eerst met jezelf een coördinatenstelsel af. Precies daar ontstaat meestal het klassieke ‘ziet er goed uit, maar lost niet op’.",
+  "convention_plate1_label": "Welke plaat is #1:",
+  "convention_plate1_body": "in de game kies je platen met omhoog en omlaag, en de eerste is de onderste. Tel van onderen naar boven, en ga niet af op wat het dichtst bij de camera of bij jou zit.",
+  "convention_side_label": "Welke kant is positie 1:",
+  "convention_side_body": "hier bestaat geen vaste afspraak over, en de solver maalt er niet om. Het gaat niet om de ‘juiste’ kant, maar om je eigen, vaste keuze. Kies één ijkpunt (bijvoorbeeld: pin helemaal links = positie 1) en hanteer dat voor elke plaat, zonder uitzonderingen.",
+  "convention_goal_label": "Waar je naartoe wilt:",
+  "convention_goal_body": "welke kant je ook kiest, het doel is altijd hetzelfde – positie 4 (het midden) op elke plaat.",
+
+  "direction_intro_label": "Nog iets, los van de kant:",
+  "direction_intro_body": "als je in de game fysiek op ‘rechts’ drukt – gaat je positienummer dan omhoog of omlaag? Vraagt de oplossing om ‘rechts’ bij een plaat die al op positie 1 staat en slaat dat nergens op (er kan niks meer bij), dan ligt het vrijwel zeker aan deze schakelaar en niet aan een fout in je koppelingen.",
+  "direction_hint": "Snelle test: druk één keer fysiek ‘rechts’ op een willekeurige plaat – ging het getal omhoog of omlaag? De koppelingen die je al hebt ingevoerd hoef je niet aan te raken; de schakelaar leest ze gewoon opnieuw uit.",
+  "direction_right_increases": "Rechts = getal omhoog",
+  "direction_right_decreases": "Rechts = getal omlaag",
+
+  "lock_title": "Het slot",
+  "lock_intro": "Vier tot zeven platen, elk met een startpositie van 1–7, doel is 4 (het midden). Bord en tabel zijn twee weergaven van dezelfde data, dus schakel gerust heen en weer, er gaat niks verloren.",
+  "field_plate_count": "Platen",
+  "field_view": "Weergave",
+  "view_board": "Bord",
+  "view_table": "Tabel",
+
+  "action_solve": "Oplossen",
+  "action_solving": "Bezig met oplossen…",
+  "action_reset": "Wissen",
+
+  "plate_name": "Plaat {n}",
+  "plate_short": "P{n}",
+  "plate_position_aria": "Positie van plaat {n}",
+  "connection_aria": "Plaat {from} → plaat {to}",
+  "board_connections_aria": "Koppelingen van plaat {n}",
+
+  "form_legend": "Links: de startpositie van de plaat (1–7, doel is 4). Rechts: wat de andere platen doen als je deze naar rechts beweegt: ← links, 0 blijft staan, → rechts.",
+  "form_move_caption": "P{n} naar rechts →",
+
+  "result_title": "Resultaat",
+  "result_unsolvable": "Vanuit deze startpositie is het doel met deze koppelingen niet te bereiken.",
+  "result_unsolvable_note": "De lockpick-vaardigheid is een handige vereenvoudiging: hij laat een willekeurige koppeling vallen om het kraken makkelijker te maken. Soms is dat net de koppeling die dit specifieke slot nodig had, en dan wordt het doel onhaalbaar. Aan jouw invoer ligt het waarschijnlijk niet – geeft een eerlijke hercontrole van de koppelingen hetzelfde resultaat, dan kun je dit slot beter overslaan.",
+  "result_already_open": "Het slot is in deze stand al open – geen zetten nodig.",
+  "result_states_checked": "Gecontroleerde toestanden: {count}",
+  "result_states_explored": "Verkende toestanden: {count}",
+  "move_line": "Plaat {plate} → {direction}{times}",
+  "dir_right": "rechts",
+  "dir_left": "links",
+  "playback_aria": "De oplossing afspelen",
+  "playback_prev": "← Terug",
+  "playback_next": "Verder →",
+  "playback_step": "Stap {step} van {total}",
+
+  "help_summary": "Hoe je de koppelingen goed uitleest (als de solver zegt dat het onoplosbaar is)",
+  "help_step1": "Maak een quicksave VOORDAT je het slot opent – dat is je nulpunt (baseline). Zodra de minigame open is, kun je niet meer opslaan, dus het moet vooraf.",
+  "help_step2": "Beweeg maar één plaat één stap naar rechts. Noteer welke andere platen meebewegen en welke kant op.",
+  "help_step3": "Quickload terug naar die save voordat je de volgende plaat test. Opnieuw laden verandert het slot niet – de indeling ligt vast – dus hetzelfde slot komt onaangeroerd terug. Dit is de meest voorkomende reden waarom de koppelingen ‘lijken te kloppen’ maar er geen oplossing is: keer je niet terug naar hetzelfde startpunt, dan stapelt de tweede koppeling zich boven op de al veranderde stand van de eerste, en loopt je hele beeld van de koppelingen scheef.",
+  "help_step4": "Herhaal dit voor elke plaat. Zegt de solver na een eerlijke ronde met terugzetten nog steeds dat het onoplosbaar is, dan ligt het waarschijnlijk niet aan je invoer. De lockpick-vaardigheid is een handige vereenvoudiging: hij haalt een willekeurige koppeling weg om het kraken makkelijker te maken, maar doet dat blind, en zo nu en dan haalt hij net die ene koppeling weg die dit slot nodig had.",
+  "help_step5": "Gaf de solver juist wél een oplossing, maar kloppen de labels ‘rechts/links’ niet met de game (hij vraagt om rechts waar je al niet verder naar rechts kunt), dan is je data niet stuk. De schakelaar ‘Waar je vanaf telt’ staat alleen niet op jouw referentiekader. Zet hem om, druk nog een keer op ‘Oplossen’, en je hoeft niks opnieuw in te voeren.",
+  "help_step6": "De solver stelt nooit een zet voor waarbij een gekoppelde plaat vastloopt – in de game blokkeert dat werkelijk alles, ook de plaat die je rechtstreeks beweegt, en het verslijt alleen je lockpick. Zulke zetten leveren geen enkele verschuiving op, dus een oplossing bestaat altijd uit alleen echt werkende zetten.",
+
+  "language_label": "Taal"
+}

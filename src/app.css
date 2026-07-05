@@ -1,0 +1,98 @@
+/* Self-hosted fonts (no external CDN). Weight subset per family need. */
+@import "@fontsource/cinzel/600.css";
+@import "@fontsource/cinzel/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+@import "@fontsource/jetbrains-mono/700.css";
+
+/*
+ * Design tokens — "Gothic + dashboard" (spec §7). OKLCH, dark theme only.
+ *
+ * WCAG AA contrast (>= 4.5:1 for text), verified via OKLCH -> linear sRGB ->
+ * relative luminance conversion (Björn Ottosson's reference matrices):
+ *   --text on --surface       : 12.87:1 (AAA)
+ *   --text on --bg             : 14.40:1 (AAA)
+ *   --text-muted on --surface  : 5.55:1 (AA)
+ *   --ember on --bg             : 6.93:1 (AA)
+ *   --goal on --bg              : 8.87:1 (AA)
+ *   --brass on --bg             : 9.71:1 (AA)
+ *   --danger on --bg            : 5.35:1 (AA) — lightness bumped 0.58 -> 0.64
+ *                                  from the spec's draft value (was 4.18:1,
+ *                                  failing AA).
+ */
+:root {
+  --bg: oklch(0.16 0.015 55);
+  --surface: oklch(0.22 0.02 55);
+  --border: oklch(0.42 0.03 60);
+  --text: oklch(0.9 0.02 75);
+  --text-muted: oklch(0.66 0.03 65);
+  --ember: oklch(0.7 0.16 55);
+  --brass: oklch(0.78 0.08 90);
+  --goal: oklch(0.74 0.13 150);
+  --danger: oklch(0.64 0.17 30);
+
+  --font-display: "Cinzel", serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --transition-fast: 120ms ease;
+  --transition-base: 200ms ease;
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+code,
+pre,
+.mono {
+  font-family: var(--font-mono);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

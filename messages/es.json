@@ -1,0 +1,65 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "app_title": "Diagnóstico de la cerradura",
+  "app_tagline": "Mete las conexiones entre las placas y sus posiciones iniciales: la herramienta calcula de verdad si la cerradura tiene solución y, si la tiene, te da la secuencia exacta de movimientos.",
+
+  "convention_title": "Desde dónde contar",
+  "convention_intro": "Antes de meter nada, ponte de acuerdo contigo mismo sobre un sistema de coordenadas. Es justo aquí donde suele nacer el clásico «parece correcto, pero no se resuelve».",
+  "convention_plate1_label": "Cuál es la placa n.º 1:",
+  "convention_plate1_body": "en el juego las placas se seleccionan con arriba y abajo, y la primera es la de más abajo. Cuenta de abajo arriba, no por la que quede más cerca de la cámara o de ti.",
+  "convention_side_label": "Qué lado es la posición 1:",
+  "convention_side_body": "no hay una respuesta canónica, y al solucionador le da igual. Lo que importa no es el lado «correcto», sino tu propia elección, siempre la misma. Elige una referencia (por ejemplo, «el pin del todo a la izquierda = posición 1») y aplícala igual en cada placa, sin excepciones.",
+  "convention_goal_label": "Qué buscas:",
+  "convention_goal_body": "hayas elegido el lado que hayas elegido, el objetivo es siempre el mismo: la posición 4 (el centro) en cada placa.",
+
+  "direction_intro_label": "Otra cosa, aparte del lado:",
+  "direction_intro_body": "cuando pulsas físicamente «derecha» en el juego, ¿el número de posición sube o baja? Si la solución te pide «derecha» en una placa que ya está en la posición 1 y eso no tiene sentido (no hay hacia dónde subir), casi seguro que es cosa de este interruptor, y no un error en tus conexiones.",
+  "direction_hint": "Prueba rápida: pulsa una vez la «derecha» física en cualquier placa. ¿El número subió o bajó? No hace falta tocar las conexiones que ya metiste: el interruptor simplemente las vuelve a leer.",
+  "direction_right_increases": "Derecha = el número sube",
+  "direction_right_decreases": "Derecha = el número baja",
+
+  "lock_title": "La cerradura",
+  "lock_intro": "De cuatro a siete placas, cada una empieza en algún punto del 1 al 7, y el objetivo es el 4 (el centro). El tablero y la tabla son dos vistas de los mismos datos, así que cambia cuando quieras, no se pierde nada.",
+  "field_plate_count": "Placas",
+  "field_view": "Vista",
+  "view_board": "Tablero",
+  "view_table": "Tabla",
+
+  "action_solve": "Resolver",
+  "action_solving": "Resolviendo…",
+  "action_reset": "Restablecer",
+
+  "plate_name": "Placa {n}",
+  "plate_short": "P{n}",
+  "plate_position_aria": "Posición de la placa {n}",
+  "connection_aria": "Placa {from} → placa {to}",
+  "board_connections_aria": "Conexiones de la placa {n}",
+
+  "form_legend": "A la izquierda, la posición inicial de la placa (1–7, el objetivo es el 4). A la derecha, qué hacen las demás placas cuando mueves esta a la derecha: ← izquierda, 0 se queda, → derecha.",
+  "form_move_caption": "muevo P{n} a la derecha →",
+
+  "result_title": "Resultado",
+  "result_unsolvable": "Desde esta posición inicial, con estas conexiones, el objetivo es inalcanzable.",
+  "result_unsolvable_note": "La habilidad de forzar cerraduras es un atajo muy útil: elimina una conexión al azar para facilitar la apertura. A veces elimina justo la conexión que necesitaba esta cerradura en concreto, y entonces el objetivo se vuelve imposible. Seguramente lo que has metido está bien: si tras revisar las conexiones a conciencia el resultado es el mismo, es una cerradura que conviene saltarse.",
+  "result_already_open": "La cerradura ya está abierta en esta posición: no hacen falta movimientos.",
+  "result_states_checked": "Estados comprobados: {count}",
+  "result_states_explored": "Estados explorados: {count}",
+  "move_line": "Placa {plate} → {direction}{times}",
+  "dir_right": "derecha",
+  "dir_left": "izquierda",
+  "playback_aria": "Reproducir la solución",
+  "playback_prev": "← Atrás",
+  "playback_next": "Siguiente →",
+  "playback_step": "Paso {step} de {total}",
+
+  "help_summary": "Cómo leer bien las conexiones (cuando el solucionador dice que no tiene solución)",
+  "help_step1": "Haz un quicksave ANTES de abrir la cerradura — ese es tu punto de partida (baseline). Con el minijuego abierto ya no puedes guardar, así que tiene que ser lo primero.",
+  "help_step2": "Mueve solo una placa un paso a la derecha. Apunta qué otras placas se movieron y en qué dirección.",
+  "help_step3": "Haz quickload de ese guardado antes de probar la siguiente placa. Recargar no cambia la cerradura — su disposición es fija — así que vuelve la misma cerradura, intacta. Esta es la causa más habitual de que las conexiones «parezcan correctas» pero no salga ninguna solución: si no vuelves al mismo punto de partida, la segunda conexión se suma al estado ya modificado de la primera placa, y todo el mapa de conexiones se descuadra.",
+  "help_step4": "Repite con cada placa. Si has hecho una pasada honesta, volviendo atrás cada vez, y el solucionador sigue diciendo que no tiene solución, seguramente no es culpa de lo que has metido. La habilidad de forzar cerraduras es un atajo muy útil: elimina una conexión al azar para facilitar la apertura, pero lo hace a ciegas y, de vez en cuando, elimina justo la conexión que necesitaba esta cerradura.",
+  "help_step5": "Si, al contrario, el solucionador sí te dio una solución, pero sus etiquetas de «derecha/izquierda» no cuadran con el juego (te pide derecha donde ya no hay hacia dónde ir), tus datos no están mal. Es solo que el interruptor «Desde dónde contar» no está ajustado a tu sistema de referencia. Cámbialo, pulsa «Resolver» otra vez y no tendrás que volver a meter nada.",
+  "help_step6": "El solucionador nunca propone un movimiento en el que una placa conectada se quede atascada. En el juego eso bloquea absolutamente todo, incluida la placa que estás moviendo directamente, y solo desgasta la ganzúa para nada. Esos movimientos no mueven nada, así que una solución se compone solo de movimientos que de verdad funcionan.",
+
+  "language_label": "Idioma"
+}

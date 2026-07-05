@@ -1,0 +1,65 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "app_title": "Lock diagnostics",
+  "app_tagline": "Enter the links between plates and their starting positions. The tool works out honestly whether the lock can be solved at all, and if it can, gives you the exact sequence of moves.",
+
+  "convention_title": "Where to count from",
+  "convention_intro": "Before you type anything in, agree with yourself on a coordinate system. This is exactly where \"looks right, won't solve\" usually comes from.",
+  "convention_plate1_label": "Which plate is #1:",
+  "convention_plate1_body": "in the game you pick plates with up and down, and the first one is the lowest. Count from the bottom up, not by whatever sits closest to the camera or to you.",
+  "convention_side_label": "Which side is position 1:",
+  "convention_side_body": "there is no agreed answer, and the solver does not care. What matters is not the \"correct\" side but your own, consistent choice. Pick one reference (say, pin all the way left = position 1) and use it for every plate, no exceptions.",
+  "convention_goal_label": "What you are aiming at:",
+  "convention_goal_body": "whichever side you picked, the target is always the same, position 4 (the center) on every plate.",
+
+  "direction_intro_label": "One more thing, separate from the side:",
+  "direction_intro_body": "when you physically press \"right\" in the game, does your position number go up or down? If the solution asks for \"right\" on a plate that is already at position 1 and that makes no sense (nowhere left to grow), it is almost always this switch, not a mistake in your links.",
+  "direction_hint": "Quick test: press physical \"right\" once on any plate. Did the number go up or down? You do not have to touch the links you already entered, the switch just re-reads them.",
+  "direction_right_increases": "Right = number goes up",
+  "direction_right_decreases": "Right = number goes down",
+
+  "lock_title": "The lock",
+  "lock_intro": "Four to seven plates, each starting somewhere from 1 to 7, target is 4 (the center). Board and table are two views of the same data, so switch whenever you like, nothing gets lost.",
+  "field_plate_count": "Plates",
+  "field_view": "View",
+  "view_board": "Board",
+  "view_table": "Table",
+
+  "action_solve": "Solve",
+  "action_solving": "Solving…",
+  "action_reset": "Reset",
+
+  "plate_name": "Plate {n}",
+  "plate_short": "P{n}",
+  "plate_position_aria": "Position of plate {n}",
+  "connection_aria": "Plate {from} → plate {to}",
+  "board_connections_aria": "Links of plate {n}",
+
+  "form_legend": "On the left, the plate's starting position (1–7, target is 4). On the right, what the other plates do when you move this one right: ← left, 0 stays put, → right.",
+  "form_move_caption": "move P{n} right →",
+
+  "result_title": "Result",
+  "result_unsolvable": "From this starting position, with these links, the target cannot be reached.",
+  "result_unsolvable_note": "The lockpicking skill is a helpful shortcut: it drops a random link to make picking easier. Sometimes it drops the exact link this particular lock needed, and then the target becomes impossible. Your input is probably fine. If an honest re-check of the links gives the same answer, this is a lock to skip.",
+  "result_already_open": "The lock is already open in this position, no moves needed.",
+  "result_states_checked": "States checked: {count}",
+  "result_states_explored": "States explored: {count}",
+  "move_line": "Plate {plate} → {direction}{times}",
+  "dir_right": "right",
+  "dir_left": "left",
+  "playback_aria": "Play the solution",
+  "playback_prev": "← Back",
+  "playback_next": "Next →",
+  "playback_step": "Step {step} of {total}",
+
+  "help_summary": "How to read the links right (when the solver says it cannot be solved)",
+  "help_step1": "Quicksave BEFORE you open the lock — that is your baseline. You cannot save once the mini-game is open, so it has to happen first.",
+  "help_step2": "Move only one plate one step to the right. Note which other plates moved, and which way.",
+  "help_step3": "Quickload that save before you test the next plate. A reload does not change the lock — its layout is fixed — so the same lock comes back untouched. This is the most common reason links look right but nothing solves: if you do not reset to the same starting point, the second link piles onto the first plate's already-changed state, and the whole map drifts.",
+  "help_step4": "Repeat for every plate. If you did an honest pass with rollbacks and the solver still says it cannot be solved, it is probably not your input. The lockpicking skill is a helpful shortcut: it removes a random link to make picking easier, but it does that blindly, and once in a while it removes the very link this lock needed.",
+  "help_step5": "If instead the solver did give you a solution, but its right/left labels do not match the game (it asks for right where there is nowhere left to go), your data is not broken. The \"Where to count from\" switch just is not set to your frame of reference. Flip it, press Solve again, and you do not have to re-enter anything.",
+  "help_step6": "The solver never suggests a move where a linked plate is stuck. In the game that jams everything, including the plate you are pushing, and only wears down your pick. Those moves shift nothing, so a solution is made only of moves that actually work.",
+
+  "language_label": "Language"
+}

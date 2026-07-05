@@ -1,0 +1,65 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "app_title": "Diagnostica della serratura",
+  "app_tagline": "Inserisci i collegamenti tra le piastre e le posizioni di partenza: lo strumento calcola onestamente se una soluzione esiste davvero e, se c’è, ti dà la sequenza esatta di mosse.",
+
+  "convention_title": "Da dove contare",
+  "convention_intro": "Prima di inserire qualsiasi cosa, mettiti d’accordo con te stesso su un sistema di coordinate. È proprio da qui che di solito nasce il classico «sembra tutto giusto, ma non si risolve».",
+  "convention_plate1_label": "Qual è la piastra n. 1:",
+  "convention_plate1_body": "nel gioco le piastre si selezionano coi tasti su/giù, e la prima è quella più in basso. Conta dal basso verso l’alto, non da ciò che è più vicino alla telecamera o a te.",
+  "convention_side_label": "Quale lato conta come posizione 1:",
+  "convention_side_body": "non esiste una regola condivisa, e al solver non importa. Quello che conta non è il lato «giusto», ma la tua scelta personale, sempre la stessa. Scegli un riferimento (per esempio: pin tutto a sinistra = posizione 1) e usalo uguale per ogni piastra, senza eccezioni.",
+  "convention_goal_label": "A cosa punti:",
+  "convention_goal_body": "qualunque lato tu abbia scelto, l’obiettivo è sempre lo stesso: posizione 4 (il centro) su ogni piastra.",
+
+  "direction_intro_label": "Un’altra cosa, a parte il lato:",
+  "direction_intro_body": "quando premi fisicamente «destra» nel gioco, il numero della posizione sale o scende? Se la soluzione chiede «destra» su una piastra già in posizione 1 e non ha senso (non c’è più spazio per salire), quasi sempre è colpa di questo interruttore, non di un errore nei collegamenti.",
+  "direction_hint": "Test veloce: premi fisicamente «destra» una volta su una piastra qualsiasi. Il numero è salito o sceso? Non devi toccare i collegamenti già inseriti: l’interruttore li rilegge da capo e basta.",
+  "direction_right_increases": "Destra = il numero sale",
+  "direction_right_decreases": "Destra = il numero scende",
+
+  "lock_title": "La serratura",
+  "lock_intro": "Da 4 a 7 piastre, ognuna parte da una posizione tra 1 e 7, l’obiettivo è 4 (il centro). Plancia e tabella sono due viste degli stessi dati: passa dall’una all’altra quando vuoi, non si perde niente.",
+  "field_plate_count": "Piastre",
+  "field_view": "Vista",
+  "view_board": "Plancia",
+  "view_table": "Tabella",
+
+  "action_solve": "Risolvi",
+  "action_solving": "Risolvo…",
+  "action_reset": "Reimposta",
+
+  "plate_name": "Piastra {n}",
+  "plate_short": "P{n}",
+  "plate_position_aria": "Posizione della piastra {n}",
+  "connection_aria": "Piastra {from} → piastra {to}",
+  "board_connections_aria": "Collegamenti della piastra {n}",
+
+  "form_legend": "A sinistra, la posizione di partenza della piastra (1–7, l’obiettivo è 4). A destra, cosa fanno le altre piastre quando muovi questa a destra: ← sinistra, 0 ferma, → destra.",
+  "form_move_caption": "muovo P{n} a destra →",
+
+  "result_title": "Risultato",
+  "result_unsolvable": "Da questa posizione di partenza, con questi collegamenti, l’obiettivo è irraggiungibile.",
+  "result_unsolvable_note": "L’abilità di scasso è una comoda scorciatoia: elimina un collegamento a caso per rendere lo scasso più facile. A volte toglie proprio il collegamento che serviva a questa serratura, e allora l’obiettivo diventa impossibile. Quello che hai inserito con ogni probabilità non c’entra: se ricontrolli i collegamenti in modo onesto e il risultato è lo stesso, questa è una serratura da lasciar perdere.",
+  "result_already_open": "In questa posizione la serratura è già aperta: non serve nessuna mossa.",
+  "result_states_checked": "Stati verificati: {count}",
+  "result_states_explored": "Stati esplorati: {count}",
+  "move_line": "Piastra {plate} → {direction}{times}",
+  "dir_right": "destra",
+  "dir_left": "sinistra",
+  "playback_aria": "Riproduzione della soluzione",
+  "playback_prev": "← Indietro",
+  "playback_next": "Avanti →",
+  "playback_step": "Passo {step} di {total}",
+
+  "help_summary": "Come rilevare bene i collegamenti (quando il solver dice che è irrisolvibile)",
+  "help_step1": "Fai un quicksave PRIMA di aprire la serratura: è il tuo punto di partenza (baseline). Una volta aperto il minigioco non puoi più salvare, quindi va fatto per forza prima.",
+  "help_step2": "Muovi una sola piastra di un passo a destra. Annota quali altre piastre si sono spostate e in che direzione.",
+  "help_step3": "Fai un quickload di quel salvataggio prima di provare la piastra successiva. Ricaricare non cambia la serratura (la sua disposizione è fissa), quindi torna la stessa, intatta. È il motivo più comune per cui i collegamenti «sembrano giusti» ma la soluzione non c’è: se non torni allo stesso punto di partenza, il secondo collegamento si somma allo stato già modificato dalla prima piastra, e tutta la mappa dei collegamenti si sballa.",
+  "help_step4": "Ripeti per ogni piastra. Se dopo un giro onesto, con i ritorni al punto di partenza, il solver continua a dire «irrisolvibile», molto probabilmente non è colpa di quello che hai inserito. L’abilità di scasso potenziata è una comoda scorciatoia: elimina un collegamento a caso e rende lo scasso più facile, ma lo fa alla cieca, e ogni tanto toglie proprio il collegamento che serviva a risolvere questa serratura.",
+  "help_step5": "Se invece il solver una soluzione te l’ha data, ma le etichette «destra/sinistra» non corrispondono al gioco (chiede destra dove destra non si può più premere), i dati non sono rotti: è solo l’interruttore «Da dove contare» che non è impostato sul tuo sistema di riferimento. Cambialo, premi di nuovo «Risolvi» e non devi reinserire niente.",
+  "help_step6": "Il solver non ti proporrà mai una mossa in cui una piastra collegata è bloccata: nel gioco questo inceppa tutto quanto, compresa la piastra che stai muovendo direttamente, e logora inutilmente il grimaldello. Mosse così non spostano niente, quindi la soluzione è fatta solo di mosse che funzionano davvero.",
+
+  "language_label": "Lingua"
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "app_title": "Kilit teşhisi",
+  "app_tagline": "Plakalar arasındaki bağlantıları ve başlangıç konumlarını gir — araç, kilidin gerçekten çözülüp çözülemeyeceğini dürüstçe hesaplar; çözülüyorsa da sana hamlelerin tam sırasını verir.",
+
+  "convention_title": "Nereden saymalı",
+  "convention_intro": "Herhangi bir veri girmeden önce kendinle bir koordinat sistemi konusunda anlaş. “Her şey doğru gibi ama bir türlü çözülmüyor” durumu genelde tam da buradan doğar.",
+  "convention_plate1_label": "1 numaralı plaka hangisi:",
+  "convention_plate1_body": "oyunda plakaları yukarı/aşağı tuşlarıyla seçersin ve ilki en alttaki olur. Kameraya ya da sana en yakın olana göre değil, aşağıdan yukarıya doğru say.",
+  "convention_side_label": "Hangi taraf 1. konum:",
+  "convention_side_body": "bunun tek bir doğrusu yok ve çözücünün de umurunda değil. Önemli olan “doğru” taraf değil, kendi belirlediğin ve hiç değiştirmediğin kural. Bir referans seç (mesela: “pin en solda = 1. konum”) ve istisnasız her plakada aynı şekilde uygula.",
+  "convention_goal_label": "Neyi hedefliyoruz:",
+  "convention_goal_body": "hangi tarafı seçersen seç, hedef her zaman aynı: her plakada 4. konum (orta).",
+
+  "direction_intro_label": "Bir şey daha, taraftan bağımsız:",
+  "direction_intro_body": "oyunda fiziksel olarak “sağ”a bastığında konum numaran artıyor mu, azalıyor mu? Çözüm, zaten 1. konumdaki bir plakaya “sağ” diyorsa ve bu saçma görünüyorsa (o yönde gidecek yer kalmamış), neredeyse kesinlikle sorun bağlantılarda değil, işte bu anahtarda.",
+  "direction_hint": "Hızlı test: herhangi bir plakada fiziksel “sağ”a bir kez bas — sayı arttı mı azaldı mı? Daha önce girdiğin bağlantılara dokunmana gerek yok, anahtar onları baştan okuyup yeniden hesaplar, o kadar.",
+  "direction_right_increases": "Sağ = numara artar",
+  "direction_right_decreases": "Sağ = numara azalır",
+
+  "lock_title": "Kilit",
+  "lock_intro": "4 ila 7 plaka, her birinin başlangıç konumu 1–7 arası, hedef 4 (orta). Tahta ve tablo aynı verinin iki görünümü; dilediğin gibi geçiş yap, hiçbir şey kaybolmaz.",
+  "field_plate_count": "Plaka",
+  "field_view": "Görünüm",
+  "view_board": "Tahta",
+  "view_table": "Tablo",
+
+  "action_solve": "Çöz",
+  "action_solving": "Çözülüyor…",
+  "action_reset": "Sıfırla",
+
+  "plate_name": "Plaka {n}",
+  "plate_short": "P{n}",
+  "plate_position_aria": "Plaka {n} konumu",
+  "connection_aria": "Plaka {from} → plaka {to}",
+  "board_connections_aria": "Plaka {n} bağlantıları",
+
+  "form_legend": "Solda — plakanın başlangıç konumu (1–7, hedef 4). Sağda — bunu sağa hareket ettirdiğinde diğer plakaların ne yaptığı: ← sol, 0 sabit, → sağ.",
+  "form_move_caption": "P{n} sağa →",
+
+  "result_title": "Sonuç",
+  "result_unsolvable": "Bu başlangıç konumundan, bu bağlantılarla hedefe ulaşılamaz.",
+  "result_unsolvable_note": "Kilit açma becerisi işine yarayan bir kolaylık: açmayı basitleştirmek için rastgele bir bağlantıyı kaldırır. Bazen tam da bu kilidin çözümü için gereken bağlantıyı kaldırır ve o zaman hedef ulaşılmaz olur. Girdiğin veriyle bir ilgisi yok büyük ihtimalle — bağlantıları dürüstçe bir kez daha kontrol ettiğinde sonuç yine aynıysa, bu kilidi geçmek en iyisi.",
+  "result_already_open": "Kilit bu konumda zaten açık — hamleye gerek yok.",
+  "result_states_checked": "Kontrol edilen durum: {count}",
+  "result_states_explored": "Taranan durum: {count}",
+  "move_line": "Plaka {plate} → {direction}{times}",
+  "dir_right": "sağa",
+  "dir_left": "sola",
+  "playback_aria": "Çözümü oynat",
+  "playback_prev": "← Geri",
+  "playback_next": "İleri →",
+  "playback_step": "Adım {step}/{total}",
+
+  "help_summary": "Bağlantıları doğru okumanın yolu (çözücü “çözülemez” diyorsa)",
+  "help_step1": "Kilidi açmadan ÖNCE quicksave yap — bu senin başlangıç noktan (baseline). Mini oyun bir kere açıldı mı artık kaydedemezsin, o yüzden bunu en baştan halletmen gerekiyor.",
+  "help_step2": "Yalnızca bir plakayı bir adım sağa oynat. Başka hangi plakaların hangi yöne kaydığını not et.",
+  "help_step3": "Bir sonraki plakayı test etmeden önce o kayda quickload yap. Yeniden yükleme kilidi değiştirmez — düzeni sabittir — yani aynı kilit hiç dokunulmadan geri gelir. Bağlantıların “doğru görünüp” yine de çözüm çıkmamasının en yaygın nedeni budur: aynı başlangıç noktasına dönmezsen, ikinci bağlantı ilk plakanın çoktan değişmiş durumunun üzerine biner ve tüm bağlantı haritası kayar.",
+  "help_step4": "Her plaka için tekrarla. Geri dönüşlerle dürüst bir tur attıktan sonra çözücü hâlâ “çözülemez” diyorsa, sorun büyük ihtimalle girdiğin veride değil. Geliştirilmiş kilit açma becerisi işine yarayan bir kolaylık: açmayı basitleştirmek için rastgele bir bağlantıyı kaldırır, ama bunu ayrım gözetmeden yapar ve arada bir tam da bu kilidin çözümü için gereken bağlantıyı kaldırıverir.",
+  "help_step5": "Tersine, çözücü bir çözüm verdiyse ama içindeki “sağ/sol” etiketleri oyunla fiziksel olarak uyuşmuyorsa (sağa basacak yer kalmamışken sağ diyorsa), verin bozuk değil; sadece “Nereden saymalı” anahtarı senin referans sistemine göre ayarlı değil. Onu çevir ve tekrar “Çöz”e bas; hiçbir şeyi baştan girmene gerek yok.",
+  "help_step6": "Çözücü, bağlı bir plakanın sıkıştığı bir hamleyi asla önermez — oyunda bu, doğrudan ittiğin plaka dahil her şeyin hareketini kilitler ve sadece maymuncuğun dayanıklılığını boşuna tüketir. Böyle hamleler hiçbir kaymaya yol açmaz, dolayısıyla çözüm her zaman yalnızca gerçekten işe yarayan hamlelerden oluşur.",
+
+  "language_label": "Dil"
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "app_title": "Diagnoza încuietorii",
+  "app_tagline": "Introdu legăturile dintre plăcuțe și pozițiile lor de start — instrumentul îți spune cinstit dacă există vreo soluție și, dacă da, îți dă secvența exactă de mișcări.",
+
+  "convention_title": "De unde numeri",
+  "convention_intro": "Înainte să introduci ceva, pune-te de acord cu tine însuți asupra unui sistem de coordonate. Exact de aici se naște de obicei situația „parcă totul e corect, dar nu se rezolvă”.",
+  "convention_plate1_label": "Care plăcuță e nr. 1:",
+  "convention_plate1_body": "în joc alegi plăcuțele cu tastele sus/jos, iar prima e cea mai de jos. Numără de jos în sus, nu după ce e mai aproape de cameră sau de tine.",
+  "convention_side_label": "Care parte e poziția 1:",
+  "convention_side_body": "nu există un canon unic în privința asta și solverului nu-i pasă — nu contează partea „corectă”, ci propria ta convenție, ținută constant. Alege un reper (de exemplu: „pinul în capătul din stânga = poziția 1”) și aplică-l la fel pentru fiecare plăcuță, fără excepții.",
+  "convention_goal_label": "Spre ce țintești:",
+  "convention_goal_body": "indiferent de partea aleasă, ținta e mereu aceeași — poziția 4 (centrul) pe fiecare plăcuță.",
+
+  "direction_intro_label": "Încă un lucru, separat de parte:",
+  "direction_intro_body": "când apeși fizic „dreapta” în joc, numărul poziției crește sau scade? Dacă soluția cere „dreapta” de la o plăcuță aflată deja pe poziția 1 și pare o aberație (n-are cum să mai crească), aproape sigur de la comutatorul ăsta e problema, nu de la vreo greșeală în legături.",
+  "direction_hint": "Test rapid: apasă fizic „dreapta” o dată pe orice plăcuță — numărul a crescut sau a scăzut? Nu trebuie să atingi legăturile deja introduse, comutatorul doar le recitește altfel.",
+  "direction_right_increases": "Dreapta = numărul crește",
+  "direction_right_decreases": "Dreapta = numărul scade",
+
+  "lock_title": "Încuietoarea",
+  "lock_intro": "De la 4 la 7 plăcuțe, poziția de start a fiecăreia — 1–7, ținta — 4 (centrul). Tabla și tabelul sunt două feluri de a vedea aceleași date, așa că treci de la una la alta oricând, nu se pierde nimic.",
+  "field_plate_count": "Plăcuțe",
+  "field_view": "Vedere",
+  "view_board": "Tablă",
+  "view_table": "Tabel",
+
+  "action_solve": "Rezolvă",
+  "action_solving": "Se rezolvă…",
+  "action_reset": "Resetează",
+
+  "plate_name": "Plăcuța {n}",
+  "plate_short": "P{n}",
+  "plate_position_aria": "Poziția plăcuței {n}",
+  "connection_aria": "Plăcuța {from} → plăcuța {to}",
+  "board_connections_aria": "Legăturile plăcuței {n}",
+
+  "form_legend": "În stânga — poziția de start a plăcuței (1–7, ținta — 4). În dreapta — ce fac celelalte plăcuțe când o miști pe asta spre dreapta: ← stânga, 0 stă pe loc, → dreapta.",
+  "form_move_caption": "mișc P{n} spre dreapta →",
+
+  "result_title": "Rezultat",
+  "result_unsolvable": "Din această poziție de start, cu aceste legături, ținta nu poate fi atinsă.",
+  "result_unsolvable_note": "Abilitatea de spargere e o scurtătură utilă: elimină o legătură la întâmplare ca să-ți ușureze descuierea. Uneori scoate exact legătura de care avea nevoie tocmai încuietoarea asta, și atunci ținta devine imposibilă. Datele tale, cel mai probabil, n-au nicio vină — dacă reverifici cinstit legăturile și rezultatul e același, e o încuietoare de sărit.",
+  "result_already_open": "Încuietoarea e deja deschisă în această poziție, nu e nevoie de nicio mișcare.",
+  "result_states_checked": "Stări verificate: {count}",
+  "result_states_explored": "Stări explorate: {count}",
+  "move_line": "Plăcuța {plate} → {direction}{times}",
+  "dir_right": "dreapta",
+  "dir_left": "stânga",
+  "playback_aria": "Redarea soluției",
+  "playback_prev": "← Înapoi",
+  "playback_next": "Înainte →",
+  "playback_step": "Pasul {step} din {total}",
+
+  "help_summary": "Cum să citești corect legăturile (când solverul zice „nu se poate rezolva”)",
+  "help_step1": "Fă quicksave ÎNAINTE să deschizi încuietoarea — ăsta e punctul tău de referință (baseline). Odată ce minijocul e deschis, nu mai poți salva, așa că trebuie făcut dinainte.",
+  "help_step2": "Mișcă o singură plăcuță cu un pas spre dreapta. Notează ce alte plăcuțe s-au mișcat și în ce direcție.",
+  "help_step3": "Fă quickload la salvarea aceea înainte să testezi următoarea plăcuță. O reîncărcare nu schimbă încuietoarea — configurația ei e fixă — așa că se întoarce exact aceeași încuietoare, neatinsă. Ăsta e cel mai frecvent motiv pentru care legăturile „par corecte”, dar soluția lipsește: dacă nu te întorci la punctul inițial, a doua legătură se suprapune peste starea deja modificată a primei plăcuțe și toată harta legăturilor o ia razna.",
+  "help_step4": "Repetă pentru fiecare plăcuță. Dacă după o trecere cinstită, cu reveniri, solverul tot zice „nu se poate rezolva”, cel mai probabil nu e vina datelor introduse. Abilitatea de spargere ridicată e o scurtătură utilă: scoate o legătură la întâmplare și ușurează descuierea, dar o face fără discernământ și, din când în când, scoate exact legătura de care avea nevoie tocmai încuietoarea asta.",
+  "help_step5": "Dacă, dimpotrivă, solverul a dat o soluție, dar etichetele „dreapta/stânga” din ea nu se potrivesc cu jocul (îți cere dreapta acolo unde n-ai încotro s-o mai apeși), datele nu sunt stricate — doar comutatorul „De unde numeri” nu e reglat după sistemul tău de referință. Schimbă-l și apasă „Rezolvă” din nou, nu e nevoie să introduci totul de la capăt.",
+  "help_step6": "Solverul nu-ți va propune niciodată o mișcare în care o plăcuță legată se opintește — în joc asta blochează mișcarea a absolut tot, inclusiv plăcuța pe care o miști direct, și doar consumă degeaba din rezistența șperaclului. Astfel de mișcări pur și simplu nu urnesc nimic, așa că soluția conține mereu doar mișcări care chiar funcționează.",
+
+  "language_label": "Limbă"
+}
