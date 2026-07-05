@@ -12,6 +12,7 @@
 <div class="lock-board">
   {#each plateIndices as i (i)}
     <div class="plate-block" class:current={lockStore.highlightedPlate === i}>
+      <span class="plate-block-label mono">{m.plate_name({ n: i + 1 })}</span>
       <PlateRow
         index={i}
         position={lockStore.positions[i]}
@@ -68,6 +69,16 @@
   .plate-block.current {
     border-color: var(--ember);
     box-shadow: 0 0 0 1px var(--ember) inset;
+  }
+
+  .plate-block-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  .plate-block.current .plate-block-label {
+    color: var(--ember);
   }
 
   .connections {

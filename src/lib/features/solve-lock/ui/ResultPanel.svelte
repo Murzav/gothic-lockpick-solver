@@ -67,7 +67,8 @@
               class:current={i === stepIndex}
               aria-current={i === stepIndex ? "step" : undefined}
             >
-              {stepLabel(g)}
+              <span class="step-num">{i + 1}.</span>
+              <span class="step-text">{stepLabel(g)}</span>
             </li>
           {/each}
         </ol>
@@ -118,16 +119,26 @@
   }
 
   .move-list {
+    list-style: none;
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
     margin: 0 0 0.75rem;
-    padding-left: 1.25rem;
+    padding: 0;
   }
 
   .move-list li {
+    display: flex;
+    gap: 0.5rem;
     font-family: var(--font-mono);
     color: var(--text-muted);
+  }
+
+  .step-num {
+    flex: 0 0 2.2rem;
+    text-align: right;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
   }
 
   .move-list li.current {
@@ -135,7 +146,7 @@
     font-weight: 700;
   }
 
-  .move-list li.current::marker {
+  .move-list li.current .step-num {
     color: var(--ember);
   }
 
