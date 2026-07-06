@@ -9,11 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Full internationalization with Paraglide JS: the interface ships in 19 locales (en, de, pl, cs, sk, hu, ro, uk, ru, es, es-419, ca, pt, pt-BR, it, fr, nl, tr, zh). On the first visit the site picks the browser's preferred language; a manual choice is remembered in localStorage. A switcher in the top-right corner lists every language by its own name and flag, and the lock you are building survives a language switch.
+- Full internationalization with Paraglide JS: the interface ships in 20 locales (en, de, pl, cs, sk, hu, ro, uk, ru, es, es-419, ca, ca-ES-valencia, pt, pt-BR, it, fr, nl, tr, zh). On the first visit the site picks the browser's preferred language; a manual choice is remembered in localStorage. A switcher in the top-right corner lists every language by its own name and flag, and the lock you are building survives a language switch. Valencian ships its own Reial Senyera flag rather than reusing the Catalan Senyera.
 - Cloudflare Workers deployment via `@sveltejs/adapter-cloudflare` + `wrangler.jsonc` (live at https://gothic-lockpick-solver.v-be8.workers.dev).
 - A shared plate-count control (4–7) above the view switch, so the count can be changed in board mode too (previously only in the table).
 - A "Reset" button that restores the default lock.
-- Full SEO: descriptive `<title>` and meta description, Open Graph and Twitter cards with a 1200×630 WebP share image, JSON-LD `WebApplication` structured data listing all 19 languages, canonical URL, `sitemap.xml`, `robots.txt` that welcomes search-driving AI crawlers, a lock-shaped favicon, an Apple touch icon, and a web app manifest. A `<noscript>` fallback describes the tool for crawlers that do not run JavaScript.
+- Full SEO: descriptive `<title>` and meta description, Open Graph and Twitter cards with a 1200×630 WebP share image, JSON-LD `WebApplication` structured data listing all 20 languages, canonical URL, `sitemap.xml`, `robots.txt` that welcomes search-driving AI crawlers, a lock-shaped favicon, an Apple touch icon, and a web app manifest. A `<noscript>` fallback describes the tool for crawlers that do not run JavaScript.
 
 ### Changed
 

@@ -29,11 +29,11 @@ The app has a short "Where to count from" note near the top. Read it before you 
 - **Honest about impossible locks.** Some locks really can't be opened (at Master level the skill can strip out a link you needed). The tool tells you rather than pretending.
 - **Two ways to enter a lock:** a visual board you click, or a compact table. Switch whenever you like, nothing is lost.
 - **Step-by-step playback** that highlights the plate being moved.
-- **19 languages,** picked automatically from your browser and switchable in the top-right corner. Your language and the lock you are building are both remembered.
+- **20 languages,** picked automatically from your browser and switchable in the top-right corner. Your language and the lock you are building are both remembered.
 
 ## Languages
 
-English · Deutsch · Polski · Čeština · Slovenčina · Magyar · Română · Українська · Русский · Español · Español (Latinoamérica) · Català · Português · Português (Brasil) · Italiano · Français · Nederlands · Türkçe · 简体中文
+English · Deutsch · Polski · Čeština · Slovenčina · Magyar · Română · Українська · Русский · Español · Español (Latinoamérica) · Català · Valencià · Português · Português (Brasil) · Italiano · Français · Nederlands · Türkçe · 简体中文
 
 ## Run it yourself
 

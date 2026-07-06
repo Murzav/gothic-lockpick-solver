@@ -1,0 +1,68 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+
+  "app_title": "Diagnòstic del pany",
+  "app_tagline": "Fica els vincles entre les plaques i les posicions inicials: l'eina et dirà sense embuts si el pany es pot obrir, i si es pot, et donarà la seqüència exacta de moviments.",
+
+  "convention_title": "Des d'on comptar",
+  "convention_intro": "Abans de posar-hi res, posa't d'acord amb tu mateix sobre un sistema de coordenades. És justament ací on sol nàixer el clàssic «sembla tot correcte, però no es resol».",
+  "convention_plate1_label": "Quina placa és la núm. 1:",
+  "convention_plate1_body": "al joc selecciones les plaques amb amunt i avall, i la primera és la de més avall. Compta de baix cap amunt, no per la que et queda més a prop de la càmera o de tu.",
+  "convention_side_label": "Quin costat és la posició 1:",
+  "convention_side_body": "no hi ha cap cànon establert i, per al solucionador, tant li fa. El que compta no és el costat «correcte», sinó la teua pròpia tria, sempre la mateixa. Tria una referència (posem, el pin del tot a l'esquerra = posició 1) i aplica-la igual a cada placa, sense excepcions.",
+  "convention_goal_label": "On vols aplegar:",
+  "convention_goal_body": "siga quin siga el costat que hages triat, l'objectiu sempre és el mateix: la posició 4 (el centre) a cada placa.",
+
+  "direction_intro_label": "Una altra cosa, a banda del costat:",
+  "direction_intro_body": "quan prems físicament «dreta» al joc, el número de posició et puja o et baixa? Si la solució et demana «dreta» en una placa que ja està a la posició 1 i açò no té cap sentit (no pot créixer més), quasi sempre és cosa d'este interruptor, no d'un error als vincles.",
+  "direction_hint": "Prova ràpida: prem el «dreta» físic una vegada en qualsevol placa. El número ha pujat o ha baixat? No cal que toques els vincles que ja has introduït; l'interruptor només els torna a llegir.",
+  "direction_right_increases": "Dreta = el número puja",
+  "direction_right_decreases": "Dreta = el número baixa",
+
+  "lock_title": "El pany",
+  "lock_intro": "De 4 a 7 plaques, cadascuna comença en algun punt de l'1 al 7, i l'objectiu és el 4 (el centre). El tauler i la taula són dues vistes de les mateixes dades: canvia quan vullgues, no es perd res.",
+  "field_plate_count": "Plaques",
+  "field_view": "Vista",
+  "view_board": "Tauler",
+  "view_table": "Taula",
+
+  "action_solve": "Resol",
+  "action_solving": "Resolent…",
+  "action_reset": "Reinicia",
+
+  "plate_name": "Placa {n}",
+  "plate_short": "P{n}",
+  "plate_position_aria": "Posició de la placa {n}",
+  "connection_aria": "Placa {from} → placa {to}",
+  "board_connections_aria": "Vincles de la placa {n}",
+
+  "form_move_caption": "quan mous P{n}",
+  "link_self": "placa actual",
+  "link_same": "mateix sentit",
+  "link_opposite": "sentit contrari",
+  "link_none": "sense vincle",
+
+  "result_title": "Resultat",
+  "result_unsolvable": "Des d'esta posició inicial i amb estos vincles, l'objectiu és inabastable.",
+  "result_unsolvable_note": "L'habilitat de forçar panys és una drecera ben útil: elimina un vincle a l'atzar per facilitar l'obertura. A vegades lleva justament el vincle que este pany necessitava, i llavors l'objectiu es torna impossible. El més probable és que la teua entrada estiga bé: si, després de tornar a comprovar els vincles amb honestedat, el resultat és el mateix, val més botar-se este pany.",
+  "result_already_open": "El pany ja està obert en esta posició: no cal cap moviment.",
+  "result_states_checked": "Estats comprovats: {count}",
+  "result_states_explored": "Estats explorats: {count}",
+  "move_line": "Placa {plate} → {direction}{times}",
+  "dir_right": "dreta",
+  "dir_left": "esquerra",
+  "playback_aria": "Reproducció de la solució",
+  "playback_prev": "← Arrere",
+  "playback_next": "Avant →",
+  "playback_step": "Pas {step} de {total}",
+
+  "help_summary": "Com llegir bé els vincles (quan el solucionador diu que no té solució)",
+  "help_step1": "Fes un quicksave ABANS d'obrir el pany: este és el teu punt de partida (baseline). Una vegada estàs dins del minijoc ja no pots guardar, així que ha de ser el primer que faces.",
+  "help_step2": "Mou només una placa un pas cap a la dreta. Apunta quines altres plaques s'han mogut i cap a quin costat.",
+  "help_step3": "Fes un quickload d'aquell guardat abans de provar la placa següent. Recarregar no canvia el pany (la seua disposició és fixa), així que recuperes el mateix pany, intacte. Este és el motiu més habitual perquè els vincles «semblen correctes» però res no es resol: si no tornes al mateix punt de partida, el segon vincle se suma a l'estat ja modificat de la primera placa, i tot el mapa de vincles se't desquadra.",
+  "help_step4": "Repetix-ho per a cada placa. Si has fet una passada honesta amb tornades arrere i el solucionador continua dient que no té solució, segurament no és cosa de la teua entrada. L'habilitat de forçar panys, ben pujada, és una drecera útil: elimina un vincle a l'atzar per facilitar l'obertura, però ho fa a cegues i, de tant en tant, lleva justament el vincle que este pany necessitava.",
+  "help_step5": "Si, al contrari, el solucionador t'ha donat una solució però les etiquetes «dreta/esquerra» no lliguen amb el joc (et demana dreta on ja no es pot anar més cap a la dreta), les dades no estan trencades: simplement l'interruptor «Des d'on comptar» no està ajustat al teu sistema de referència. Canvia'l, torna a prémer «Resol» i no cal tornar a introduir res.",
+  "help_step6": "El solucionador mai proposa un moviment on una placa vinculada quede travada. Al joc açò ho bloqueja tot, inclosa la placa que estàs espentant directament, i només desgasta el rossinyol per a res. Estos moviments no mouen absolutament res, de manera que una solució està feta només de moviments que funcionen de veres.",
+
+  "language_label": "Idioma"
+}

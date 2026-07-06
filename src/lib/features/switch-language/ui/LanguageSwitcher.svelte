@@ -15,6 +15,26 @@
     '<rect y="11.1" width="30" height="2.22" fill="#DA121A"/>' +
     '<rect y="15.56" width="30" height="2.22" fill="#DA121A"/></svg>';
 
+  // Valencian ships the Reial Senyera, not the plain Senyera: the Catalan
+  // stripes with a blue crowned band (the "tafatà") at the hoist. It is the
+  // official flag of the Valencian Community and is culturally distinct —
+  // reusing the Catalan flag here would be wrong. Colours, the 2:1 ratio and
+  // proportions follow the official Senyera Coronada (blue #0072BC, red
+  // #DA121A, gold #FCDD09); the crown is a simplified glyph, since the full
+  // 84-path original is illegible at this icon size. No emoji renders it, so
+  // it is inline SVG.
+  const VA_SENYERA =
+    '<svg viewBox="0 0 30 15" aria-hidden="true">' +
+    '<rect width="30" height="15" fill="#FCDD09"/>' +
+    '<rect x="7.33" y="1.667" width="22.67" height="1.667" fill="#DA121A"/>' +
+    '<rect x="7.33" y="5" width="22.67" height="1.667" fill="#DA121A"/>' +
+    '<rect x="7.33" y="8.333" width="22.67" height="1.667" fill="#DA121A"/>' +
+    '<rect x="7.33" y="11.667" width="22.67" height="1.667" fill="#DA121A"/>' +
+    '<rect width="7.5" height="15" fill="#0072BC"/>' +
+    '<rect x="5.85" width="1.66" height="15" fill="#DA121A"/>' +
+    '<rect x="0.8" y="9" width="4.3" height="0.9" fill="#FCDD09"/>' +
+    '<path d="M0.8 9 0.8 5.4 1.875 6.9 2.95 4.6 4.025 6.9 5.1 5.4 5.1 9Z" fill="#FCDD09"/></svg>';
+
   const LANGUAGES: Record<
     string,
     { name: string; flag: string; flagSvg?: string }
@@ -38,6 +58,7 @@
     tr: { name: "Türkçe", flag: "🇹🇷" },
     zh: { name: "简体中文", flag: "🇨🇳" },
     ca: { name: "Català", flag: "", flagSvg: CA_SENYERA },
+    "ca-ES-valencia": { name: "Valencià", flag: "", flagSvg: VA_SENYERA },
   };
 
   const active = getLocale();
