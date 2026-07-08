@@ -77,11 +77,11 @@ class LockStore {
   }
 
   reset(): void {
+    // Only the lock is cleared. The direction convention and the board/table
+    // view are user preferences, not lock data — a reset must not undo them.
     this.plateCount = DEFAULT_PLATE_COUNT;
     this.positions = emptyPositions(DEFAULT_PLATE_COUNT);
     this.coupling = emptyCoupling(DEFAULT_PLATE_COUNT);
-    this.convention = "right-increases";
-    this.viewMode = "board";
     this.solving = false;
     this.invalidateResult();
   }

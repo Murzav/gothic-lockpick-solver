@@ -4,6 +4,8 @@ import { lockStore } from "./lock-store.svelte";
 describe("lockStore", () => {
   beforeEach(() => {
     lockStore.reset();
+    lockStore.setConvention("right-increases");
+    lockStore.setViewMode("board");
   });
 
   it("defaults to a 5-plate lock with unsolved result", () => {
@@ -98,16 +100,18 @@ describe("lockStore", () => {
     expect(lockStore.viewMode).toBe("form");
   });
 
-  it("reset restores default state", () => {
+  it("reset clears the lock but preserves the direction convention and view mode", () => {
     lockStore.setPlateCount(7);
     lockStore.setPosition(0, 3);
     lockStore.setCoupling(0, 1, 1);
     lockStore.setConvention("right-decreases");
     lockStore.setViewMode("form");
     lockStore.result = { solvable: true, moves: [], statesExplored: 1 };
+    lockStore.highlightedPlate = 2;
 
     lockStore.reset();
 
+    // lock itself is cleared
     expect(lockStore.plateCount).toBe(5);
     expect(lockStore.positions).toEqual([1, 1, 1, 1, 1]);
     expect(lockStore.coupling).toEqual([
@@ -117,11 +121,13 @@ describe("lockStore", () => {
       [0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0],
     ]);
-    expect(lockStore.convention).toBe("right-increases");
-    expect(lockStore.viewMode).toBe("board");
     expect(lockStore.result).toBeNull();
     expect(lockStore.solving).toBe(false);
     expect(lockStore.highlightedPlate).toBeNull();
+
+    // user preferences survive a reset
+    expect(lockStore.convention).toBe("right-decreases");
+    expect(lockStore.viewMode).toBe("form");
   });
 
   it("snapshotConfig returns a plain, non-reactive copy of the configuration", () => {
