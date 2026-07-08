@@ -54,7 +54,6 @@
   "move_line": "Plate {plate} → {direction}{times}",
   "dir_right": "right",
   "dir_left": "left",
-  "playback_aria": "Play the solution",
   "playback_prev": "← Back",
   "playback_next": "Next →",
   "playback_step": "Step {step} of {total}",
