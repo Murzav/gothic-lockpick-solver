@@ -19,9 +19,7 @@ class PlaybackStore {
   followBoard = $state(true);
 
   grouped = $derived(
-    lockStore.result?.solvable && lockStore.result.moves
-      ? groupMoves(lockStore.result.moves)
-      : [],
+    lockStore.result?.solvable && lockStore.result.moves ? groupMoves(lockStore.result.moves) : [],
   );
   /** The only place the playback-visibility condition lives. */
   active = $derived(lockStore.result?.solvable === true && this.grouped.length > 0);
@@ -36,9 +34,7 @@ class PlaybackStore {
     if (!this.active) return lockStore.positions;
     const moves = lockStore.result?.moves ?? [];
     const end =
-      this.stepIndex < this.grouped.length
-        ? this.grouped[this.stepIndex].startIndex
-        : moves.length;
+      this.stepIndex < this.grouped.length ? this.grouped[this.stepIndex].startIndex : moves.length;
     let state: LockState = lockStore.positions;
     for (let k = 0; k < end; k++) {
       state = applyMove(state, moves[k].plate, moves[k].dir, lockStore.coupling);
