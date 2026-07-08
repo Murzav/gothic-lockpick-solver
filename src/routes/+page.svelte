@@ -10,6 +10,7 @@
   import LockForm from "$lib/widgets/lock-form/LockForm.svelte";
   import SolveButton from "$lib/features/solve-lock/ui/SolveButton.svelte";
   import ResultPanel from "$lib/features/solve-lock/ui/ResultPanel.svelte";
+  import PlaybackBar from "$lib/features/solve-lock/ui/PlaybackBar.svelte";
   import { playbackStore } from "$lib/features/solve-lock/model/playback-store.svelte";
   import { m } from "$lib/paraglide/messages.js";
 
@@ -25,7 +26,7 @@
   );
 </script>
 
-<div class="page">
+<div class="page" class:bar-active={playbackStore.active}>
   <header class="hero">
     <svg
       class="hero-icon"
@@ -140,6 +141,8 @@
 
       <ResultPanel />
 
+      <PlaybackBar />
+
       <details class="help">
         <summary>{m.help_summary()}</summary>
         <ol>
@@ -163,6 +166,11 @@
     display: flex;
     flex-direction: column;
     gap: 1.75rem;
+  }
+
+  /* Reserve space so the fixed playback bar never covers the last controls. */
+  .page.bar-active {
+    padding-bottom: 7rem;
   }
 
   /* Single column on phones; a reference/tool split once there's room, so a

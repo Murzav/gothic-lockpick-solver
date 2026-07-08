@@ -1,11 +1,15 @@
 import { render } from "vitest-browser-svelte";
 import { beforeEach, describe, expect, it } from "vitest";
+import { flushSync } from "svelte";
 import { lockStore } from "$lib/entities/lock/model/lock-store.svelte";
+import { playbackStore } from "$lib/features/solve-lock/model/playback-store.svelte";
 import ResultPanel from "./ResultPanel.svelte";
 
 describe("ResultPanel", () => {
   beforeEach(() => {
     lockStore.reset();
+    playbackStore.stepIndex = 0;
+    flushSync();
   });
 
   it("renders a grouped move list item per grouped move", async () => {
@@ -25,6 +29,27 @@ describe("ResultPanel", () => {
     expect(items.elements()).toHaveLength(2);
     await expect.element(screen.getByText("Plate 1 → right ×2")).toBeVisible();
     await expect.element(screen.getByText("Plate 2 → left")).toBeVisible();
+  });
+
+  it("dims completed steps and marks the current one for the playback step", async () => {
+    lockStore.result = {
+      solvable: true,
+      moves: [
+        { plate: 0, dir: 1 },
+        { plate: 1, dir: -1 },
+      ],
+      statesExplored: 3,
+    };
+    flushSync(); // fresh-result effect -> stepIndex 0
+    playbackStore.stepIndex = 1;
+    flushSync();
+    const screen = render(ResultPanel);
+
+    const items = screen.container.querySelectorAll("li");
+    expect(items).toHaveLength(2);
+    expect(items[0].classList.contains("done")).toBe(true);
+    expect(items[1].classList.contains("current")).toBe(true);
+    expect(items[1].getAttribute("aria-current")).toBe("step");
   });
 
   it("renders an already-open note when the solution has zero moves", async () => {
