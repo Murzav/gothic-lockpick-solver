@@ -11,6 +11,12 @@
     (_, i) => MIN_POS + i,
   );
 
+  interface Props {
+    disabled?: boolean;
+  }
+
+  const { disabled = false }: Props = $props();
+
   const plateIndices = $derived(
     Array.from({ length: lockStore.plateCount }, (_, i) => i),
   );
@@ -35,6 +41,7 @@
                 label={String(p)}
                 active={lockStore.positions[i] === p}
                 onSelect={(v) => lockStore.setPosition(i, v)}
+                {disabled}
               />
             {/each}
           </div>
@@ -62,6 +69,7 @@
                     label={m.connection_aria({ from: i + 1, to: j + 1 })}
                     value={lockStore.coupling[i][j]}
                     onChange={(v) => lockStore.setCoupling(i, j, v)}
+                    {disabled}
                   />
                 </div>
               {/if}

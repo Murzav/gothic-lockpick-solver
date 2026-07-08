@@ -36,6 +36,8 @@
   "plate_position": "· {pos}",
   "connection_aria": "Plate {from} → plate {to}",
   "board_connections_aria": "Links of plate {n}",
+  "board_follow_banner": "The board follows the solution — positions before the current step",
+  "board_follow_edit": "Edit lock",
 
   "form_move_caption": "when you move P{n}",
   "link_self": "current plate",

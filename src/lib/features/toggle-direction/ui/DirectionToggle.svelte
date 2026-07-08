@@ -4,6 +4,12 @@
   import type { DirectionConvention } from "$lib/entities/lock/model/types";
   import { m } from "$lib/paraglide/messages.js";
 
+  interface Props {
+    disabled?: boolean;
+  }
+
+  const { disabled = false }: Props = $props();
+
   const options: { value: DirectionConvention; label: string }[] = [
     { value: "right-increases", label: m.direction_right_increases() },
     { value: "right-decreases", label: m.direction_right_decreases() },
@@ -14,4 +20,5 @@
   {options}
   value={lockStore.convention}
   onChange={(v) => lockStore.setConvention(v)}
+  {disabled}
 />

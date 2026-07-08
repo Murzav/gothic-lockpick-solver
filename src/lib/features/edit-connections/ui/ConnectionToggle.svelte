@@ -10,9 +10,10 @@
     label: string;
     value: number;
     onChange: (value: number) => void;
+    disabled?: boolean;
   }
 
-  const { label, value, onChange }: Props = $props();
+  const { label, value, onChange, disabled = false }: Props = $props();
 
   const option = $derived(couplingOption(value));
   const stateName = $derived(
@@ -29,6 +30,7 @@
   class="conn-toggle {option.tone}"
   aria-label={`${label}: ${stateName}`}
   title={stateName}
+  {disabled}
   onclick={() => onChange(nextCoupling(value))}
 >
   {option.label}
@@ -52,12 +54,17 @@
       border-color var(--transition-fast);
   }
 
-  .conn-toggle:hover {
+  .conn-toggle:hover:not(:disabled) {
     border-color: var(--brass);
   }
 
+  .conn-toggle:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+
   /* No link stays quiet, so a plate with no couplings reads calm. */
-  .conn-toggle.neutral:hover {
+  .conn-toggle.neutral:hover:not(:disabled) {
     color: var(--text);
   }
 

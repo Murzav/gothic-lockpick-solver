@@ -1,5 +1,6 @@
 <script lang="ts">
   import { lockStore } from "$lib/entities/lock/model/lock-store.svelte";
+  import { playbackStore } from "$lib/features/solve-lock/model/playback-store.svelte";
   import PlateRow from "$lib/entities/lock/ui/PlateRow.svelte";
   import ConnectionToggle from "$lib/features/edit-connections/ui/ConnectionToggle.svelte";
   import CouplingLegend from "$lib/features/edit-connections/ui/CouplingLegend.svelte";
@@ -8,21 +9,43 @@
   const plateIndices = $derived(
     Array.from({ length: lockStore.plateCount }, (_, i) => i),
   );
+
+  // While following, the board mirrors the solution and its controls lock.
+  const following = $derived(playbackStore.followBoard && playbackStore.active);
+  const positions = $derived(
+    following ? playbackStore.positionsBeforeStep : lockStore.positions,
+  );
 </script>
 
 <div class="lock-board">
+  {#if following}
+    <div class="follow-banner">
+      <span>{m.board_follow_banner()}</span>
+      <button
+        type="button"
+        class="unlock"
+        onclick={() => (playbackStore.followBoard = false)}
+      >
+        {m.board_follow_edit()}
+      </button>
+    </div>
+  {/if}
+
   <CouplingLegend />
 
   {#each plateIndices as i (i)}
     <div class="plate-block" class:current={lockStore.highlightedPlate === i}>
       <span class="plate-block-label mono">
         {m.plate_name({ n: i + 1 })}
-        <span class="plate-block-pos">{m.plate_position({ pos: lockStore.positions[i] })}</span>
+        <span class="plate-block-pos"
+          >{m.plate_position({ pos: positions[i] })}</span
+        >
       </span>
       <PlateRow
         index={i}
-        position={lockStore.positions[i]}
+        position={positions[i]}
         onSelect={(pos) => lockStore.setPosition(i, pos)}
+        disabled={following}
       />
       <div
         class="connections"
@@ -46,6 +69,7 @@
                 label={m.connection_aria({ from: i + 1, to: j + 1 })}
                 value={lockStore.coupling[i][j]}
                 onChange={(v) => lockStore.setCoupling(i, j, v)}
+                disabled={following}
               />
             </div>
           {/if}
@@ -60,6 +84,37 @@
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+  }
+
+  /* Read-only cue while the board mirrors the solution. */
+  .follow-banner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.5rem 0.7rem;
+    background: color-mix(in oklch, var(--ember) 10%, var(--surface));
+    border: 1px solid color-mix(in oklch, var(--ember) 40%, var(--border));
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .follow-banner .unlock {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    transition: border-color var(--transition-fast);
+  }
+
+  .follow-banner .unlock:hover {
+    border-color: var(--brass);
   }
 
   .plate-block {

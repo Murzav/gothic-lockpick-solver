@@ -10,7 +10,10 @@
   import LockForm from "$lib/widgets/lock-form/LockForm.svelte";
   import SolveButton from "$lib/features/solve-lock/ui/SolveButton.svelte";
   import ResultPanel from "$lib/features/solve-lock/ui/ResultPanel.svelte";
+  import { playbackStore } from "$lib/features/solve-lock/model/playback-store.svelte";
   import { m } from "$lib/paraglide/messages.js";
+
+  const following = $derived(playbackStore.followBoard && playbackStore.active);
 
   const viewOptions: { value: "board" | "form"; label: string }[] = [
     { value: "board", label: m.view_board() },
@@ -84,7 +87,7 @@
             <strong>{m.direction_intro_label()}</strong>
             {m.direction_intro_body()}
           </p>
-          <DirectionToggle />
+          <DirectionToggle disabled={following} />
           <p class="hint">{m.direction_hint()}</p>
         </div>
       </Card>
@@ -107,6 +110,7 @@
                   label={String(n)}
                   active={lockStore.plateCount === n}
                   onSelect={(v) => lockStore.setPlateCount(v)}
+                  disabled={following}
                 />
               {/each}
             </div>
@@ -123,7 +127,7 @@
         {#if lockStore.viewMode === "board"}
           <LockBoard />
         {:else}
-          <LockForm />
+          <LockForm disabled={following} />
         {/if}
       </Card>
 

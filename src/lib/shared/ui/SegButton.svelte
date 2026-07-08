@@ -11,9 +11,17 @@
      * attention when it is merely the default.
      */
     tone?: "accent" | "neutral";
+    disabled?: boolean;
   }
 
-  const { value, active, label, onSelect, tone = "accent" }: Props = $props();
+  const {
+    value,
+    active,
+    label,
+    onSelect,
+    tone = "accent",
+    disabled = false,
+  }: Props = $props();
 </script>
 
 <button
@@ -22,6 +30,7 @@
   class:active
   class:neutral={tone === "neutral"}
   aria-pressed={active}
+  {disabled}
   onclick={() => onSelect(value)}
 >
   {label}
@@ -44,9 +53,14 @@
       border-color var(--transition-fast);
   }
 
-  .seg-button:hover {
+  .seg-button:hover:not(:disabled) {
     color: var(--text);
     border-color: var(--brass);
+  }
+
+  .seg-button:disabled {
+    opacity: 0.5;
+    cursor: default;
   }
 
   .seg-button.active {

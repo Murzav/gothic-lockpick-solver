@@ -8,9 +8,10 @@
     options: Option<T>[];
     value: T;
     onChange: (value: T) => void;
+    disabled?: boolean;
   }
 
-  const { options, value, onChange }: Props = $props();
+  const { options, value, onChange, disabled = false }: Props = $props();
 </script>
 
 <div class="toggle" role="radiogroup">
@@ -21,6 +22,7 @@
       class:active={option.value === value}
       role="radio"
       aria-checked={option.value === value}
+      {disabled}
       onclick={() => onChange(option.value)}
     >
       {option.label}
@@ -53,8 +55,13 @@
       background var(--transition-fast);
   }
 
-  .toggle-option:hover {
+  .toggle-option:hover:not(:disabled) {
     color: var(--text);
+  }
+
+  .toggle-option:disabled {
+    opacity: 0.5;
+    cursor: default;
   }
 
   .toggle-option.active {
