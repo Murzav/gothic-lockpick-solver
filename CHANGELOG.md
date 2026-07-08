@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-07-08
+
 ### Added
 
 - Full internationalization with Paraglide JS: the interface ships in 20 locales (en, de, pl, cs, sk, hu, ro, uk, ru, es, es-419, ca, ca-ES-valencia, pt, pt-BR, it, fr, nl, tr, zh). On the first visit the site picks the browser's preferred language; a manual choice is remembered in localStorage. A switcher in the top-right corner lists every language by its own name and flag, and the lock you are building survives a language switch. Valencian ships its own Reial Senyera flag rather than reusing the Catalan Senyera.
