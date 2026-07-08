@@ -14,12 +14,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - A shared plate-count control (4–7) above the view switch, so the count can be changed in board mode too (previously only in the table).
 - A "Reset" button that restores the default lock.
 - Full SEO: descriptive `<title>` and meta description, Open Graph and Twitter cards with a 1200×630 WebP share image, JSON-LD `WebApplication` structured data listing all 20 languages, canonical URL, `sitemap.xml`, `robots.txt` that welcomes search-driving AI crawlers, a lock-shaped favicon, an Apple touch icon, and a web app manifest. A `<noscript>` fallback describes the tool for crawlers that do not run JavaScript.
+- A second-screen replay mode. A fixed playback bar walks the solution one grouped step at a time with large Prev/Next controls, a platform-neutral d-pad direction icon, a step counter, and a progress bar. Arrow keys and Space drive it, Home/End jump to the first/last step, and the screen is kept awake while it is open.
+- A board follow mode. While you replay the solution, the board mirrors the pin positions for the step you are about to perform and locks its controls, with a one-tap "Edit lock" banner to take back control. The preference is remembered across sessions.
 
 ### Changed
 
 - Plate links are entered as **same / opposite / no-link** (`»` green / `⇄` red / `—`) instead of left/right arrows, in both board and table. Each link is a single button that cycles through the three states on click, so a plate's couplings are a short row rather than a dense three-buttons-per-target grid. The plate you are editing shows up in that row as a dimmed `⊙` anchor, and a colour-coded legend spells out what every icon means. A link is defined relative to the plate you move — same way, opposite way, or no reaction — which is independent of which side you call "right" and sidesteps the direction convention entirely.
 - Board pin-slots grow to fill the row — larger and more tactile on a laptop while still fitting seven across on a phone.
 - The solver's `directionLabel` became a locale-free `physicalDirection` returning a `right`/`left` token; the UI now localizes it. The lock configuration is persisted to localStorage so it survives reloads (including a language switch).
+
+### Fixed
+
+- Reset no longer discards your direction-convention and board/table view preferences; it now clears only the lock itself.
+- Active pins on the board are far easier to spot at a glance: a brighter, larger pin with an ember ring, a subtle glow, and a bold position number, and the plate label now echoes the current position.
 
 ## [0.1.0] - 2026-07-05
 
