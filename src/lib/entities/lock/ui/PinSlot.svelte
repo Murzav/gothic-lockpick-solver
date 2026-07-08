@@ -4,9 +4,10 @@
     active: boolean;
     isGoal: boolean;
     onSelect: (value: number) => void;
+    disabled?: boolean;
   }
 
-  const { value, active, isGoal, onSelect }: Props = $props();
+  const { value, active, isGoal, onSelect, disabled = false }: Props = $props();
 
   const goalReached = $derived(active && isGoal);
 </script>
@@ -22,6 +23,7 @@
   aria-label={String(value)}
   data-goal={isGoal}
   data-goal-reached={goalReached}
+  {disabled}
   onclick={() => onSelect(value)}
 >
   <span class="pin" aria-hidden="true"></span>
@@ -48,13 +50,19 @@
     border: 1px solid var(--border);
     border-radius: 6px;
     cursor: pointer;
+    /* Single change transition for the active-salience cues (spec §8). */
     transition:
-      border-color var(--transition-fast),
-      background var(--transition-fast);
+      border-color var(--transition-base),
+      background var(--transition-base),
+      box-shadow var(--transition-base);
   }
 
-  .pin-slot:hover {
+  .pin-slot:hover:not(:disabled) {
     border-color: var(--brass);
+  }
+
+  .pin-slot:disabled {
+    cursor: default;
   }
 
   .pin-slot.goal {
@@ -77,16 +85,28 @@
     width: 0.75rem;
     height: 1.5rem;
     border-radius: 3px;
-    background: var(--text-muted);
+    /* Inactive pins are dimmed so the active one is the brightest element. */
+    background: color-mix(in oklch, var(--text-muted) 55%, transparent);
     transform: translateY(0.3rem);
     transition:
       transform var(--transition-base),
-      background var(--transition-fast);
+      background var(--transition-base);
+  }
+
+  /* Active slot: three redundant preattentive cues — brightest+largest pin, a
+     2px ember ring with a gap, a subtle glow, and a tinted slot background. */
+  .pin-slot.active {
+    background: color-mix(in oklch, var(--ember) 12%, var(--surface));
+    border-color: color-mix(in oklch, var(--ember) 40%, var(--border));
+    box-shadow:
+      0 0 0 2px var(--bg),
+      0 0 0 4px var(--ember),
+      0 0 0.75rem color-mix(in oklch, var(--ember) 35%, transparent);
   }
 
   .pin-slot.active .pin {
     background: var(--ember);
-    transform: translateY(-0.55rem);
+    transform: translateY(-0.55rem) scale(1.3);
   }
 
   .pin-slot.goal-reached .pin {
@@ -105,6 +125,8 @@
 
   .pin-slot.active .value {
     color: var(--text);
+    font-weight: 700;
+    font-size: 0.9rem;
   }
 
   .pin-slot.goal-reached .value {

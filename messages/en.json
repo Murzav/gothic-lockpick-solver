@@ -33,6 +33,7 @@
   "plate_name": "Plate {n}",
   "plate_short": "P{n}",
   "plate_position_aria": "Position of plate {n}",
+  "plate_position": "· {pos}",
   "connection_aria": "Plate {from} → plate {to}",
   "board_connections_aria": "Links of plate {n}",
 

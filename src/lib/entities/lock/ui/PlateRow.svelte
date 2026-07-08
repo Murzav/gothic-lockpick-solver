@@ -7,9 +7,10 @@
     index: number;
     position: number;
     onSelect: (position: number) => void;
+    disabled?: boolean;
   }
 
-  const { index, position, onSelect }: Props = $props();
+  const { index, position, onSelect, disabled = false }: Props = $props();
 
   const slots = Array.from(
     { length: MAX_POS - MIN_POS + 1 },
@@ -28,6 +29,7 @@
       active={value === position}
       isGoal={value === GOAL_POS}
       {onSelect}
+      {disabled}
     />
   {/each}
 </div>
