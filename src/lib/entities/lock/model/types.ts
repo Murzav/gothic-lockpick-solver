@@ -33,6 +33,8 @@ export interface GroupedMove {
   plate: number;
   dir: MoveDir;
   count: number;
+  /** Number of raw moves before this group (cumulative prefix length). */
+  startIndex: number;
 }
 
 /**
