@@ -60,6 +60,8 @@
   "playback_restart": "重新开始",
   "playback_done": "锁已打开",
   "playback_follow": "在盘面上跟随",
+  "playback_voice": "朗读步骤",
+  "playback_voice_unavailable": "此语言无可用语音",
 
   "help_summary": "怎么正确记录联动关系（求解器说“无解”时）",
   "help_step1": "开锁之前就先 quicksave——这才是你的基准点（baseline）。小游戏一旦打开，就没法再存档了，所以只能提前存。",

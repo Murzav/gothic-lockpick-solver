@@ -60,6 +60,8 @@
   "playback_restart": "Neu starten",
   "playback_done": "Schloss offen",
   "playback_follow": "Auf dem Brett folgen",
+  "playback_voice": "Schritte vorlesen",
+  "playback_voice_unavailable": "Keine Stimme für diese Sprache",
 
   "help_summary": "So erfasst du die Verbindungen richtig (wenn der Solver „unlösbar“ sagt)",
   "help_step1": "Mach einen Quicksave, BEVOR du das Schloss öffnest – das ist dein Ausgangspunkt (Baseline). Sobald das Minispiel offen ist, lässt sich nicht mehr speichern, also muss das vorher passieren.",

@@ -60,6 +60,8 @@
   "playback_restart": "Recomeçar",
   "playback_done": "Fechadura aberta",
   "playback_follow": "Seguir no tabuleiro",
+  "playback_voice": "Ler os passos em voz alta",
+  "playback_voice_unavailable": "Sem voz para este idioma",
 
   "help_summary": "Como ler bem as ligações (quando o solucionador diz «sem solução»)",
   "help_step1": "Faz quicksave ANTES de abrires a fechadura — é o teu ponto de partida (baseline). Com o minijogo aberto já não dá para guardar, por isso tem de ser antes.",

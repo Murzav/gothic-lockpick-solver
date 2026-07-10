@@ -5,6 +5,7 @@ import type { LockState } from "$lib/entities/lock/model/types";
 import { groupMoves } from "$lib/features/solve-lock/lib/moves";
 
 const STORAGE_KEY = "gls:playback:v1";
+const SPEECH_STORAGE_KEY = "gls:playback-speech:v1";
 
 /**
  * Drives the second-screen replay: which grouped step the player is on and
@@ -17,6 +18,9 @@ class PlaybackStore {
   stepIndex = $state(0);
   /** Board mirrors the solution; sticky preference, persisted here. */
   followBoard = $state(true);
+  /** Announce each step by voice; sticky preference, off by default (opt-in,
+   * no surprise audio), persisted under its own key. */
+  voiceEnabled = $state(false);
 
   grouped = $derived(
     lockStore.result?.solvable && lockStore.result.moves ? groupMoves(lockStore.result.moves) : [],
@@ -72,6 +76,16 @@ class PlaybackStore {
       this.followBoard = true;
     }
   }
+
+  /** Read the sticky voice preference; default false (opt-in) when unset or corrupt. */
+  loadVoiceEnabled(): void {
+    try {
+      const raw = localStorage.getItem(SPEECH_STORAGE_KEY);
+      this.voiceEnabled = raw == null ? false : JSON.parse(raw) === true;
+    } catch {
+      this.voiceEnabled = false;
+    }
+  }
 }
 
 export const playbackStore = new PlaybackStore();
@@ -80,6 +94,7 @@ export const playbackStore = new PlaybackStore();
 // lock-store.svelte.ts:140-156. localStorage does not exist during prerender.
 if (browser) {
   playbackStore.loadFollowBoard();
+  playbackStore.loadVoiceEnabled();
 
   $effect.root(() => {
     // Persist the sticky follow preference under its own key (PersistedLock
@@ -87,6 +102,15 @@ if (browser) {
     $effect(() => {
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(playbackStore.followBoard));
+      } catch {
+        // storage may be unavailable (private mode); ignore
+      }
+    });
+
+    // Persist the voice preference under its own key, same guard style.
+    $effect(() => {
+      try {
+        localStorage.setItem(SPEECH_STORAGE_KEY, JSON.stringify(playbackStore.voiceEnabled));
       } catch {
         // storage may be unavailable (private mode); ignore
       }

@@ -60,6 +60,8 @@
   "playback_restart": "Od začátku",
   "playback_done": "Zámek otevřen",
   "playback_follow": "Sledovat na desce",
+  "playback_voice": "Číst kroky nahlas",
+  "playback_voice_unavailable": "Žádný hlas pro tento jazyk",
 
   "help_summary": "Jak správně zjistit vazby (když solver říká „nemá řešení“)",
   "help_step1": "Quicksave si dej DŘÍV, než otevřeš zámek – to je tvůj výchozí bod (baseline). Uvnitř minihry už uložit nejde, takže to musí být napřed.",

@@ -60,6 +60,8 @@
   "playback_restart": "Reinicia",
   "playback_done": "Pany obert",
   "playback_follow": "Segueix al tauler",
+  "playback_voice": "Llegeix els passos en veu alta",
+  "playback_voice_unavailable": "Sense veu per a aquest idioma",
 
   "help_summary": "Com llegir bé els vincles (quan el solucionador diu que no té solució)",
   "help_step1": "Fes un quicksave ABANS d'obrir el pany: aquest és el teu punt de partida (baseline). Un cop ets dins del minijoc ja no pots desar, així que ha de ser el primer que facis.",

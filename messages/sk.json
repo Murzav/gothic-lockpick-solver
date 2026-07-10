@@ -60,6 +60,8 @@
   "playback_restart": "Od začiatku",
   "playback_done": "Zámok otvorený",
   "playback_follow": "Sledovať na doske",
+  "playback_voice": "Čítať kroky nahlas",
+  "playback_voice_unavailable": "Žiadny hlas pre tento jazyk",
 
   "help_summary": "Ako správne odčítať väzby (keď riešič hovorí „nedá sa vyriešiť“)",
   "help_step1": "Daj quicksave PREDTÝM, než otvoríš zámok — to je tvoj východiskový bod (baseline). Kým je minihra otvorená, uložiť sa nedá, takže len vopred.",

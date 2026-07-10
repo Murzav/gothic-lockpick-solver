@@ -60,6 +60,8 @@
   "playback_restart": "Baştan",
   "playback_done": "Kilit açık",
   "playback_follow": "Tahtada takip et",
+  "playback_voice": "Adımları sesli oku",
+  "playback_voice_unavailable": "Bu dil için ses yok",
 
   "help_summary": "Bağlantıları doğru okumanın yolu (çözücü “çözülemez” diyorsa)",
   "help_step1": "Kilidi açmadan ÖNCE quicksave yap — bu senin başlangıç noktan (baseline). Mini oyun bir kere açıldı mı artık kaydedemezsin, o yüzden bunu en baştan halletmen gerekiyor.",

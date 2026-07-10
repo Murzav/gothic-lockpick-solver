@@ -5,6 +5,7 @@ import { playbackStore } from "./playback-store.svelte";
 import type { Solution } from "$lib/entities/lock/model/types";
 
 const STORAGE_KEY = "gls:playback:v1";
+const SPEECH_STORAGE_KEY = "gls:playback-speech:v1";
 
 // Assign a fabricated solver result and let the fresh-result effect settle
 // (it resets stepIndex to 0).
@@ -169,5 +170,28 @@ describe("playbackStore", () => {
     playbackStore.followBoard = false;
     flushSync();
     expect(localStorage.getItem(STORAGE_KEY)).toBe("false");
+  });
+
+  it("keeps voiceEnabled off by default, hydrates from storage, and persists changes", () => {
+    localStorage.removeItem(SPEECH_STORAGE_KEY);
+    playbackStore.loadVoiceEnabled();
+    expect(playbackStore.voiceEnabled).toBe(false); // opt-in: silent unless asked
+
+    localStorage.setItem(SPEECH_STORAGE_KEY, "true");
+    playbackStore.loadVoiceEnabled();
+    expect(playbackStore.voiceEnabled).toBe(true);
+
+    // A corrupt value must never surface as surprise audio.
+    localStorage.setItem(SPEECH_STORAGE_KEY, "{not json");
+    playbackStore.loadVoiceEnabled();
+    expect(playbackStore.voiceEnabled).toBe(false);
+
+    playbackStore.voiceEnabled = true;
+    flushSync();
+    expect(localStorage.getItem(SPEECH_STORAGE_KEY)).toBe("true");
+
+    playbackStore.voiceEnabled = false;
+    flushSync();
+    expect(localStorage.getItem(SPEECH_STORAGE_KEY)).toBe("false");
   });
 });

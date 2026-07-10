@@ -60,6 +60,8 @@
   "playback_restart": "Reiniciar",
   "playback_done": "Cerradura abierta",
   "playback_follow": "Seguir en el tablero",
+  "playback_voice": "Leer los pasos en voz alta",
+  "playback_voice_unavailable": "Sin voz para este idioma",
 
   "help_summary": "Cómo leer bien las conexiones (cuando el solucionador dice que no tiene solución)",
   "help_step1": "Haz un quicksave ANTES de abrir la cerradura: ese es tu punto de partida (baseline). Una vez abierto el minijuego ya no puedes guardar, así que tiene que ser antes.",

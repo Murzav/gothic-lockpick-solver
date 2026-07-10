@@ -60,6 +60,8 @@
   "playback_restart": "Recommencer",
   "playback_done": "Serrure ouverte",
   "playback_follow": "Suivre sur le plateau",
+  "playback_voice": "Lire les étapes à voix haute",
+  "playback_voice_unavailable": "Pas de voix pour cette langue",
 
   "help_summary": "Comment relever les liaisons correctement (quand le solveur dit que c'est insoluble)",
   "help_step1": "Fais un quicksave AVANT d'ouvrir la serrure — c'est ton point de référence (baseline). Une fois le mini-jeu lancé, impossible de sauvegarder : il faut donc t'y prendre avant.",

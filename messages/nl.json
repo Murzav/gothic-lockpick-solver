@@ -60,6 +60,8 @@
   "playback_restart": "Opnieuw",
   "playback_done": "Slot open",
   "playback_follow": "Volgen op het bord",
+  "playback_voice": "Stappen voorlezen",
+  "playback_voice_unavailable": "Geen stem voor deze taal",
 
   "help_summary": "Hoe je de koppelingen goed uitleest (als de solver zegt dat het onoplosbaar is)",
   "help_step1": "Maak een quicksave VOORDAT je het slot opent – dat is je nulpunt (baseline). Zodra de minigame open is, kun je niet meer opslaan, dus het moet vooraf.",

@@ -60,6 +60,8 @@
   "playback_restart": "Újra",
   "playback_done": "Zár nyitva",
   "playback_follow": "Követés a táblán",
+  "playback_voice": "Lépések felolvasása",
+  "playback_voice_unavailable": "Ehhez a nyelvhez nincs hang",
 
   "help_summary": "Hogyan olvasd le helyesen a kapcsolatokat (ha a megoldó azt mondja, nem megoldható)",
   "help_step1": "Nyomj quicksave-et, MIELŐTT kinyitod a zárat — ez a viszonyítási pontod (baseline). A megnyílt minijátékban már nem tudsz menteni, úgyhogy ennek muszáj legelőször megtörténnie.",

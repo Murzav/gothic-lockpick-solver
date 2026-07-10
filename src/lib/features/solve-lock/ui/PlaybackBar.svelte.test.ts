@@ -1,8 +1,9 @@
 import { render } from "vitest-browser-svelte";
-import { beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { flushSync } from "svelte";
 import { lockStore } from "$lib/entities/lock/model/lock-store.svelte";
 import { playbackStore } from "$lib/features/solve-lock/model/playback-store.svelte";
+import { speaker } from "$lib/shared/lib/speech";
 import PlaybackBar from "./PlaybackBar.svelte";
 import type { Solution } from "$lib/entities/lock/model/types";
 
@@ -24,8 +25,13 @@ describe("PlaybackBar", () => {
   beforeEach(() => {
     lockStore.reset();
     playbackStore.followBoard = true;
+    playbackStore.voiceEnabled = false;
     playbackStore.stepIndex = 0;
     flushSync();
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
   });
 
   it("hides when inactive and shows when active", async () => {
@@ -127,5 +133,116 @@ describe("PlaybackBar", () => {
 
     window.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowRight", cancelable: true }));
     expect(playbackStore.stepIndex).toBe(0);
+  });
+
+  // Spying replaces speak/cancel wholesale, so headless-chromium voice
+  // availability never reaches the real engine — the assertions pin the
+  // Speaker interface calls (text + language chain) rather than audio.
+  const EN_LANGS = ["en-US", "en"];
+
+  it("stays silent while voice is off (the default)", async () => {
+    const speak = vi.spyOn(speaker, "speak");
+    setResult(TWO_GROUPS);
+    const screen = render(PlaybackBar);
+
+    await screen.getByRole("button", { name: "Next →" }).click();
+    flushSync();
+    expect(playbackStore.stepIndex).toBe(1);
+    expect(speak).not.toHaveBeenCalled();
+  });
+
+  it("speaks the current step the moment voice is switched on", async () => {
+    vi.spyOn(speaker, "hasVoiceFor").mockReturnValue(true);
+    const speak = vi.spyOn(speaker, "speak");
+    setResult(TWO_GROUPS);
+    const screen = render(PlaybackBar);
+
+    await screen.getByRole("checkbox", { name: "Speak steps" }).click();
+    flushSync();
+    expect(speak).toHaveBeenCalledTimes(1);
+    expect(speak).toHaveBeenCalledWith({ text: "Plate 1. Right.", langs: EN_LANGS });
+  });
+
+  it("announces the next step (correct langs) when advancing with voice on", async () => {
+    vi.spyOn(speaker, "hasVoiceFor").mockReturnValue(true);
+    const speak = vi.spyOn(speaker, "speak");
+    playbackStore.voiceEnabled = true;
+    setResult(TWO_GROUPS);
+    const screen = render(PlaybackBar);
+    speak.mockClear();
+
+    await screen.getByRole("button", { name: "Next →" }).click();
+    flushSync();
+    expect(playbackStore.stepIndex).toBe(1);
+    expect(speak).toHaveBeenLastCalledWith({ text: "Plate 2. Right.", langs: EN_LANGS });
+  });
+
+  it("pins the count wording for a repeated-direction group", async () => {
+    vi.spyOn(speaker, "hasVoiceFor").mockReturnValue(true);
+    const speak = vi.spyOn(speaker, "speak");
+    setResult({
+      solvable: true,
+      moves: [
+        { plate: 0, dir: 1 },
+        { plate: 0, dir: 1 },
+        { plate: 0, dir: 1 },
+      ],
+      statesExplored: 4,
+    });
+    const screen = render(PlaybackBar);
+
+    await screen.getByRole("checkbox", { name: "Speak steps" }).click();
+    flushSync();
+    expect(speak).toHaveBeenCalledWith({ text: "Plate 1. Right, 3 times.", langs: EN_LANGS });
+  });
+
+  it("speaks the done phrase on reaching the end with voice on", async () => {
+    vi.spyOn(speaker, "hasVoiceFor").mockReturnValue(true);
+    const speak = vi.spyOn(speaker, "speak");
+    playbackStore.voiceEnabled = true;
+    setResult({ solvable: true, moves: [{ plate: 0, dir: 1 }], statesExplored: 2 });
+    const screen = render(PlaybackBar);
+    speak.mockClear();
+
+    await screen.getByRole("button", { name: "Next →" }).click(); // one group → Done
+    flushSync();
+    expect(playbackStore.atDone).toBe(true);
+    expect(speak).toHaveBeenLastCalledWith({ text: "Lock open", langs: EN_LANGS });
+  });
+
+  it("calls speak per rapid step — coalescing lives inside the speaker", async () => {
+    vi.spyOn(speaker, "hasVoiceFor").mockReturnValue(true);
+    const speak = vi.spyOn(speaker, "speak");
+    playbackStore.voiceEnabled = true;
+    setResult(TWO_GROUPS);
+    const screen = render(PlaybackBar);
+    speak.mockClear();
+
+    const next = screen.getByRole("button", { name: "Next →" });
+    await next.click();
+    await next.click();
+    flushSync();
+    expect(speak).toHaveBeenCalledTimes(2);
+  });
+
+  it("cancels speech on unmount", async () => {
+    const cancel = vi.spyOn(speaker, "cancel");
+    setResult(TWO_GROUPS);
+    const { unmount } = render(PlaybackBar);
+    cancel.mockClear();
+
+    await unmount();
+    expect(cancel).toHaveBeenCalled();
+  });
+
+  it("does not speak on the first render of an active bar", () => {
+    vi.spyOn(speaker, "hasVoiceFor").mockReturnValue(true);
+    const speak = vi.spyOn(speaker, "speak");
+    playbackStore.voiceEnabled = true;
+    setResult(TWO_GROUPS);
+    render(PlaybackBar);
+    flushSync();
+
+    expect(speak).not.toHaveBeenCalled();
   });
 });

@@ -60,6 +60,8 @@
   "playback_restart": "Restart",
   "playback_done": "Lock open",
   "playback_follow": "Follow on board",
+  "playback_voice": "Speak steps",
+  "playback_voice_unavailable": "No voice for this language",
 
   "help_summary": "How to read the links right (when the solver says it cannot be solved)",
   "help_step1": "Quicksave BEFORE you open the lock — that is your baseline. You cannot save once the mini-game is open, so it has to happen first.",

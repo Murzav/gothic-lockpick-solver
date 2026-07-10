@@ -60,6 +60,8 @@
   "playback_restart": "Od nowa",
   "playback_done": "Zamek otwarty",
   "playback_follow": "Śledź na planszy",
+  "playback_voice": "Czytaj kroki na głos",
+  "playback_voice_unavailable": "Brak głosu dla tego języka",
 
   "help_summary": "Jak poprawnie odczytać powiązania (gdy solver mówi, że się nie da)",
   "help_step1": "Zrób quicksave, ZANIM otworzysz zamek — to twój punkt odniesienia (baseline). Kiedy minigra jest już otwarta, zapisać się nie da, więc musisz to zrobić wcześniej.",

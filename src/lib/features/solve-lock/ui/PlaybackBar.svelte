@@ -1,10 +1,18 @@
 <script lang="ts">
   import { lockStore } from "$lib/entities/lock/model/lock-store.svelte";
+  import type { Solution } from "$lib/entities/lock/model/types";
   import { playbackStore } from "$lib/features/solve-lock/model/playback-store.svelte";
   import { physicalDirection } from "$lib/features/solve-lock/lib/moves";
+  import {
+    speechLangs,
+    stepPhrase,
+    donePhrase,
+  } from "$lib/features/solve-lock/lib/tts";
   import { DpadIcon } from "$lib/shared/ui";
   import { createWakeLock } from "$lib/shared/lib/wake-lock";
+  import { speaker } from "$lib/shared/lib/speech";
   import { m } from "$lib/paraglide/messages.js";
+  import { getLocale } from "$lib/paraglide/runtime.js";
 
   const grouped = $derived(playbackStore.grouped);
   const step = $derived(grouped[playbackStore.stepIndex]);
@@ -22,6 +30,80 @@
     void wakeLock.acquire();
     return () => wakeLock.release();
   });
+
+  /** Speak the step at `index` (Done phrase past the last group). Silently skips
+   * a stale index — on a fresh solve this can run before the store resets to 0,
+   * leaving grouped[index] undefined; the next run then speaks the real step. */
+  function speakStep(index: number): void {
+    const langs = speechLangs(getLocale());
+    if (index === grouped.length) {
+      speaker.speak({ text: donePhrase(), langs });
+      return;
+    }
+    const s = grouped[index];
+    if (!s) return;
+    speaker.speak({ text: stepPhrase(s, lockStore.convention), langs });
+  }
+
+  // Announce each step by voice. Trackers persist across effect runs (plain
+  // vars, not $state — reading them must not create dependencies) so we can tell
+  // a genuine change from an incidental re-run. The first run only primes them:
+  // it is the page-load/hydration restore, with no user gesture, and speaking
+  // then would be blocked by the autoplay policy anyway.
+  let primed = false;
+  let prevStepIndex = 0;
+  let prevResult: Solution | null = null;
+  $effect(() => {
+    // Read every dependency up front so the effect re-runs on any of them, even
+    // on the early-return paths below.
+    const active = playbackStore.active;
+    const voiceEnabled = playbackStore.voiceEnabled;
+    const stepIndex = playbackStore.stepIndex;
+    const result = lockStore.result;
+
+    if (!primed) {
+      primed = true;
+      prevStepIndex = stepIndex;
+      prevResult = result;
+      return;
+    }
+
+    if (!active || !voiceEnabled || !speaker.supported) {
+      // Silence anything in flight and re-arm, so re-activation does not replay
+      // a diff that accrued while muted.
+      speaker.cancel();
+      prevStepIndex = stepIndex;
+      prevResult = result;
+      return;
+    }
+
+    const changed = stepIndex !== prevStepIndex || result !== prevResult;
+    prevStepIndex = stepIndex;
+    prevResult = result;
+    if (changed) speakStep(stepIndex);
+  });
+
+  // Silence any in-flight announcement when the bar leaves the screen. This
+  // effect reads nothing reactive, so its cleanup runs only on unmount.
+  $effect(() => () => speaker.cancel());
+
+  // Whether a voice exists for the current language chain, kept reactive so the
+  // "no voice" hint appears once late-loading voices settle (or never do).
+  let hasVoice = $state(false);
+  $effect(() => {
+    const refresh = () => {
+      hasVoice = speaker.hasVoiceFor(speechLangs(getLocale()));
+    };
+    refresh();
+    return speaker.onVoicesChanged(refresh);
+  });
+
+  function onVoiceToggle(enabled: boolean): void {
+    // The toggle click is the user gesture that unlocks speech on iOS/Chrome;
+    // speak the current step right away so turning it on is confirmed by ear.
+    if (enabled) speakStep(playbackStore.stepIndex);
+    else speaker.cancel();
+  }
 
   function handleKey(e: KeyboardEvent): void {
     // The window listener lives at the component's top level (svelte:window
@@ -123,6 +205,20 @@
       <input type="checkbox" bind:checked={playbackStore.followBoard} />
       {m.playback_follow()}
     </label>
+
+    {#if speaker.supported}
+      <label class="follow">
+        <input
+          type="checkbox"
+          bind:checked={playbackStore.voiceEnabled}
+          onchange={(e) => onVoiceToggle(e.currentTarget.checked)}
+        />
+        {m.playback_voice()}
+      </label>
+      {#if playbackStore.voiceEnabled && !hasVoice}
+        <span class="voice-hint">{m.playback_voice_unavailable()}</span>
+      {/if}
+    {/if}
   </div>
 {/if}
 
@@ -241,5 +337,10 @@
     font-size: 0.8rem;
     color: var(--text-muted);
     cursor: pointer;
+  }
+
+  .voice-hint {
+    font-size: 0.8rem;
+    color: var(--text-muted);
   }
 </style>
