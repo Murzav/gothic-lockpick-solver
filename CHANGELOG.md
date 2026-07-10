@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.1] - 2026-07-10
+
 ### Fixed
 
 - A step announcement could intermittently stay silent (most often the second step, right after the auto-spoken first one) on browsers whose speech engine silently drops an utterance submitted shortly after an interruption. The speaker now watches for the engine actually starting to talk and, if nothing is heard within half a second, resets the queue and resubmits the phrase once — so the worst case is a slightly late announcement instead of a missing one. An idle engine is also no longer interrupted needlessly, which sidesteps the race in the common case.
