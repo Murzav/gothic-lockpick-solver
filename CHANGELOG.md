@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-07-10
+
 ### Added
 
 - Voice step announcements. An opt-in "Speak steps" checkbox on the playback bar reads every replay step aloud — "Plate 6. Right, 3 times." — in the interface language, so the combination can be entered by ear without looking back at the screen. Announcements use the browser's built-in speech synthesis (Web Speech API): nothing is downloaded, everything stays offline. A fresh solve and every Prev/Next/Restart announce the step you should perform; rapid stepping never queues a backlog (each announcement replaces the previous one); turning the checkbox on speaks immediately, which also unlocks audio on iOS. Counts are grammatically correct in all 20 locales — the Slavic 1/2–4/5+ split ("3 рази" / "5 разів"), spelled-out Czech/Slovak/Hungarian multiplicatives ("třikrát", "háromszor"), the Chinese measure word ("两次") and the feminine "2" in Romanian, Catalan and Portuguese ("de două ori", "dues vegades", "duas vezes"). When the browser has no voice for the language, a near-language voice steps in where that is intelligible (Valencian → Catalan, Slovak → Czech, Latin-American Spanish → es-MX); otherwise the app shows a quiet "no voice for this language" hint and stays silent rather than letting an English voice garble foreign words.
