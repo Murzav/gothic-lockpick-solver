@@ -45,6 +45,10 @@
   "board_connections_aria": "Conexiones de la placa {n}",
   "board_follow_banner": "El tablero sigue la solución: posiciones antes del paso actual",
   "board_follow_edit": "Editar cerradura",
+  "board_keys_hint": "↑↓ elegir placa · 1–7 posición · Shift 1–7 conexión · Enter resolver",
+  "board_region_aria": "Placas de la cerradura — editables con el teclado",
+  "entry_announce_position": "Placa {n}, posición {pos}",
+  "entry_announce_coupling": "Placa {from} a placa {to}: {state}",
 
   "form_move_caption": "cuando mueves P{n}",
   "link_self": "placa actual",

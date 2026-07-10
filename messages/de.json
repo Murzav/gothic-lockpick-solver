@@ -45,6 +45,10 @@
   "board_connections_aria": "Verbindungen von Platte {n}",
   "board_follow_banner": "Das Brett folgt der Lösung — Positionen vor dem aktuellen Schritt",
   "board_follow_edit": "Schloss bearbeiten",
+  "board_keys_hint": "↑↓ Platte wählen · 1–7 Position · Shift 1–7 Verbindung · Enter lösen",
+  "board_region_aria": "Schlossplatten — per Tastatur bearbeitbar",
+  "entry_announce_position": "Platte {n}, Position {pos}",
+  "entry_announce_coupling": "Platte {from} zu Platte {to}: {state}",
 
   "form_move_caption": "wenn du P{n} bewegst",
   "link_self": "aktuelle Platte",

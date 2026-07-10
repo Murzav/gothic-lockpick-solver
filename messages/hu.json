@@ -45,6 +45,10 @@
   "board_connections_aria": "{n}. lemez kapcsolatai",
   "board_follow_banner": "A tábla követi a megoldást — az aktuális lépés előtti állás",
   "board_follow_edit": "Zár szerkesztése",
+  "board_keys_hint": "↑↓ lemezválasztás · 1–7 pozíció · Shift 1–7 kapcsolat · Enter megoldás",
+  "board_region_aria": "A zár lemezei — billentyűzetről szerkeszthető",
+  "entry_announce_position": "{n}. lemez, {pos}. pozíció",
+  "entry_announce_coupling": "{from}. lemez → {to}. lemez: {state}",
 
   "form_move_caption": "L{n} mozdításakor",
   "link_self": "ez a lemez",

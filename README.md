@@ -28,6 +28,7 @@ The app has a short "Where to count from" note near the top. Read it before you 
 - **Shortest solution, guaranteed.** It searches every reachable state, so the move list is as short as it can be, and it never suggests a move that jams the lock or wastes a pick.
 - **Honest about impossible locks.** Some locks really can't be opened (at Master level the skill can strip out a link you needed). The tool tells you rather than pretending.
 - **Two ways to enter a lock:** a visual board you click, or a compact table. Switch whenever you like, nothing is lost.
+- **Keyboard-fast entry.** On the board: ↑/↓ picks a plate, 1–7 sets its position, Shift+1–7 cycles its links, Enter solves — a whole lock in under twenty keystrokes.
 - **Step-by-step playback** that highlights the plate being moved.
 - **Voice announcements.** Turn on "Speak steps" in the Voice panel (left column, next to the counting convention) and every step is read aloud in your language — "Plate 6. Right, 3 times." — so you can enter the combination by ear without looking away from the game. A Speed control picks how fast the steps are read. It uses the voices built into your browser, works offline, and the counts are grammatically correct in every language.
 - **Hands-free autoplay.** Press Play (or P) and the replay walks itself: each step is read aloud and the bar waits long enough for you to actually press the plates in the game before moving on. Missed one? R repeats the current step.

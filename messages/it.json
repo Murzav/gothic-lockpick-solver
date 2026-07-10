@@ -45,6 +45,10 @@
   "board_connections_aria": "Collegamenti della piastra {n}",
   "board_follow_banner": "La plancia segue la soluzione — posizioni prima del passo attuale",
   "board_follow_edit": "Modifica serratura",
+  "board_keys_hint": "↑↓ scegli piastra · 1–7 posizione · Shift 1–7 collegamento · Enter risolvi",
+  "board_region_aria": "Piastre della serratura — modificabili da tastiera",
+  "entry_announce_position": "Piastra {n}, posizione {pos}",
+  "entry_announce_coupling": "Piastra {from} alla piastra {to}: {state}",
 
   "form_move_caption": "quando muovi P{n}",
   "link_self": "piastra corrente",

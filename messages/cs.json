@@ -45,6 +45,10 @@
   "board_connections_aria": "Vazby destičky {n}",
   "board_follow_banner": "Deska sleduje řešení — pozice před aktuálním krokem",
   "board_follow_edit": "Upravit zámek",
+  "board_keys_hint": "↑↓ vyber destičku · 1–7 pozice · Shift 1–7 vazba · Enter vyřešit",
+  "board_region_aria": "Destičky zámku — upravitelné z klávesnice",
+  "entry_announce_position": "Destička {n}, pozice {pos}",
+  "entry_announce_coupling": "Destička {from} k destičce {to}: {state}",
 
   "form_move_caption": "když posuneš D{n}",
   "link_self": "aktuální destička",

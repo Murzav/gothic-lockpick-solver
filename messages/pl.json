@@ -45,6 +45,10 @@
   "board_connections_aria": "Powiązania płytki {n}",
   "board_follow_banner": "Plansza podąża za rozwiązaniem — pozycje przed bieżącym krokiem",
   "board_follow_edit": "Edytuj zamek",
+  "board_keys_hint": "↑↓ wybierz płytkę · 1–7 pozycja · Shift 1–7 powiązanie · Enter rozwiąż",
+  "board_region_aria": "Płytki zamka — edytowalne z klawiatury",
+  "entry_announce_position": "Płytka {n}, pozycja {pos}",
+  "entry_announce_coupling": "Płytka {from} do płytki {to}: {state}",
 
   "form_move_caption": "gdy przesuwasz P{n}",
   "link_self": "bieżąca płytka",

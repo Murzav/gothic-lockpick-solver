@@ -45,6 +45,10 @@
   "board_connections_aria": "Зв'язки пластини {n}",
   "board_follow_banner": "Дошка стежить за розв'язком — позиції перед поточним кроком",
   "board_follow_edit": "Змінити замок",
+  "board_keys_hint": "↑↓ вибір пластини · 1–7 позиція · Shift 1–7 зв'язок · Enter розв'язати",
+  "board_region_aria": "Пластини замка — редагування з клавіатури",
+  "entry_announce_position": "Пластина {n}, позиція {pos}",
+  "entry_announce_coupling": "Пластина {from} до пластини {to}: {state}",
 
   "form_move_caption": "коли рухаєш П{n}",
   "link_self": "поточна пластина",

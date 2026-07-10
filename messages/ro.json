@@ -45,6 +45,10 @@
   "board_connections_aria": "Legăturile plăcuței {n}",
   "board_follow_banner": "Tabla urmează soluția — pozițiile dinaintea pasului curent",
   "board_follow_edit": "Editează încuietoarea",
+  "board_keys_hint": "↑↓ alege plăcuța · 1–7 poziție · Shift 1–7 legătură · Enter rezolvă",
+  "board_region_aria": "Plăcuțele încuietorii — editabile de la tastatură",
+  "entry_announce_position": "Plăcuța {n}, poziția {pos}",
+  "entry_announce_coupling": "Plăcuța {from} către plăcuța {to}: {state}",
 
   "form_move_caption": "când miști P{n}",
   "link_self": "plăcuța curentă",

@@ -45,6 +45,10 @@
   "board_connections_aria": "Väzby platničky {n}",
   "board_follow_banner": "Doska sleduje riešenie — pozície pred aktuálnym krokom",
   "board_follow_edit": "Upraviť zámok",
+  "board_keys_hint": "↑↓ vyber platničku · 1–7 pozícia · Shift 1–7 väzba · Enter vyriešiť",
+  "board_region_aria": "Platničky zámku — upraviteľné z klávesnice",
+  "entry_announce_position": "Platnička {n}, pozícia {pos}",
+  "entry_announce_coupling": "Platnička {from} k platničke {to}: {state}",
 
   "form_move_caption": "keď pohneš P{n}",
   "link_self": "táto platnička",

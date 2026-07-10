@@ -45,6 +45,10 @@
   "board_connections_aria": "Links of plate {n}",
   "board_follow_banner": "The board follows the solution — positions before the current step",
   "board_follow_edit": "Edit lock",
+  "board_keys_hint": "↑↓ pick plate · 1–7 position · Shift 1–7 link · Enter solve",
+  "board_region_aria": "Lock plates — keyboard editable",
+  "entry_announce_position": "Plate {n}, position {pos}",
+  "entry_announce_coupling": "Plate {from} to plate {to}: {state}",
 
   "form_move_caption": "when you move P{n}",
   "link_self": "current plate",

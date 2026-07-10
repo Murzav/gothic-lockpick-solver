@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Keyboard-first lock entry on the board. Three rules: ↑/↓ pick a plate (the same way the game does), 1–7 set its position, Shift+1–7 cycle its link to plate k, Enter solves — a five-plate lock goes in from the keyboard in under twenty keystrokes, no mouse. Works on any keyboard layout (physical keys, not characters), leaves every existing mouse control untouched, and announces each edit to screen readers; a one-line legend under the board spells the keys out.
+
 ## [0.6.0] - 2026-07-10
 
 ### Added

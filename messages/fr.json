@@ -45,6 +45,10 @@
   "board_connections_aria": "Liaisons de la plaque {n}",
   "board_follow_banner": "Le plateau suit la solution — positions avant l'étape actuelle",
   "board_follow_edit": "Modifier la serrure",
+  "board_keys_hint": "↑↓ choisir plaque · 1–7 position · Shift 1–7 liaison · Enter résoudre",
+  "board_region_aria": "Plaques de la serrure — modifiables au clavier",
+  "entry_announce_position": "Plaque {n}, position {pos}",
+  "entry_announce_coupling": "Plaque {from} vers la plaque {to} : {state}",
 
   "form_move_caption": "quand tu bouges P{n}",
   "link_self": "plaque actuelle",

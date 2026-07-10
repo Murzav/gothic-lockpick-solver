@@ -45,6 +45,10 @@
   "board_connections_aria": "Koppelingen van plaat {n}",
   "board_follow_banner": "Het bord volgt de oplossing — standen vóór de huidige stap",
   "board_follow_edit": "Slot bewerken",
+  "board_keys_hint": "↑↓ plaat kiezen · 1–7 positie · Shift 1–7 koppeling · Enter oplossen",
+  "board_region_aria": "Slotplaten — met toetsenbord bewerkbaar",
+  "entry_announce_position": "Plaat {n}, positie {pos}",
+  "entry_announce_coupling": "Plaat {from} naar plaat {to}: {state}",
 
   "form_move_caption": "als je P{n} beweegt",
   "link_self": "huidige plaat",

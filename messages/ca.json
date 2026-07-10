@@ -45,6 +45,10 @@
   "board_connections_aria": "Vincles de la placa {n}",
   "board_follow_banner": "El tauler segueix la solució: posicions abans del pas actual",
   "board_follow_edit": "Edita el pany",
+  "board_keys_hint": "↑↓ tria placa · 1–7 posició · Shift 1–7 vincle · Enter resol",
+  "board_region_aria": "Plaques del pany — editables amb el teclat",
+  "entry_announce_position": "Placa {n}, posició {pos}",
+  "entry_announce_coupling": "Placa {from} a placa {to}: {state}",
 
   "form_move_caption": "quan mous P{n}",
   "link_self": "placa actual",

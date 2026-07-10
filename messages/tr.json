@@ -45,6 +45,10 @@
   "board_connections_aria": "Plaka {n} bağlantıları",
   "board_follow_banner": "Tahta çözümü izliyor — geçerli adımdan önceki konumlar",
   "board_follow_edit": "Kilidi düzenle",
+  "board_keys_hint": "↑↓ plaka seç · 1–7 konum · Shift 1–7 bağlantı · Enter çöz",
+  "board_region_aria": "Kilit plakaları — klavyeyle düzenlenebilir",
+  "entry_announce_position": "Plaka {n}, konum {pos}",
+  "entry_announce_coupling": "Plaka {from} → plaka {to}: {state}",
 
   "form_move_caption": "P{n} hareket ettiğinde",
   "link_self": "bu plaka",
