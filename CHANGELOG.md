@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Hands-free autoplay. A Play/Pause button on the playback bar (hotkey P) walks the solution automatically: each step is announced (when voice is on) and the bar lingers long enough to actually perform it in the game — the pause scales with how many times the plate must be pressed and with the chosen speech speed. Autoplay stops at "Lock open", steps aside the moment you take manual control (Prev/Next/Restart or their keys), and pauses itself when the tab goes to the background rather than desyncing. Play at the end restarts from step one. It also works with voice off, as a silent metronome paired with the board follow mode.
+- A repeat control: press R (or the speaker button on the bar) to hear the current step again. It answers even when "Speak steps" is off — a deliberate one-shot request, handy when a step was missed mid-game.
+
 ## [0.4.0] - 2026-07-10
 
 ### Changed

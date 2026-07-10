@@ -23,6 +23,7 @@ const TWO_GROUPS: Solution = {
 
 describe("PlaybackBar", () => {
   beforeEach(() => {
+    playbackStore.pause(); // drop any dwell timer a prior test left running
     lockStore.reset();
     playbackStore.followBoard = true;
     playbackStore.voiceEnabled = false;
@@ -218,5 +219,133 @@ describe("PlaybackBar", () => {
     flushSync();
 
     expect(speak).not.toHaveBeenCalled();
+  });
+
+  it("swaps the transport button label between Play and Pause", async () => {
+    setResult(TWO_GROUPS);
+    const screen = render(PlaybackBar);
+
+    await expect.element(screen.getByRole("button", { name: "Play" })).toBeVisible();
+    await screen.getByRole("button", { name: "Play" }).click();
+    await expect.element(screen.getByRole("button", { name: "Pause" })).toBeVisible();
+    await screen.getByRole("button", { name: "Pause" }).click();
+    await expect.element(screen.getByRole("button", { name: "Play" })).toBeVisible();
+    playbackStore.pause();
+  });
+
+  it("toggles play/pause with the p key", () => {
+    setResult(TWO_GROUPS);
+    render(PlaybackBar);
+
+    window.dispatchEvent(new KeyboardEvent("keydown", { key: "p", cancelable: true }));
+    flushSync();
+    expect(playbackStore.isPlaying).toBe(true);
+
+    window.dispatchEvent(new KeyboardEvent("keydown", { key: "p", cancelable: true }));
+    flushSync();
+    expect(playbackStore.isPlaying).toBe(false);
+    playbackStore.pause();
+  });
+
+  it("kickoff: pressing Play at step 0 speaks that step exactly once (voice on)", async () => {
+    vi.spyOn(speaker, "hasVoiceFor").mockReturnValue(true);
+    const speak = vi.spyOn(speaker, "speak");
+    playbackStore.voiceEnabled = true;
+    setResult(TWO_GROUPS);
+    const screen = render(PlaybackBar);
+    speak.mockClear();
+
+    await screen.getByRole("button", { name: "Play" }).click();
+    flushSync();
+    expect(playbackStore.isPlaying).toBe(true);
+    expect(speak).toHaveBeenCalledTimes(1);
+    expect(speak).toHaveBeenLastCalledWith({
+      text: "Plate 1. Right.",
+      langs: EN_LANGS,
+      rate: 0.9,
+    });
+    playbackStore.pause();
+  });
+
+  it("plays silently when voice is off — advances with no speech", () => {
+    const speak = vi.spyOn(speaker, "speak");
+    setResult(TWO_GROUPS);
+    render(PlaybackBar);
+    speak.mockClear();
+
+    // Only the dwell timer is faked; the kickoff/step effect still flushes.
+    vi.useFakeTimers({ toFake: ["setTimeout", "clearTimeout"] });
+    try {
+      playbackStore.play();
+      flushSync();
+      expect(playbackStore.isPlaying).toBe(true);
+
+      vi.advanceTimersToNextTimer(); // one dwell elapses
+      flushSync();
+      expect(playbackStore.stepIndex).toBe(1);
+      expect(speak).not.toHaveBeenCalled();
+    } finally {
+      playbackStore.pause();
+      vi.useRealTimers();
+    }
+  });
+
+  it("repeats the current step with the r key even when voice is off", () => {
+    vi.spyOn(speaker, "hasVoiceFor").mockReturnValue(true);
+    const speak = vi.spyOn(speaker, "speak");
+    playbackStore.voiceEnabled = false;
+    setResult(TWO_GROUPS);
+    render(PlaybackBar);
+    speak.mockClear();
+
+    window.dispatchEvent(new KeyboardEvent("keydown", { key: "r", cancelable: true }));
+    flushSync();
+    expect(speak).toHaveBeenCalledTimes(1);
+    expect(speak).toHaveBeenLastCalledWith({
+      text: "Plate 1. Right.",
+      langs: EN_LANGS,
+      rate: 0.9,
+    });
+  });
+
+  it("repeats the done phrase with the r key at Done", () => {
+    vi.spyOn(speaker, "hasVoiceFor").mockReturnValue(true);
+    const speak = vi.spyOn(speaker, "speak");
+    setResult({ solvable: true, moves: [{ plate: 0, dir: 1 }], statesExplored: 2 });
+    playbackStore.next(); // one group → Done
+    flushSync();
+    render(PlaybackBar);
+    speak.mockClear();
+
+    window.dispatchEvent(new KeyboardEvent("keydown", { key: "r", cancelable: true }));
+    flushSync();
+    expect(playbackStore.atDone).toBe(true);
+    expect(speak).toHaveBeenLastCalledWith({ text: "Lock open", langs: EN_LANGS, rate: 0.9 });
+  });
+
+  it("ignores the r key while the bar is inactive", () => {
+    const speak = vi.spyOn(speaker, "speak");
+    render(PlaybackBar); // no result → inactive
+    speak.mockClear();
+
+    window.dispatchEvent(new KeyboardEvent("keydown", { key: "r", cancelable: true }));
+    flushSync();
+    expect(speak).not.toHaveBeenCalled();
+  });
+
+  it("speaks the current step when the Repeat button is clicked", async () => {
+    vi.spyOn(speaker, "hasVoiceFor").mockReturnValue(true);
+    const speak = vi.spyOn(speaker, "speak");
+    setResult(TWO_GROUPS);
+    const screen = render(PlaybackBar);
+    speak.mockClear();
+
+    await screen.getByRole("button", { name: "Repeat step" }).click();
+    flushSync();
+    expect(speak).toHaveBeenLastCalledWith({
+      text: "Plate 1. Right.",
+      langs: EN_LANGS,
+      rate: 0.9,
+    });
   });
 });

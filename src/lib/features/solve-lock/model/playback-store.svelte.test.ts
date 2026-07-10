@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { flushSync } from "svelte";
 import { lockStore } from "$lib/entities/lock/model/lock-store.svelte";
 import { playbackStore } from "./playback-store.svelte";
@@ -228,5 +228,123 @@ describe("playbackStore", () => {
     playbackStore.voiceRate = 0.75;
     flushSync();
     expect(localStorage.getItem(RATE_STORAGE_KEY)).toBe("0.75");
+  });
+});
+
+const TWO_GROUPS: Solution = {
+  solvable: true,
+  moves: [
+    { plate: 0, dir: 1 },
+    { plate: 1, dir: 1 },
+  ],
+  statesExplored: 3,
+};
+
+// Only setTimeout/clearTimeout are faked, so Svelte's microtask scheduler (and
+// flushSync) keep working — the transport's dwell timer is the sole thing under
+// the test's control. advanceTimersToNextTimer fires exactly one dwell, which
+// is precise regardless of the dwell arithmetic.
+describe("playbackStore autoplay", () => {
+  beforeEach(() => {
+    playbackStore.pause(); // drop any handle left by an earlier test
+    lockStore.reset();
+    playbackStore.stepIndex = 0;
+    flushSync();
+    vi.useFakeTimers({ toFake: ["setTimeout", "clearTimeout"] });
+  });
+
+  afterEach(() => {
+    playbackStore.pause(); // clear the pending fake timer before restoring
+    vi.useRealTimers();
+  });
+
+  it("advances one group per dwell, then stops at Done", () => {
+    setResult(TWO_GROUPS);
+    playbackStore.play();
+    flushSync();
+    expect(playbackStore.isPlaying).toBe(true);
+    expect(playbackStore.stepIndex).toBe(0);
+
+    vi.advanceTimersToNextTimer(); // dwell of step 0 elapses
+    flushSync();
+    expect(playbackStore.stepIndex).toBe(1);
+    expect(playbackStore.isPlaying).toBe(true);
+
+    vi.advanceTimersToNextTimer(); // dwell of step 1 elapses → Done
+    flushSync();
+    expect(playbackStore.stepIndex).toBe(2);
+    expect(playbackStore.atDone).toBe(true);
+    expect(playbackStore.isPlaying).toBe(false); // parks, no reschedule
+  });
+
+  it("restarts from the first step when Play is pressed at Done", () => {
+    setResult(TWO_GROUPS);
+    playbackStore.stepIndex = 2; // Done
+    flushSync();
+    expect(playbackStore.atDone).toBe(true);
+
+    playbackStore.play();
+    flushSync();
+    expect(playbackStore.stepIndex).toBe(0);
+    expect(playbackStore.isPlaying).toBe(true);
+  });
+
+  it("pauses on manual next()/prev()/restart()", () => {
+    setResult(TWO_GROUPS);
+
+    playbackStore.play();
+    flushSync();
+    playbackStore.next();
+    flushSync();
+    expect(playbackStore.isPlaying).toBe(false);
+    expect(playbackStore.stepIndex).toBe(1);
+
+    playbackStore.play();
+    flushSync();
+    playbackStore.prev();
+    flushSync();
+    expect(playbackStore.isPlaying).toBe(false);
+    expect(playbackStore.stepIndex).toBe(0);
+
+    playbackStore.play();
+    flushSync();
+    playbackStore.restart();
+    flushSync();
+    expect(playbackStore.isPlaying).toBe(false);
+    expect(playbackStore.stepIndex).toBe(0);
+  });
+
+  it("pause() cancels the pending advance so no step lands later", () => {
+    setResult(TWO_GROUPS);
+    playbackStore.play();
+    flushSync();
+    playbackStore.pause();
+    flushSync();
+    expect(playbackStore.isPlaying).toBe(false);
+
+    vi.advanceTimersByTime(100000); // the timer was cleared — nothing fires
+    flushSync();
+    expect(playbackStore.stepIndex).toBe(0);
+  });
+
+  it("stops autoplay when a fresh result arrives", () => {
+    setResult(TWO_GROUPS);
+    playbackStore.play();
+    flushSync();
+    expect(playbackStore.isPlaying).toBe(true);
+
+    setResult({ solvable: true, moves: [{ plate: 0, dir: 1 }], statesExplored: 2 });
+    expect(playbackStore.isPlaying).toBe(false);
+    expect(playbackStore.stepIndex).toBe(0);
+  });
+
+  it("stops autoplay when the playable surface goes away", () => {
+    setResult(TWO_GROUPS);
+    playbackStore.play();
+    flushSync();
+    expect(playbackStore.isPlaying).toBe(true);
+
+    setResult({ solvable: false, moves: null, statesExplored: 1 }); // active → false
+    expect(playbackStore.isPlaying).toBe(false);
   });
 });

@@ -3,6 +3,15 @@ import { applyMove } from "$lib/entities/lock/model/lock";
 import { lockStore } from "$lib/entities/lock/model/lock-store.svelte";
 import type { LockState } from "$lib/entities/lock/model/types";
 import { groupMoves } from "$lib/features/solve-lock/lib/moves";
+import { computeAutoplayDwell } from "$lib/features/solve-lock/lib/autoplay";
+import { speaker } from "$lib/shared/lib/speech";
+
+// The pending auto-advance handle. Kept at module scope (one singleton store)
+// rather than as $state: it is scheduling plumbing, never rendered, and making
+// it reactive would only invite spurious effect runs. Speech is *not* driven
+// from here — the store just moves stepIndex and lets PlaybackBar's step effect
+// speak — so it stays free of the announce.ts import cycle.
+let autoplayTimer: ReturnType<typeof setTimeout> | null = null;
 
 const STORAGE_KEY = "gls:playback:v1";
 const SPEECH_STORAGE_KEY = "gls:playback-speech:v1";
@@ -29,6 +38,9 @@ class PlaybackStore {
   voiceEnabled = $state(false);
   /** Spoken playback rate; one of VOICE_RATES, persisted under its own key. */
   voiceRate = $state(0.9);
+  /** Autoplay is running: the transport advances itself on a dwell timer.
+   * Not persisted — every visit starts stopped, so nothing plays unprompted. */
+  isPlaying = $state(false);
 
   grouped = $derived(
     lockStore.result?.solvable && lockStore.result.moves ? groupMoves(lockStore.result.moves) : [],
@@ -54,24 +66,84 @@ class PlaybackStore {
     return state;
   });
 
+  /** Cancel any pending auto-advance. Idempotent; safe on an already-fired timer. */
+  private clearTimer(): void {
+    if (autoplayTimer !== null) {
+      clearTimeout(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+
+  /**
+   * Arm the next auto-advance. Dwell inputs (count, voice on/off, rate) are read
+   * here, at schedule time, so a mid-run change to voice or speed is honoured on
+   * the very next tick without restarting playback.
+   */
+  private scheduleAdvance(): void {
+    this.clearTimer();
+    const step = this.grouped[this.stepIndex];
+    const dwell = computeAutoplayDwell(step ? step.count : 1, {
+      speaking: this.voiceEnabled && speaker.supported,
+      voiceRate: this.voiceRate,
+    });
+    autoplayTimer = setTimeout(() => this.autoAdvance(), dwell);
+  }
+
+  /**
+   * The timer body: step forward one group and either stop at Done or arm the
+   * next dwell. Deliberately separate from the public next() — that one pauses
+   * first (manual control wins), whereas this one is the running engine.
+   */
+  private autoAdvance(): void {
+    this.stepIndex = Math.min(this.grouped.length, this.stepIndex + 1);
+    if (this.stepIndex === this.grouped.length) {
+      // Reached Done: park here, do not loop.
+      autoplayTimer = null;
+      this.isPlaying = false;
+      return;
+    }
+    this.scheduleAdvance();
+  }
+
+  /** Start autoplay; from Done it rewinds to the first step first. Speech, if
+   * on, is kicked off by PlaybackBar reacting to isPlaying — not from here. */
+  play(): void {
+    if (!this.active) return;
+    if (this.atDone) this.stepIndex = 0;
+    this.isPlaying = true;
+    this.scheduleAdvance();
+  }
+
+  /** Halt autoplay but let any in-flight phrase finish — cancelling speech
+   * mid-word is jarring, so we only stop the timer, never the voice. */
+  pause(): void {
+    this.clearTimer();
+    this.isPlaying = false;
+  }
+
   next(): void {
+    this.pause();
     this.stepIndex = Math.min(this.grouped.length, this.stepIndex + 1);
   }
 
   prev(): void {
+    this.pause();
     this.stepIndex = Math.max(0, this.stepIndex - 1);
   }
 
   restart(): void {
+    this.pause();
     this.stepIndex = 0;
   }
 
   toFirst(): void {
+    this.pause();
     this.stepIndex = 0;
   }
 
   /** End key: the last instruction step, not the Done pseudo-step. */
   toLast(): void {
+    this.pause();
     this.stepIndex = Math.max(0, this.grouped.length - 1);
   }
 
@@ -146,9 +218,20 @@ if (browser) {
       }
     });
 
-    // A freshly computed result always restarts the playback.
+    // A freshly computed result always restarts the playback — and stops any
+    // autoplay left running for the previous lock.
     $effect(() => {
-      if (lockStore.result) playbackStore.stepIndex = 0;
+      if (lockStore.result) {
+        playbackStore.pause();
+        playbackStore.stepIndex = 0;
+      }
+    });
+
+    // Losing the playable surface (unsolvable/already-open result, or the board
+    // being edited) must halt a running autoplay; a timer firing against a
+    // hidden bar would be invisible motion.
+    $effect(() => {
+      if (!playbackStore.active) playbackStore.pause();
     });
 
     // Light up the plate about to move (null at Done): the solution becomes
