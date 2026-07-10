@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-07-10
+
 ### Added
 
 - Share a lock as a link. A "Copy link" button next to Solve/Reset packs the whole lock — plates, positions, links, direction convention — into a ~19-character URL. Opening the link restores the lock and solves it immediately; the recipient sees it in their own language. A damaged or truncated link is politely rejected ("your lock was left unchanged") rather than silently opening a different lock, and links from future versions of the tool say so instead of breaking.
