@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-07-10
+
 ### Changed
 
 - Voice announcements now live in their own "Voice" settings card in the left column next to the counting convention, instead of a cramped checkbox on the playback bar. The "Speak steps" toggle keeps working the same way (turning it on still speaks the current step to unlock audio), and a new Speed control (Slow / Normal / Fast) lets you pick how fast the steps are read; the choice is remembered across sessions and takes effect the moment you change it. The card is hidden entirely on browsers without speech synthesis.
