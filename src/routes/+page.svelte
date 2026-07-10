@@ -11,6 +11,7 @@
   import SolveButton from "$lib/features/solve-lock/ui/SolveButton.svelte";
   import ResultPanel from "$lib/features/solve-lock/ui/ResultPanel.svelte";
   import PlaybackBar from "$lib/features/solve-lock/ui/PlaybackBar.svelte";
+  import VoiceSettings from "$lib/features/solve-lock/ui/VoiceSettings.svelte";
   import { playbackStore } from "$lib/features/solve-lock/model/playback-store.svelte";
   import { m } from "$lib/paraglide/messages.js";
 
@@ -92,6 +93,8 @@
           <p class="hint">{m.direction_hint()}</p>
         </div>
       </Card>
+
+      <VoiceSettings />
     </aside>
 
     <main class="col-tool">

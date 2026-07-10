@@ -62,6 +62,11 @@
   "playback_follow": "Segui sulla plancia",
   "playback_voice": "Leggi i passi ad alta voce",
   "playback_voice_unavailable": "Nessuna voce per questa lingua",
+  "voice_title": "Voce",
+  "voice_rate_label": "Velocità",
+  "voice_rate_slow": "Lenta",
+  "voice_rate_normal": "Normale",
+  "voice_rate_fast": "Veloce",
 
   "help_summary": "Come rilevare bene i collegamenti (quando il solver dice che è irrisolvibile)",
   "help_step1": "Fai un quicksave PRIMA di aprire la serratura: è il tuo punto di partenza (baseline). Una volta aperto il minigioco non puoi più salvare, quindi va fatto per forza prima.",

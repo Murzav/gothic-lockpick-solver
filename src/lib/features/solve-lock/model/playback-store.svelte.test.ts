@@ -6,6 +6,7 @@ import type { Solution } from "$lib/entities/lock/model/types";
 
 const STORAGE_KEY = "gls:playback:v1";
 const SPEECH_STORAGE_KEY = "gls:playback-speech:v1";
+const RATE_STORAGE_KEY = "gls:playback-speech-rate:v1";
 
 // Assign a fabricated solver result and let the fresh-result effect settle
 // (it resets stepIndex to 0).
@@ -193,5 +194,39 @@ describe("playbackStore", () => {
     playbackStore.voiceEnabled = false;
     flushSync();
     expect(localStorage.getItem(SPEECH_STORAGE_KEY)).toBe("false");
+  });
+
+  it("defaults voiceRate to 0.9, accepts presets, and rejects corrupt/foreign values", () => {
+    localStorage.removeItem(RATE_STORAGE_KEY);
+    playbackStore.loadVoiceRate();
+    expect(playbackStore.voiceRate).toBe(0.9); // default: the clearest rate
+
+    localStorage.setItem(RATE_STORAGE_KEY, "0.75");
+    playbackStore.loadVoiceRate();
+    expect(playbackStore.voiceRate).toBe(0.75);
+
+    localStorage.setItem(RATE_STORAGE_KEY, "1.1");
+    playbackStore.loadVoiceRate();
+    expect(playbackStore.voiceRate).toBe(1.1);
+
+    // A number outside the preset set is untrusted → back to the default.
+    localStorage.setItem(RATE_STORAGE_KEY, "2");
+    playbackStore.loadVoiceRate();
+    expect(playbackStore.voiceRate).toBe(0.9);
+
+    // A corrupt value must never surface as an unusable rate.
+    localStorage.setItem(RATE_STORAGE_KEY, "{not json");
+    playbackStore.loadVoiceRate();
+    expect(playbackStore.voiceRate).toBe(0.9);
+  });
+
+  it("persists voiceRate changes to its own key", () => {
+    playbackStore.voiceRate = 1.1;
+    flushSync();
+    expect(localStorage.getItem(RATE_STORAGE_KEY)).toBe("1.1");
+
+    playbackStore.voiceRate = 0.75;
+    flushSync();
+    expect(localStorage.getItem(RATE_STORAGE_KEY)).toBe("0.75");
   });
 });

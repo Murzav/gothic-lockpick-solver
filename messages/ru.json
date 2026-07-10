@@ -62,6 +62,11 @@
   "playback_follow": "Следовать на доске",
   "playback_voice": "Читать шаги вслух",
   "playback_voice_unavailable": "Нет голоса для этого языка",
+  "voice_title": "Голос",
+  "voice_rate_label": "Скорость",
+  "voice_rate_slow": "Медленно",
+  "voice_rate_normal": "Нормально",
+  "voice_rate_fast": "Быстро",
 
   "help_summary": "Как правильно снять связи (если солвер говорит «нерешаемо»)",
   "help_step1": "Сделай quicksave ДО того, как откроешь замок — это твоя точка отсчёта (baseline). Внутри мини-игры сохраниться нельзя, поэтому только заранее.",

@@ -6,6 +6,12 @@ import { groupMoves } from "$lib/features/solve-lock/lib/moves";
 
 const STORAGE_KEY = "gls:playback:v1";
 const SPEECH_STORAGE_KEY = "gls:playback-speech:v1";
+const RATE_STORAGE_KEY = "gls:playback-speech-rate:v1";
+
+/** The only speech rates the UI offers; any other stored value is untrusted and
+ * coerced back to the default, so a hand-edited or corrupt key can never yield
+ * an unusable rate. 0.9 (slightly slow) reads clearest by ear. */
+const VOICE_RATES = [0.75, 0.9, 1.1] as const;
 
 /**
  * Drives the second-screen replay: which grouped step the player is on and
@@ -21,6 +27,8 @@ class PlaybackStore {
   /** Announce each step by voice; sticky preference, off by default (opt-in,
    * no surprise audio), persisted under its own key. */
   voiceEnabled = $state(false);
+  /** Spoken playback rate; one of VOICE_RATES, persisted under its own key. */
+  voiceRate = $state(0.9);
 
   grouped = $derived(
     lockStore.result?.solvable && lockStore.result.moves ? groupMoves(lockStore.result.moves) : [],
@@ -86,6 +94,18 @@ class PlaybackStore {
       this.voiceEnabled = false;
     }
   }
+
+  /** Read the sticky speech-rate preference; only a preset value is trusted, so
+   * an unset, corrupt or out-of-set number falls back to the clearer 0.9. */
+  loadVoiceRate(): void {
+    try {
+      const raw = localStorage.getItem(RATE_STORAGE_KEY);
+      const parsed = raw == null ? null : JSON.parse(raw);
+      this.voiceRate = VOICE_RATES.includes(parsed) ? parsed : 0.9;
+    } catch {
+      this.voiceRate = 0.9;
+    }
+  }
 }
 
 export const playbackStore = new PlaybackStore();
@@ -95,6 +115,7 @@ export const playbackStore = new PlaybackStore();
 if (browser) {
   playbackStore.loadFollowBoard();
   playbackStore.loadVoiceEnabled();
+  playbackStore.loadVoiceRate();
 
   $effect.root(() => {
     // Persist the sticky follow preference under its own key (PersistedLock
@@ -111,6 +132,15 @@ if (browser) {
     $effect(() => {
       try {
         localStorage.setItem(SPEECH_STORAGE_KEY, JSON.stringify(playbackStore.voiceEnabled));
+      } catch {
+        // storage may be unavailable (private mode); ignore
+      }
+    });
+
+    // Persist the speech-rate preference under its own key, same guard style.
+    $effect(() => {
+      try {
+        localStorage.setItem(RATE_STORAGE_KEY, JSON.stringify(playbackStore.voiceRate));
       } catch {
         // storage may be unavailable (private mode); ignore
       }

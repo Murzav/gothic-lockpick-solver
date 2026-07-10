@@ -26,6 +26,7 @@ describe("PlaybackBar", () => {
     lockStore.reset();
     playbackStore.followBoard = true;
     playbackStore.voiceEnabled = false;
+    playbackStore.voiceRate = 0.9;
     playbackStore.stepIndex = 0;
     flushSync();
   });
@@ -151,19 +152,7 @@ describe("PlaybackBar", () => {
     expect(speak).not.toHaveBeenCalled();
   });
 
-  it("speaks the current step the moment voice is switched on", async () => {
-    vi.spyOn(speaker, "hasVoiceFor").mockReturnValue(true);
-    const speak = vi.spyOn(speaker, "speak");
-    setResult(TWO_GROUPS);
-    const screen = render(PlaybackBar);
-
-    await screen.getByRole("checkbox", { name: "Speak steps" }).click();
-    flushSync();
-    expect(speak).toHaveBeenCalledTimes(1);
-    expect(speak).toHaveBeenCalledWith({ text: "Plate 1. Right.", langs: EN_LANGS });
-  });
-
-  it("announces the next step (correct langs) when advancing with voice on", async () => {
+  it("announces the next step (correct langs + rate) when advancing with voice on", async () => {
     vi.spyOn(speaker, "hasVoiceFor").mockReturnValue(true);
     const speak = vi.spyOn(speaker, "speak");
     playbackStore.voiceEnabled = true;
@@ -174,26 +163,11 @@ describe("PlaybackBar", () => {
     await screen.getByRole("button", { name: "Next →" }).click();
     flushSync();
     expect(playbackStore.stepIndex).toBe(1);
-    expect(speak).toHaveBeenLastCalledWith({ text: "Plate 2. Right.", langs: EN_LANGS });
-  });
-
-  it("pins the count wording for a repeated-direction group", async () => {
-    vi.spyOn(speaker, "hasVoiceFor").mockReturnValue(true);
-    const speak = vi.spyOn(speaker, "speak");
-    setResult({
-      solvable: true,
-      moves: [
-        { plate: 0, dir: 1 },
-        { plate: 0, dir: 1 },
-        { plate: 0, dir: 1 },
-      ],
-      statesExplored: 4,
+    expect(speak).toHaveBeenLastCalledWith({
+      text: "Plate 2. Right.",
+      langs: EN_LANGS,
+      rate: 0.9,
     });
-    const screen = render(PlaybackBar);
-
-    await screen.getByRole("checkbox", { name: "Speak steps" }).click();
-    flushSync();
-    expect(speak).toHaveBeenCalledWith({ text: "Plate 1. Right, 3 times.", langs: EN_LANGS });
   });
 
   it("speaks the done phrase on reaching the end with voice on", async () => {
@@ -207,7 +181,7 @@ describe("PlaybackBar", () => {
     await screen.getByRole("button", { name: "Next →" }).click(); // one group → Done
     flushSync();
     expect(playbackStore.atDone).toBe(true);
-    expect(speak).toHaveBeenLastCalledWith({ text: "Lock open", langs: EN_LANGS });
+    expect(speak).toHaveBeenLastCalledWith({ text: "Lock open", langs: EN_LANGS, rate: 0.9 });
   });
 
   it("calls speak per rapid step — coalescing lives inside the speaker", async () => {

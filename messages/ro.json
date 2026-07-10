@@ -62,6 +62,11 @@
   "playback_follow": "Urmărește pe tablă",
   "playback_voice": "Citește pașii cu voce tare",
   "playback_voice_unavailable": "Nicio voce pentru această limbă",
+  "voice_title": "Voce",
+  "voice_rate_label": "Viteză",
+  "voice_rate_slow": "Lent",
+  "voice_rate_normal": "Normal",
+  "voice_rate_fast": "Rapid",
 
   "help_summary": "Cum să citești corect legăturile (când solverul zice „nu se poate rezolva”)",
   "help_step1": "Fă quicksave ÎNAINTE să deschizi încuietoarea — ăsta e punctul tău de referință (baseline). Odată ce minijocul e deschis, nu mai poți salva, așa că trebuie făcut dinainte.",

@@ -62,6 +62,11 @@
   "playback_follow": "Стежити на дошці",
   "playback_voice": "Читати кроки вголос",
   "playback_voice_unavailable": "Немає голосу для цієї мови",
+  "voice_title": "Голос",
+  "voice_rate_label": "Швидкість",
+  "voice_rate_slow": "Повільно",
+  "voice_rate_normal": "Нормально",
+  "voice_rate_fast": "Швидко",
 
   "help_summary": "Як правильно зняти зв'язки (якщо солвер каже «не розв'язується»)",
   "help_step1": "Зроби quicksave ДО того, як відкриєш замок — це твоя точка відліку (baseline). Усередині міні-гри зберегтися не можна, тому лише заздалегідь.",
