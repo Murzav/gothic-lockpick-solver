@@ -22,7 +22,16 @@ export interface Speaker {
 // Chrome+Firefox silently drop an utterance passed to speak() right after
 // cancel() (Mozilla #1522074), so we always schedule the real speak a beat
 // later. The same gap debounces rapid stepping — no second debounce is needed.
-const SPEAK_DELAY_MS = 80;
+// Tearing down an ACTIVELY SPEAKING utterance takes the engine longer than
+// clearing an idle queue (field reports go up to ~500ms), hence the two tiers.
+const SPEAK_DELAY_IDLE_MS = 80;
+const SPEAK_DELAY_BUSY_MS = 150;
+// Even with the delay, some engine builds still swallow the utterance without
+// firing 'start' or 'error'. Local voices fire 'start' well under this budget,
+// so a silent watchdog expiry means the engine dropped it: reset and resubmit
+// once. Worst case the announcement lands ~0.7s late instead of never.
+const START_WATCHDOG_MS = 500;
+const RETRY_DELAY_MS = 150;
 // Some engines never emit 'voiceschanged'; re-query once after a short wait.
 const VOICES_FALLBACK_MS = 1500;
 
@@ -57,6 +66,11 @@ export function createSpeaker(): Speaker {
   let voicesSignature = "";
   let voicesInitialized = false;
   let pendingTimer: ReturnType<typeof setTimeout> | null = null;
+  let watchdogTimer: ReturnType<typeof setTimeout> | null = null;
+  // Bumped by every speak() and cancel(): an outstanding watchdog or retry from
+  // a superseded request compares its captured generation and stands down, so a
+  // stale recovery can never cancel or duplicate a newer announcement.
+  let generation = 0;
   const subscribers = new Set<() => void>();
 
   function notify(): void {
@@ -123,10 +137,23 @@ export function createSpeaker(): Speaker {
       clearTimeout(pendingTimer);
       pendingTimer = null;
     }
+    if (watchdogTimer !== null) {
+      clearTimeout(watchdogTimer);
+      watchdogTimer = null;
+    }
+  }
+
+  function engineBusy(): boolean {
+    try {
+      return window.speechSynthesis.speaking || window.speechSynthesis.pending;
+    } catch {
+      return false;
+    }
   }
 
   function cancel(): void {
     if (!supported) return;
+    generation++;
     clearPending();
     try {
       window.speechSynthesis.cancel();
@@ -135,18 +162,72 @@ export function createSpeaker(): Speaker {
     }
   }
 
+  /**
+   * Hand one utterance to the engine and, on the first attempt, arm a watchdog:
+   * if 'start' has not fired within its budget the engine silently dropped the
+   * utterance (a documented Chromium failure mode after cancel(), most likely
+   * when the previous phrase was still being torn down) — reset the queue and
+   * resubmit exactly once. The generation check makes a late watchdog inert
+   * when a newer speak()/cancel() has taken over.
+   */
+  function submit(
+    text: string,
+    voice: SpeechSynthesisVoice,
+    rate: number,
+    gen: number,
+    isRetry: boolean,
+  ): void {
+    try {
+      // Utterances are single-use — build a fresh one every time and do not
+      // retain it (holding finished utterances leaks).
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.voice = voice;
+      utterance.lang = voice.lang;
+      utterance.rate = rate;
+      let started = false;
+      utterance.onstart = () => {
+        started = true;
+      };
+      window.speechSynthesis.speak(utterance);
+      if (isRetry) return;
+      watchdogTimer = setTimeout(() => {
+        watchdogTimer = null;
+        if (started || gen !== generation) return;
+        try {
+          window.speechSynthesis.cancel();
+        } catch {
+          return;
+        }
+        pendingTimer = setTimeout(() => {
+          pendingTimer = null;
+          if (gen !== generation) return;
+          submit(text, voice, rate, gen, true);
+        }, RETRY_DELAY_MS);
+      }, START_WATCHDOG_MS);
+    } catch {
+      // engine can throw if torn down mid-flight — stay silent
+    }
+  }
+
   function speak(req: SpeakRequest): void {
     if (!supported) return;
-    // A new request always supersedes the previous one — cancel current and
-    // pending speech FIRST, even if this request turns out unspeakable: a
-    // stale instruction firing later is worse guidance than silence. A fresh
-    // speak() or cancel() in the 80ms window clears the timer, so rapid-fire
-    // calls coalesce to the last one.
+    const gen = ++generation;
+    // A new request always supersedes the previous one — clear pending work
+    // FIRST, even if this request turns out unspeakable: a stale instruction
+    // firing later is worse guidance than silence. A fresh speak() or cancel()
+    // in the delay window clears the timer, so rapid-fire calls coalesce to
+    // the last one.
     clearPending();
-    try {
-      window.speechSynthesis.cancel();
-    } catch {
-      return;
+    // Only disturb the engine when it is actually doing something: cancelling
+    // an idle engine is exactly the call that provokes the drop-the-next-
+    // utterance race, so the common calm case skips it entirely.
+    const busy = engineBusy();
+    if (busy) {
+      try {
+        window.speechSynthesis.cancel();
+      } catch {
+        return;
+      }
     }
 
     const voice = resolveVoice(req.langs);
@@ -155,20 +236,13 @@ export function createSpeaker(): Speaker {
     if (!voice) return;
     const { text } = req;
     const rate = req.rate ?? 0.9;
-    pendingTimer = setTimeout(() => {
-      pendingTimer = null;
-      try {
-        // Utterances are single-use — build a fresh one every time and do not
-        // retain it (holding finished utterances leaks).
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.voice = voice;
-        utterance.lang = voice.lang;
-        utterance.rate = rate;
-        window.speechSynthesis.speak(utterance);
-      } catch {
-        // engine can throw if torn down mid-flight — stay silent
-      }
-    }, SPEAK_DELAY_MS);
+    pendingTimer = setTimeout(
+      () => {
+        pendingTimer = null;
+        submit(text, voice, rate, gen, false);
+      },
+      busy ? SPEAK_DELAY_BUSY_MS : SPEAK_DELAY_IDLE_MS,
+    );
   }
 
   function hasVoiceFor(langs: readonly string[]): boolean {
