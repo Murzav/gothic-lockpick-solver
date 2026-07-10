@@ -30,6 +30,13 @@
   "action_solving": "A resolver…",
   "action_reset": "Repor",
 
+  "share_copy_link": "Copiar link",
+  "share_copied": "Link copiado",
+  "share_copy_failed": "Não deu para copiar — seleciona o link abaixo",
+  "share_import_invalid": "Este link partilhado parece danificado — a tua fechadura ficou inalterada.",
+  "share_import_version": "Este link precisa de uma versão mais recente da ferramenta.",
+  "share_import_dismiss": "Fechar",
+
   "plate_name": "Placa {n}",
   "plate_short": "P{n}",
   "plate_position_aria": "Posição da placa {n}",
@@ -78,6 +85,17 @@
   "help_step4": "Repete para cada placa. Se, depois de uma passagem honesta com os devidos recuos, o solucionador continuar a dizer «sem solução», o mais provável é que não tenhas errado a introduzir os dados. Uma perícia de arrombamento evoluída é uma ajuda útil: remove uma ligação ao acaso e facilita a abertura, mas fá-lo às cegas, e de vez em quando remove justamente a ligação que era precisa para resolver esta fechadura em concreto.",
   "help_step5": "Se, pelo contrário, o solucionador te deu uma solução, mas as etiquetas «direita/esquerda» não batem certo com o jogo (pede direita onde já não dá para ir mais para a direita), os dados não estão estragados — é só o interruptor «De onde contar» que não está afinado ao teu sistema de referência. Muda-o e carrega em «Resolver» outra vez; não precisas de introduzir tudo de novo.",
   "help_step6": "O solucionador nunca sugere um movimento em que uma placa ligada fique encravada — no jogo, isso bloqueia o movimento de tudo, incluindo a placa que estás a empurrar diretamente, e só gasta a resistência da gazua à toa. Esses movimentos não deslocam nada, por isso a solução é sempre feita apenas de movimentos que funcionam mesmo.",
+
+  "history_summary": "Fechaduras guardadas ({count})",
+  "history_empty": "As fechaduras que resolveres ficam guardadas aqui.",
+  "history_restore_aria": "Restaurar esta fechadura",
+  "history_entry_label": "{plates} placas",
+  "history_rename": "Renomear",
+  "history_name_placeholder": "Dá um nome a esta fechadura",
+  "history_pin": "Fixar",
+  "history_unpin": "Fixado",
+  "history_delete": "Remover",
+  "history_delete_confirm": "Remover?",
 
   "language_label": "Idioma"
 }

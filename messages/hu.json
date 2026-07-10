@@ -30,6 +30,13 @@
   "action_solving": "Megoldás keresése…",
   "action_reset": "Visszaállítás",
 
+  "share_copy_link": "Link másolása",
+  "share_copied": "Link másolva",
+  "share_copy_failed": "Nem sikerült másolni — jelöld ki a lenti linket",
+  "share_import_invalid": "Ez a megosztott link sérültnek tűnik — a zárad változatlan maradt.",
+  "share_import_version": "Ehhez a linkhez a program újabb verziója kell.",
+  "share_import_dismiss": "Bezárás",
+
   "plate_name": "{n}. lemez",
   "plate_short": "L{n}",
   "plate_position_aria": "{n}. lemez pozíciója",
@@ -78,6 +85,17 @@
   "help_step4": "Ismételd meg minden lemezre. Ha becsületesen, visszatöltésekkel végigcsináltad, és a megoldó még mindig azt mondja, „nem megoldható”, akkor valószínűleg nem a beviteleddel van a baj. A felfejlesztett zárnyitás készség hasznos egyszerűsítés: eldob egy véletlenszerű kapcsolatot, hogy könnyebb legyen a nyitás, de ezt válogatás nélkül teszi, és időnként épp azt a kapcsolatot dobja el, amelyik ehhez a konkrét zárhoz kellett volna.",
   "help_step5": "Ha viszont a megoldó adott megoldást, de a benne szereplő „jobbra/balra” feliratok fizikailag nem stimmelnek (ott kér jobbra, ahol már nincs hova) — az adataid nem romlottak el, csak a „Honnan számolj” kapcsoló nincs a te viszonyítási rendszeredhez állítva. Kapcsold át, nyomd meg újra a „Megoldás” gombot, és nem kell mindent újra beírnod.",
   "help_step6": "A megoldó soha nem javasol olyan lépést, ahol egy kapcsolt lemez nekiütközik a szélének — a játékban ez beragaszt mindent, azt a lemezt is, amelyiket közvetlenül tolsz, és csak feleslegesen koptatja a tolvajkulcsot. Az ilyen lépések semmit sem mozdítanak, így a megoldás mindig csak ténylegesen működő lépésekből áll.",
+
+  "history_summary": "Mentett zárak ({count})",
+  "history_empty": "A megoldott zárak ide kerülnek.",
+  "history_restore_aria": "Ennek a zárnak a visszaállítása",
+  "history_entry_label": "{plates} lemez",
+  "history_rename": "Átnevezés",
+  "history_name_placeholder": "Nevezd el ezt a zárat",
+  "history_pin": "Rögzítés",
+  "history_unpin": "Rögzítve",
+  "history_delete": "Eltávolítás",
+  "history_delete_confirm": "Eltávolítod?",
 
   "language_label": "Nyelv"
 }

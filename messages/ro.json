@@ -30,6 +30,13 @@
   "action_solving": "Se rezolvă…",
   "action_reset": "Resetează",
 
+  "share_copy_link": "Copiază linkul",
+  "share_copied": "Link copiat",
+  "share_copy_failed": "N-a mers copierea — selectează linkul de mai jos",
+  "share_import_invalid": "Linkul partajat pare deteriorat — încuietoarea ta a rămas neschimbată.",
+  "share_import_version": "Acest link are nevoie de o versiune mai nouă a instrumentului.",
+  "share_import_dismiss": "Închide",
+
   "plate_name": "Plăcuța {n}",
   "plate_short": "P{n}",
   "plate_position_aria": "Poziția plăcuței {n}",
@@ -78,6 +85,17 @@
   "help_step4": "Repetă pentru fiecare plăcuță. Dacă după o trecere cinstită, cu reveniri, solverul tot zice „nu se poate rezolva”, cel mai probabil nu e vina datelor introduse. Abilitatea de spargere ridicată e o scurtătură utilă: scoate o legătură la întâmplare și ușurează descuierea, dar o face fără discernământ și, din când în când, scoate exact legătura de care avea nevoie tocmai încuietoarea asta.",
   "help_step5": "Dacă, dimpotrivă, solverul a dat o soluție, dar etichetele „dreapta/stânga” din ea nu se potrivesc cu jocul (îți cere dreapta acolo unde n-ai încotro s-o mai apeși), datele nu sunt stricate — doar comutatorul „De unde numeri” nu e reglat după sistemul tău de referință. Schimbă-l și apasă „Rezolvă” din nou, nu e nevoie să introduci totul de la capăt.",
   "help_step6": "Solverul nu-ți va propune niciodată o mișcare în care o plăcuță legată se opintește — în joc asta blochează mișcarea a absolut tot, inclusiv plăcuța pe care o miști direct, și doar consumă degeaba din rezistența șperaclului. Astfel de mișcări pur și simplu nu urnesc nimic, așa că soluția conține mereu doar mișcări care chiar funcționează.",
+
+  "history_summary": "Încuietori salvate ({count})",
+  "history_empty": "Încuietorile pe care le rezolvi se salvează aici.",
+  "history_restore_aria": "Restaurează această încuietoare",
+  "history_entry_label": "{plates} plăcuțe",
+  "history_rename": "Redenumește",
+  "history_name_placeholder": "Denumește această încuietoare",
+  "history_pin": "Fixează",
+  "history_unpin": "Fixat",
+  "history_delete": "Elimină",
+  "history_delete_confirm": "Elimini?",
 
   "language_label": "Limbă"
 }

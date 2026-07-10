@@ -30,6 +30,13 @@
   "action_solving": "Solving…",
   "action_reset": "Reset",
 
+  "share_copy_link": "Copy link",
+  "share_copied": "Link copied",
+  "share_copy_failed": "Couldn't copy — select the link below",
+  "share_import_invalid": "This shared link looks damaged — your lock was left unchanged.",
+  "share_import_version": "This link needs a newer version of the tool.",
+  "share_import_dismiss": "Dismiss",
+
   "plate_name": "Plate {n}",
   "plate_short": "P{n}",
   "plate_position_aria": "Position of plate {n}",
@@ -78,6 +85,17 @@
   "help_step4": "Repeat for every plate. If you did an honest pass with rollbacks and the solver still says it cannot be solved, it is probably not your input. The lockpicking skill is a helpful shortcut: it removes a random link to make picking easier, but it does that blindly, and once in a while it removes the very link this lock needed.",
   "help_step5": "If instead the solver did give you a solution, but its right/left labels do not match the game (it asks for right where there is nowhere left to go), your data is not broken. The \"Where to count from\" switch just is not set to your frame of reference. Flip it, press Solve again, and you do not have to re-enter anything.",
   "help_step6": "The solver never suggests a move where a linked plate is stuck. In the game that jams everything, including the plate you are pushing, and only wears down your pick. Those moves shift nothing, so a solution is made only of moves that actually work.",
+
+  "history_summary": "Saved locks ({count})",
+  "history_empty": "Locks you solve are saved here.",
+  "history_restore_aria": "Restore this lock",
+  "history_entry_label": "{plates} plates",
+  "history_rename": "Rename",
+  "history_name_placeholder": "Name this lock",
+  "history_pin": "Keep",
+  "history_unpin": "Kept",
+  "history_delete": "Remove",
+  "history_delete_confirm": "Remove?",
 
   "language_label": "Language"
 }

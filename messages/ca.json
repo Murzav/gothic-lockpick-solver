@@ -30,6 +30,13 @@
   "action_solving": "Resolent…",
   "action_reset": "Reinicia",
 
+  "share_copy_link": "Copia l'enllaç",
+  "share_copied": "Enllaç copiat",
+  "share_copy_failed": "No s'ha pogut copiar — selecciona l'enllaç de sota",
+  "share_import_invalid": "Aquest enllaç compartit sembla malmès — el teu pany ha quedat sense canvis.",
+  "share_import_version": "Aquest enllaç necessita una versió més nova de l'eina.",
+  "share_import_dismiss": "Tanca",
+
   "plate_name": "Placa {n}",
   "plate_short": "P{n}",
   "plate_position_aria": "Posició de la placa {n}",
@@ -78,6 +85,17 @@
   "help_step4": "Repeteix-ho per a cada placa. Si has fet una passada honesta amb tornades enrere i el solucionador continua dient que no té solució, segurament no és cosa de la teva entrada. L'habilitat de forçar panys, ben pujada, és una drecera útil: elimina un vincle a l'atzar per facilitar l'obertura, però ho fa a cegues i, de tant en tant, treu justament el vincle que aquest pany necessitava.",
   "help_step5": "Si, al contrari, el solucionador t'ha donat una solució però les etiquetes «dreta/esquerra» no lliguen amb el joc (et demana dreta on ja no es pot anar més cap a la dreta), les dades no estan trencades: simplement l'interruptor «Des d'on comptar» no està ajustat al teu sistema de referència. Canvia'l, torna a prémer «Resol» i no cal tornar a introduir res.",
   "help_step6": "El solucionador mai no proposa un moviment on una placa vinculada quedi encallada. Al joc això ho bloqueja tot, inclosa la placa que estàs empenyent directament, i només desgasta el rossinyol per no res. Aquests moviments no mouen absolutament res, de manera que una solució està feta només de moviments que funcionen de debò.",
+
+  "history_summary": "Panys desats ({count})",
+  "history_empty": "Els panys que resolguis es desen aquí.",
+  "history_restore_aria": "Restaura aquest pany",
+  "history_entry_label": "{plates} plaques",
+  "history_rename": "Canvia el nom",
+  "history_name_placeholder": "Posa un nom a aquest pany",
+  "history_pin": "Fixa",
+  "history_unpin": "Fixat",
+  "history_delete": "Elimina",
+  "history_delete_confirm": "Eliminar?",
 
   "language_label": "Idioma"
 }

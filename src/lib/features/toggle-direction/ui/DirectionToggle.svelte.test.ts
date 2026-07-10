@@ -1,11 +1,18 @@
 import { render } from "vitest-browser-svelte";
-import { beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { lockStore } from "$lib/entities/lock/model/lock-store.svelte";
 import DirectionToggle from "./DirectionToggle.svelte";
 
 describe("DirectionToggle", () => {
   beforeEach(() => {
     lockStore.reset();
+  });
+
+  // lockStore mirrors itself to localStorage, which outlives this file's
+  // test run. Restore the default convention so a later test file's fresh
+  // import doesn't hydrate the "right-decreases" this file leaves behind.
+  afterEach(() => {
+    lockStore.setConvention("right-increases");
   });
 
   it("renders both convention options", async () => {

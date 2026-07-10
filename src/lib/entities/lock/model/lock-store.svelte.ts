@@ -129,6 +129,13 @@ class LockStore {
     this.coupling = data.coupling.map((row) => row.slice());
     this.convention = data.convention === "right-decreases" ? "right-decreases" : "right-increases";
     this.viewMode = data.viewMode === "form" ? "form" : "board";
+    // Hydrating is an edit like any other: a result computed for the previous
+    // lock must not survive onto this one (a share-link import or a history
+    // restore on a live page would otherwise briefly show — or, if the new
+    // solve errors, permanently keep — the old solution on the new board).
+    // Also bumps `generation`, so an in-flight solve for the previous lock can
+    // never land on this one. Harmless at boot: the result is null already.
+    this.invalidateResult();
   }
 }
 

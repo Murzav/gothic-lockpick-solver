@@ -30,6 +30,13 @@
   "action_solving": "Çözülüyor…",
   "action_reset": "Sıfırla",
 
+  "share_copy_link": "Bağlantıyı kopyala",
+  "share_copied": "Bağlantı kopyalandı",
+  "share_copy_failed": "Kopyalanamadı — aşağıdaki bağlantıyı seç",
+  "share_import_invalid": "Bu paylaşılan bağlantı bozuk görünüyor — kilidin olduğu gibi kaldı.",
+  "share_import_version": "Bu bağlantı, aracın daha yeni bir sürümünü gerektiriyor.",
+  "share_import_dismiss": "Kapat",
+
   "plate_name": "Plaka {n}",
   "plate_short": "P{n}",
   "plate_position_aria": "Plaka {n} konumu",
@@ -78,6 +85,17 @@
   "help_step4": "Her plaka için tekrarla. Geri dönüşlerle dürüst bir tur attıktan sonra çözücü hâlâ “çözülemez” diyorsa, sorun büyük ihtimalle girdiğin veride değil. Geliştirilmiş kilit açma becerisi işine yarayan bir kolaylık: açmayı basitleştirmek için rastgele bir bağlantıyı kaldırır, ama bunu ayrım gözetmeden yapar ve arada bir tam da bu kilidin çözümü için gereken bağlantıyı kaldırıverir.",
   "help_step5": "Tersine, çözücü bir çözüm verdiyse ama içindeki “sağ/sol” etiketleri oyunla fiziksel olarak uyuşmuyorsa (sağa basacak yer kalmamışken sağ diyorsa), verin bozuk değil; sadece “Nereden saymalı” anahtarı senin referans sistemine göre ayarlı değil. Onu çevir ve tekrar “Çöz”e bas; hiçbir şeyi baştan girmene gerek yok.",
   "help_step6": "Çözücü, bağlı bir plakanın sıkıştığı bir hamleyi asla önermez — oyunda bu, doğrudan ittiğin plaka dahil her şeyin hareketini kilitler ve sadece maymuncuğun dayanıklılığını boşuna tüketir. Böyle hamleler hiçbir kaymaya yol açmaz, dolayısıyla çözüm her zaman yalnızca gerçekten işe yarayan hamlelerden oluşur.",
+
+  "history_summary": "Kaydedilen kilitler ({count})",
+  "history_empty": "Çözdüğün kilitler burada kaydedilir.",
+  "history_restore_aria": "Bu kilidi geri yükle",
+  "history_entry_label": "{plates} plaka",
+  "history_rename": "Yeniden adlandır",
+  "history_name_placeholder": "Bu kilide bir ad ver",
+  "history_pin": "Sabitle",
+  "history_unpin": "Sabitlendi",
+  "history_delete": "Kaldır",
+  "history_delete_confirm": "Kaldırılsın mı?",
 
   "language_label": "Dil"
 }

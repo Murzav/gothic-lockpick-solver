@@ -30,6 +30,13 @@
   "action_solving": "Resolvendo…",
   "action_reset": "Limpar",
 
+  "share_copy_link": "Copiar link",
+  "share_copied": "Link copiado",
+  "share_copy_failed": "Não deu para copiar — selecione o link abaixo",
+  "share_import_invalid": "Este link compartilhado parece danificado — sua fechadura ficou sem alterações.",
+  "share_import_version": "Este link precisa de uma versão mais nova da ferramenta.",
+  "share_import_dismiss": "Fechar",
+
   "plate_name": "Placa {n}",
   "plate_short": "P{n}",
   "plate_position_aria": "Posição da placa {n}",
@@ -78,6 +85,17 @@
   "help_step4": "Repita para cada placa. Se depois de uma passada honesta, com quickload a cada placa, o solucionador ainda disser que não tem solução, provavelmente o problema não é o que você digitou. A habilidade de arrombamento evoluída é um atalho e tanto: ela remove uma ligação aleatória e facilita a abertura, mas faz isso sem critério e, de vez em quando, tira justamente a ligação de que esta fechadura precisava.",
   "help_step5": "Se, ao contrário, o solucionador deu uma solução, mas os rótulos “direita/esquerda” não batem com o jogo (pede direita onde já não dá para ir mais para a direita), seus dados não estão quebrados. É só o seletor “De onde contar” que não está ajustado ao seu referencial. Vire-o, aperte “Resolver” de novo e não precisa redigitar nada.",
   "help_step6": "O solucionador nunca sugere um movimento em que uma placa ligada esbarra no limite — no jogo isso trava tudo, inclusive a placa que você está empurrando direto, e só gasta a durabilidade da gazua à toa. Esses movimentos não deslocam nada, então a solução é feita só de movimentos que realmente funcionam.",
+
+  "history_summary": "Fechaduras salvas ({count})",
+  "history_empty": "As fechaduras que você resolve ficam salvas aqui.",
+  "history_restore_aria": "Restaurar esta fechadura",
+  "history_entry_label": "{plates} placas",
+  "history_rename": "Renomear",
+  "history_name_placeholder": "Dê um nome a esta fechadura",
+  "history_pin": "Fixar",
+  "history_unpin": "Fixado",
+  "history_delete": "Remover",
+  "history_delete_confirm": "Remover?",
 
   "language_label": "Idioma"
 }

@@ -1,5 +1,8 @@
 <script lang="ts">
+  import { browser } from "$app/environment";
+  import { onMount } from "svelte";
   import { lockStore } from "$lib/entities/lock/model/lock-store.svelte";
+  import { decode } from "$lib/entities/lock/lib/share-codec";
   import { PLATE_MAX, PLATE_MIN } from "$lib/shared/config";
   import Card from "$lib/shared/ui/Card.svelte";
   import Toggle from "$lib/shared/ui/Toggle.svelte";
@@ -12,10 +15,78 @@
   import ResultPanel from "$lib/features/solve-lock/ui/ResultPanel.svelte";
   import PlaybackBar from "$lib/features/solve-lock/ui/PlaybackBar.svelte";
   import VoiceSettings from "$lib/features/solve-lock/ui/VoiceSettings.svelte";
+  import CopyShareLink from "$lib/features/share-lock/ui/CopyShareLink.svelte";
+  import HistorySection from "$lib/features/lock-history/ui/HistorySection.svelte";
+  import { solveCurrentLock } from "$lib/features/solve-lock/model/solve-current-lock";
   import { playbackStore } from "$lib/features/solve-lock/model/playback-store.svelte";
+  import { historyStore } from "$lib/features/lock-history/model/history-store.svelte";
   import { m } from "$lib/paraglide/messages.js";
 
   const following = $derived(playbackStore.followBoard && playbackStore.active);
+
+  // A failed import surfaces here; the visitor's own lock is never touched on
+  // failure, only this note appears.
+  let importError = $state<"invalid" | "version" | null>(null);
+
+  // Dismiss the note once the visitor runs the solver — by then they have moved
+  // on and a stale "damaged link" warning would only be noise.
+  $effect(() => {
+    if (lockStore.solving && importError) importError = null;
+  });
+
+  /**
+   * Before an imported link overwrites the board, keep the visitor's own lock in
+   * history — but only if they had actually entered something. A pristine board
+   * (every plate still at 1, no couplings) carries no work worth preserving, and
+   * saving it would just clutter the list with an empty default. Plate count and
+   * the direction convention are not "content" on their own, matching what a
+   * reset treats as a preference rather than lock data.
+   */
+  function snapshotBeforeImport(): void {
+    const hasContent =
+      lockStore.positions.some((p) => p !== 1) ||
+      lockStore.coupling.some((row) => row.some((c) => c !== 0));
+    if (hasContent) historyStore.snapshotCurrent();
+  }
+
+  /**
+   * Route glue for the history list: decode the saved code, hydrate the lock the
+   * same way an imported link does, and re-solve. Restoring is a solve, so the
+   * result-watch files it back to the top of history automatically — same path
+   * as import, no feature reaching into solve-lock.
+   */
+  function restoreFromHistory(code: string): void {
+    const result = decode(code);
+    if ("error" in result) return; // our own codes decode; guard defensively
+    lockStore.hydrate({ ...result, viewMode: lockStore.viewMode });
+    void solveCurrentLock();
+  }
+
+  async function importFromHash(): Promise<void> {
+    const match = /^#l=(.+)$/.exec(location.hash);
+    if (!match) return;
+
+    const result = decode(match[1]);
+    // Always strip the fragment afterwards: never assign location.hash (that
+    // pushes history and can re-fire the import) — replaceState edits in place.
+    const cleanUrl = location.pathname + location.search;
+    if ("error" in result) {
+      importError = result.error;
+      history.replaceState(null, "", cleanUrl);
+      return;
+    }
+
+    snapshotBeforeImport();
+    // hydrate's defensive shape matches the decoded lock; keep the visitor's
+    // current view rather than forcing one from the link.
+    lockStore.hydrate({ ...result, viewMode: lockStore.viewMode });
+    await solveCurrentLock();
+    history.replaceState(null, "", cleanUrl);
+  }
+
+  onMount(() => {
+    if (browser) void importFromHash();
+  });
 
   const viewOptions: { value: "board" | "form"; label: string }[] = [
     { value: "board", label: m.view_board() },
@@ -98,6 +169,24 @@
     </aside>
 
     <main class="col-tool">
+      {#if importError}
+        <div class="import-note" role="status">
+          <span>
+            {importError === "version"
+              ? m.share_import_version()
+              : m.share_import_invalid()}
+          </span>
+          <button
+            type="button"
+            class="import-dismiss"
+            aria-label={m.share_import_dismiss()}
+            onclick={() => (importError = null)}
+          >
+            ✕
+          </button>
+        </div>
+      {/if}
+
       <Card title={m.lock_title()}>
         <p class="hint">{m.lock_intro()}</p>
         <div class="controls">
@@ -140,6 +229,7 @@
         <Button variant="secondary" onclick={() => lockStore.reset()}>
           {m.action_reset()}
         </Button>
+        <CopyShareLink />
       </div>
 
       <ResultPanel />
@@ -157,6 +247,8 @@
           <li>{m.help_step6()}</li>
         </ol>
       </details>
+
+      <HistorySection onrestore={restoreFromHistory} />
     </main>
   </div>
 </div>
@@ -274,8 +366,43 @@
 
   .actions {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: flex-start;
     gap: 0.75rem;
+  }
+
+  .import-note {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--ember);
+    border-radius: 6px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 0.9rem;
+  }
+
+  .import-note span {
+    flex: 1;
+  }
+
+  .import-dismiss {
+    flex-shrink: 0;
+    padding: 0.1rem 0.4rem;
+    color: var(--text-muted);
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .import-dismiss:hover {
+    color: var(--text);
   }
 
   .help {

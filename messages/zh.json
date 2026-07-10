@@ -30,6 +30,13 @@
   "action_solving": "求解中…",
   "action_reset": "重置",
 
+  "share_copy_link": "复制链接",
+  "share_copied": "链接已复制",
+  "share_copy_failed": "复制失败——选中下面的链接",
+  "share_import_invalid": "这个分享链接看起来已损坏——你的锁保持原样。",
+  "share_import_version": "这个链接需要更新版本的工具。",
+  "share_import_dismiss": "关闭",
+
   "plate_name": "{n} 号转盘",
   "plate_short": "盘{n}",
   "plate_position_aria": "{n} 号转盘的位置",
@@ -78,6 +85,17 @@
   "help_step4": "每块转盘都这么来一遍。如果你老老实实每次都回退着测了一轮，求解器还是说“无解”——那多半不是你输入的问题。练高的开锁技能其实是在帮你省事：它会随机去掉一条联动，让开锁更轻松，但它是瞎去的，偶尔就把这把锁正好需要的那一条给去掉了。",
   "help_step5": "反过来，如果求解器给出了解法，但里面的“左/右”标注跟实机对不上（在已经没法再往右拨的地方却让你往右）——数据没坏，只是“从哪儿数起”这个开关没设成你的参照系。把它切一下，再按一次“求解”，什么都不用重填。",
   "help_step6": "求解器绝不会给出让某块联动转盘顶到头的走法——在游戏里这会把所有东西全卡死，包括你正直接推的那一块，白白磨损撬锁器的耐久。这种走法根本挪不动任何东西，所以给出的解法里永远只有真正走得通的步骤。",
+
+  "history_summary": "已保存的锁（{count}）",
+  "history_empty": "你解开的锁会保存在这里。",
+  "history_restore_aria": "恢复这把锁",
+  "history_entry_label": "{plates} 块转盘",
+  "history_rename": "重命名",
+  "history_name_placeholder": "给这把锁起个名字",
+  "history_pin": "固定",
+  "history_unpin": "已固定",
+  "history_delete": "移除",
+  "history_delete_confirm": "移除？",
 
   "language_label": "语言"
 }

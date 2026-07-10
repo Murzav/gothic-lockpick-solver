@@ -30,6 +30,13 @@
   "action_solving": "Löse…",
   "action_reset": "Zurücksetzen",
 
+  "share_copy_link": "Link kopieren",
+  "share_copied": "Link kopiert",
+  "share_copy_failed": "Kopieren hat nicht geklappt — markier den Link unten",
+  "share_import_invalid": "Dieser geteilte Link sieht beschädigt aus — dein Schloss bleibt unverändert.",
+  "share_import_version": "Dieser Link braucht eine neuere Version des Tools.",
+  "share_import_dismiss": "Schließen",
+
   "plate_name": "Platte {n}",
   "plate_short": "P{n}",
   "plate_position_aria": "Position von Platte {n}",
@@ -78,6 +85,17 @@
   "help_step4": "Wiederhol das für jede Platte. Wenn der Solver nach einem ehrlichen Durchgang mit Rücksetzen immer noch „unlösbar“ sagt, liegt es wahrscheinlich nicht an deiner Eingabe. Die verbesserte Fähigkeit Schlösser knacken ist eine praktische Erleichterung: Sie entfernt eine zufällige Verbindung und macht das Knacken leichter, aber sie tut das wahllos – und ab und zu erwischt sie genau die Verbindung, die dieses Schloss zum Lösen gebraucht hätte.",
   "help_step5": "Wenn der Solver dir umgekehrt eine Lösung liefert, aber die Angaben „rechts/links“ darin physisch nicht passen (er verlangt rechts, wo rechts schon nicht mehr geht), sind deine Daten nicht kaputt – der Schalter „Von wo aus du zählst“ ist nur nicht auf dein Bezugssystem eingestellt. Stell ihn um und drück nochmal „Lösen“, neu eingeben musst du nichts.",
   "help_step6": "Der Solver schlägt nie einen Zug vor, bei dem eine verbundene Platte ansteht. Im Spiel blockiert das einfach alles, auch die Platte, die du direkt bewegst, und nutzt bloß deinen Dietrich ab. Solche Züge bewegen gar nichts, also besteht eine Lösung immer nur aus Zügen, die auch wirklich funktionieren.",
+
+  "history_summary": "Gespeicherte Schlösser ({count})",
+  "history_empty": "Schlösser, die du löst, werden hier gespeichert.",
+  "history_restore_aria": "Dieses Schloss wiederherstellen",
+  "history_entry_label": "{plates} Platten",
+  "history_rename": "Umbenennen",
+  "history_name_placeholder": "Schloss benennen",
+  "history_pin": "Anheften",
+  "history_unpin": "Angeheftet",
+  "history_delete": "Entfernen",
+  "history_delete_confirm": "Entfernen?",
 
   "language_label": "Sprache"
 }

@@ -30,6 +30,13 @@
   "action_solving": "Rozwiązuję…",
   "action_reset": "Resetuj",
 
+  "share_copy_link": "Kopiuj link",
+  "share_copied": "Link skopiowany",
+  "share_copy_failed": "Nie udało się skopiować — zaznacz link poniżej",
+  "share_import_invalid": "Ten udostępniony link wygląda na uszkodzony — twój zamek pozostał bez zmian.",
+  "share_import_version": "Ten link wymaga nowszej wersji narzędzia.",
+  "share_import_dismiss": "Zamknij",
+
   "plate_name": "Płytka {n}",
   "plate_short": "P{n}",
   "plate_position_aria": "Pozycja płytki {n}",
@@ -78,6 +85,17 @@
   "help_step4": "Powtórz to dla każdej płytki. Jeśli po uczciwym powtórzeniu z cofaniem solver dalej mówi, że się nie da, najprawdopodobniej nie chodzi o błąd we wpisanych danych. Rozwinięta umiejętność otwierania zamków to przydatne ułatwienie: zdejmuje jedno losowe powiązanie i ułatwia otwarcie, ale robi to na ślepo i raz na jakiś czas zdejmuje akurat to powiązanie, które było potrzebne do rozwiązania tego konkretnego zamka.",
   "help_step5": "Jeśli natomiast solver podał rozwiązanie, ale etykiety „w prawo/w lewo” nie zgadzają się z grą (każe iść w prawo tam, gdzie w prawo nie ma już jak), dane nie są zepsute — po prostu przełącznik „Od czego liczyć” jest ustawiony nie pod twój układ odniesienia. Przełącz go i wciśnij „Rozwiąż” jeszcze raz, nic nie trzeba wpisywać od nowa.",
   "help_step6": "Solver nigdy nie zaproponuje ruchu, w którym powiązana płytka blokuje się na krańcu — w grze to blokuje zupełnie wszystko, łącznie z płytką, którą przesuwasz bezpośrednio, i tylko niepotrzebnie zużywa wytrzymałość wytrycha. Takie ruchy po prostu nic nie przesuwają, więc rozwiązanie zawsze składa się wyłącznie z ruchów, które naprawdę działają.",
+
+  "history_summary": "Zapisane zamki ({count})",
+  "history_empty": "Zamki, które rozwiążesz, zapisują się tutaj.",
+  "history_restore_aria": "Przywróć ten zamek",
+  "history_entry_label": "Płytki: {plates}",
+  "history_rename": "Zmień nazwę",
+  "history_name_placeholder": "Nazwij ten zamek",
+  "history_pin": "Przypnij",
+  "history_unpin": "Przypięte",
+  "history_delete": "Usuń",
+  "history_delete_confirm": "Usunąć?",
 
   "language_label": "Język"
 }

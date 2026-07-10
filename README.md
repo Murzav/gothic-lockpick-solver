@@ -31,6 +31,8 @@ The app has a short "Where to count from" note near the top. Read it before you 
 - **Step-by-step playback** that highlights the plate being moved.
 - **Voice announcements.** Turn on "Speak steps" in the Voice panel (left column, next to the counting convention) and every step is read aloud in your language — "Plate 6. Right, 3 times." — so you can enter the combination by ear without looking away from the game. A Speed control picks how fast the steps are read. It uses the voices built into your browser, works offline, and the counts are grammatically correct in every language.
 - **Hands-free autoplay.** Press Play (or P) and the replay walks itself: each step is read aloud and the bar waits long enough for you to actually press the plates in the game before moving on. Missed one? R repeats the current step.
+- **Share a lock as a link.** "Copy link" packs the whole lock into a short URL; whoever opens it gets the lock restored and solved, in their own language.
+- **Saved locks.** Every solved lock is remembered locally and can be named and pinned — locks in the game never change, so one solved once never needs re-entering.
 - **20 languages,** picked automatically from your browser and switchable in the top-right corner. Your language and the lock you are building are both remembered.
 
 ## Languages

@@ -30,6 +30,13 @@
   "action_solving": "Řeším…",
   "action_reset": "Resetovat",
 
+  "share_copy_link": "Kopírovat odkaz",
+  "share_copied": "Odkaz zkopírován",
+  "share_copy_failed": "Zkopírování se nepovedlo — označ odkaz níže",
+  "share_import_invalid": "Tenhle sdílený odkaz vypadá poškozeně — tvůj zámek zůstal beze změny.",
+  "share_import_version": "Tenhle odkaz potřebuje novější verzi nástroje.",
+  "share_import_dismiss": "Zavřít",
+
   "plate_name": "Destička {n}",
   "plate_short": "D{n}",
   "plate_position_aria": "Pozice destičky {n}",
@@ -78,6 +85,17 @@
   "help_step4": "Zopakuj to u každé destičky. Když jsi poctivě prošel všechny s vracením a solver pořád tvrdí „nemá řešení“, nejspíš nejde o chybu v zadání. Vylepšená dovednost páčení je užitečná zkratka: shodí náhodnou vazbu a usnadní páčení, jenže to dělá naslepo a jednou za čas shodí přesně tu vazbu, která byla pro tenhle konkrétní zámek potřeba.",
   "help_step5": "Jestli ti naopak solver řešení dal, ale popisky „doprava/doleva“ v něm fyzicky nesedí (chce doprava tam, kde už doprava nemáš kam), data nejsou rozbitá – jen přepínač „Odkud počítat“ není nastavený na tvoji vztažnou soustavu. Přepni ho, zmáčkni znovu „Vyřešit“ a nemusíš nic zadávat od začátku.",
   "help_step6": "Solver ti nikdy nenavrhne tah, u kterého se zasekne propojená destička – ve hře to zablokuje úplně všechno včetně té destičky, kterou tlačíš přímo, a jen zbytečně ubírá odolnost paklíče. Takové tahy nikam nepohnou, takže řešení se vždycky skládá jen z tahů, které opravdu fungují.",
+
+  "history_summary": "Uložené zámky ({count})",
+  "history_empty": "Zámky, které vyřešíš, se ukládají sem.",
+  "history_restore_aria": "Obnovit tento zámek",
+  "history_entry_label": "Destičky: {plates}",
+  "history_rename": "Přejmenovat",
+  "history_name_placeholder": "Pojmenuj tento zámek",
+  "history_pin": "Připnout",
+  "history_unpin": "Připnuto",
+  "history_delete": "Odebrat",
+  "history_delete_confirm": "Odebrat?",
 
   "language_label": "Jazyk"
 }

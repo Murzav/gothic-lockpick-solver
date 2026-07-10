@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Share a lock as a link. A "Copy link" button next to Solve/Reset packs the whole lock — plates, positions, links, direction convention — into a ~19-character URL. Opening the link restores the lock and solves it immediately; the recipient sees it in their own language. A damaged or truncated link is politely rejected ("your lock was left unchanged") rather than silently opening a different lock, and links from future versions of the tool say so instead of breaking.
+- Saved locks. Every solved lock is remembered automatically in a "Saved locks" list at the bottom of the page (locks in the game never change their layout, so a lock solved once never needs re-entering). Entries can be named ("Old Camp — Diego's chest"), kept (pinned entries survive the 20-entry cap), or removed with a two-tap confirm; one click restores and re-solves the lock. Re-solving a known lock updates its entry instead of duplicating it, and opening a shared link first tucks your own in-progress lock safely into the list. Everything stays in your browser.
+
 ## [0.5.0] - 2026-07-10
 
 ### Added

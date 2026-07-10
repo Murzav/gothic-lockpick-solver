@@ -30,6 +30,13 @@
   "action_solving": "Riešim…",
   "action_reset": "Vynulovať",
 
+  "share_copy_link": "Kopírovať odkaz",
+  "share_copied": "Odkaz skopírovaný",
+  "share_copy_failed": "Kopírovanie sa nepodarilo — označ odkaz nižšie",
+  "share_import_invalid": "Tento zdieľaný odkaz vyzerá poškodene — tvoj zámok zostal bez zmeny.",
+  "share_import_version": "Tento odkaz potrebuje novšiu verziu nástroja.",
+  "share_import_dismiss": "Zavrieť",
+
   "plate_name": "Platnička {n}",
   "plate_short": "P{n}",
   "plate_position_aria": "Pozícia platničky {n}",
@@ -78,6 +85,17 @@
   "help_step4": "Zopakuj to pri každej platničke. Ak riešič po poctivom prejdení s návratmi stále hovorí „nedá sa vyriešiť“, chyba najskôr nebude v tom, čo si zadal. Vylepšená zručnosť páčenia zámkov je užitočné uľahčenie: odstráni jednu náhodnú väzbu a otváranie zjednoduší, robí to však bez výberu a raz za čas zoberie práve tú väzbu, ktorá bola pre riešenie tohto konkrétneho zámku potrebná.",
   "help_step5": "Ak ti riešič naopak riešenie dal, ale označenia „doprava/doľava“ v ňom fyzicky nesedia (žiada doprava tam, kde už niet kam ísť), dáta nie sú pokazené — len prepínač „Odkiaľ počítať“ nie je nastavený na tvoju vzťažnú sústavu. Prepni ho, stlač „Vyriešiť“ ešte raz a nič nemusíš zadávať odznova.",
   "help_step6": "Riešič nikdy nenavrhne ťah, pri ktorom sa naviazaná platnička zasekne o kraj — v hre to zablokuje pohyb úplne všetkého vrátane tej platničky, ktorou hýbeš priamo, a len zbytočne opotrebuje paklíč. Takéto ťahy nič neposunú, takže riešenie sa vždy skladá len z reálne fungujúcich ťahov.",
+
+  "history_summary": "Uložené zámky ({count})",
+  "history_empty": "Zámky, ktoré vyriešiš, sa ukladajú sem.",
+  "history_restore_aria": "Obnoviť tento zámok",
+  "history_entry_label": "Platničky: {plates}",
+  "history_rename": "Premenovať",
+  "history_name_placeholder": "Pomenuj tento zámok",
+  "history_pin": "Pripnúť",
+  "history_unpin": "Pripnuté",
+  "history_delete": "Odstrániť",
+  "history_delete_confirm": "Odstrániť?",
 
   "language_label": "Jazyk"
 }

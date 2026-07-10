@@ -30,6 +30,13 @@
   "action_solving": "Risolvo…",
   "action_reset": "Reimposta",
 
+  "share_copy_link": "Copia link",
+  "share_copied": "Link copiato",
+  "share_copy_failed": "Copia non riuscita — seleziona il link qui sotto",
+  "share_import_invalid": "Questo link condiviso sembra danneggiato — la tua serratura è rimasta invariata.",
+  "share_import_version": "Questo link richiede una versione più recente dello strumento.",
+  "share_import_dismiss": "Chiudi",
+
   "plate_name": "Piastra {n}",
   "plate_short": "P{n}",
   "plate_position_aria": "Posizione della piastra {n}",
@@ -78,6 +85,17 @@
   "help_step4": "Ripeti per ogni piastra. Se dopo un giro onesto, con i ritorni al punto di partenza, il solver continua a dire «irrisolvibile», molto probabilmente non è colpa di quello che hai inserito. L’abilità di scasso potenziata è una comoda scorciatoia: elimina un collegamento a caso e rende lo scasso più facile, ma lo fa alla cieca, e ogni tanto toglie proprio il collegamento che serviva a risolvere questa serratura.",
   "help_step5": "Se invece il solver una soluzione te l’ha data, ma le etichette «destra/sinistra» non corrispondono al gioco (chiede destra dove destra non si può più premere), i dati non sono rotti: è solo l’interruttore «Da dove contare» che non è impostato sul tuo sistema di riferimento. Cambialo, premi di nuovo «Risolvi» e non devi reinserire niente.",
   "help_step6": "Il solver non ti proporrà mai una mossa in cui una piastra collegata è bloccata: nel gioco questo inceppa tutto quanto, compresa la piastra che stai muovendo direttamente, e logora inutilmente il grimaldello. Mosse così non spostano niente, quindi la soluzione è fatta solo di mosse che funzionano davvero.",
+
+  "history_summary": "Serrature salvate ({count})",
+  "history_empty": "Le serrature che risolvi vengono salvate qui.",
+  "history_restore_aria": "Ripristina questa serratura",
+  "history_entry_label": "{plates} piastre",
+  "history_rename": "Rinomina",
+  "history_name_placeholder": "Dai un nome a questa serratura",
+  "history_pin": "Fissa",
+  "history_unpin": "Fissato",
+  "history_delete": "Rimuovi",
+  "history_delete_confirm": "Rimuovere?",
 
   "language_label": "Lingua"
 }

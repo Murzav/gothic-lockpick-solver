@@ -30,6 +30,13 @@
   "action_solving": "Bezig met oplossen…",
   "action_reset": "Wissen",
 
+  "share_copy_link": "Link kopiëren",
+  "share_copied": "Link gekopieerd",
+  "share_copy_failed": "Kopiëren lukte niet — selecteer de link hieronder",
+  "share_import_invalid": "Deze gedeelde link lijkt beschadigd — je slot is ongewijzigd gebleven.",
+  "share_import_version": "Deze link vereist een nieuwere versie van de tool.",
+  "share_import_dismiss": "Sluiten",
+
   "plate_name": "Plaat {n}",
   "plate_short": "P{n}",
   "plate_position_aria": "Positie van plaat {n}",
@@ -78,6 +85,17 @@
   "help_step4": "Herhaal dit voor elke plaat. Zegt de solver na een eerlijke ronde met terugzetten nog steeds dat het onoplosbaar is, dan ligt het waarschijnlijk niet aan je invoer. De lockpick-vaardigheid is een handige vereenvoudiging: hij haalt een willekeurige koppeling weg om het kraken makkelijker te maken, maar doet dat blind, en zo nu en dan haalt hij net die ene koppeling weg die dit slot nodig had.",
   "help_step5": "Gaf de solver juist wél een oplossing, maar kloppen de labels ‘rechts/links’ niet met de game (hij vraagt om rechts waar je al niet verder naar rechts kunt), dan is je data niet stuk. De schakelaar ‘Waar je vanaf telt’ staat alleen niet op jouw referentiekader. Zet hem om, druk nog een keer op ‘Oplossen’, en je hoeft niks opnieuw in te voeren.",
   "help_step6": "De solver stelt nooit een zet voor waarbij een gekoppelde plaat vastloopt – in de game blokkeert dat werkelijk alles, ook de plaat die je rechtstreeks beweegt, en het verslijt alleen je lockpick. Zulke zetten leveren geen enkele verschuiving op, dus een oplossing bestaat altijd uit alleen echt werkende zetten.",
+
+  "history_summary": "Opgeslagen sloten ({count})",
+  "history_empty": "Sloten die je oplost, worden hier opgeslagen.",
+  "history_restore_aria": "Dit slot herstellen",
+  "history_entry_label": "{plates} platen",
+  "history_rename": "Naam wijzigen",
+  "history_name_placeholder": "Geef dit slot een naam",
+  "history_pin": "Vastzetten",
+  "history_unpin": "Vastgezet",
+  "history_delete": "Verwijderen",
+  "history_delete_confirm": "Verwijderen?",
 
   "language_label": "Taal"
 }

@@ -30,6 +30,13 @@
   "action_solving": "Résolution…",
   "action_reset": "Réinitialiser",
 
+  "share_copy_link": "Copier le lien",
+  "share_copied": "Lien copié",
+  "share_copy_failed": "La copie n'a pas marché — sélectionne le lien ci-dessous",
+  "share_import_invalid": "Ce lien partagé a l'air endommagé — ta serrure n'a pas été modifiée.",
+  "share_import_version": "Ce lien nécessite une version plus récente de l'outil.",
+  "share_import_dismiss": "Fermer",
+
   "plate_name": "Plaque {n}",
   "plate_short": "P{n}",
   "plate_position_aria": "Position de la plaque {n}",
@@ -78,6 +85,17 @@
   "help_step4": "Recommence pour chaque plaque. Si, après un passage honnête avec retours en arrière, le solveur dit toujours que c'est insoluble, le problème ne vient probablement pas de ta saisie. La compétence de crochetage améliorée est un coup de pouce bien pratique : elle supprime une liaison au hasard et facilite l'ouverture, mais elle le fait à l'aveugle, et de temps en temps elle enlève justement la liaison dont cette serrure-là avait besoin.",
   "help_step5": "Si au contraire le solveur t'a bien donné une solution, mais que ses indications « droite/gauche » ne collent pas avec le jeu (il demande d'aller à droite là où il n'y a plus de droite possible), tes données ne sont pas cassées. C'est juste que le réglage « D'où compter » n'est pas calé sur ton système de référence. Bascule-le, appuie de nouveau sur « Résoudre », et pas besoin de tout ressaisir.",
   "help_step6": "Le solveur ne te proposera jamais de mouvement où une plaque liée se retrouve bloquée : dans le jeu, ça bloque tout, y compris la plaque que tu pousses directement, et ça ne fait qu'user ton crochet pour rien. Ces mouvements ne déplacent rien du tout, donc une solution n'est faite que de mouvements qui marchent vraiment.",
+
+  "history_summary": "Serrures enregistrées ({count})",
+  "history_empty": "Les serrures que tu résous sont enregistrées ici.",
+  "history_restore_aria": "Restaurer cette serrure",
+  "history_entry_label": "{plates} plaques",
+  "history_rename": "Renommer",
+  "history_name_placeholder": "Nomme cette serrure",
+  "history_pin": "Épingler",
+  "history_unpin": "Épinglé",
+  "history_delete": "Supprimer",
+  "history_delete_confirm": "Supprimer ?",
 
   "language_label": "Langue"
 }

@@ -1,9 +1,18 @@
-import { beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { lockStore } from "./lock-store.svelte";
 
 describe("lockStore", () => {
   beforeEach(() => {
     lockStore.reset();
+    lockStore.setConvention("right-increases");
+    lockStore.setViewMode("board");
+  });
+
+  // lockStore is a module-level singleton that mirrors itself to
+  // localStorage, which is shared browser-origin state that outlives this
+  // file's test run. Restore defaults so a later test file's fresh import
+  // doesn't hydrate the convention/view-mode this file leaves behind.
+  afterEach(() => {
     lockStore.setConvention("right-increases");
     lockStore.setViewMode("board");
   });
@@ -83,6 +92,28 @@ describe("lockStore", () => {
     lockStore.setCoupling(0, 1, 1);
 
     expect(lockStore.result).toBeNull();
+  });
+
+  it("hydrate clears a now-stale result and bumps the generation", () => {
+    // A share-link import or a history restore hydrates on a live page; the
+    // previous lock's solution must neither linger on the new board nor let an
+    // in-flight solve for the old lock land after the swap.
+    lockStore.result = { solvable: true, moves: [], statesExplored: 1 };
+    lockStore.highlightedPlate = 1;
+    const before = lockStore.generation;
+
+    lockStore.hydrate({
+      plateCount: 4,
+      positions: [2, 3, 4, 5],
+      coupling: Array.from({ length: 4 }, () => Array(4).fill(0)),
+      convention: "right-increases",
+      viewMode: "board",
+    });
+
+    expect(lockStore.positions).toEqual([2, 3, 4, 5]);
+    expect(lockStore.result).toBeNull();
+    expect(lockStore.highlightedPlate).toBeNull();
+    expect(lockStore.generation).toBe(before + 1);
   });
 
   it("setConvention updates convention and clears the result", () => {

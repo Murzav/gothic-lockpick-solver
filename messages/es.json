@@ -30,6 +30,13 @@
   "action_solving": "Resolviendo…",
   "action_reset": "Restablecer",
 
+  "share_copy_link": "Copiar enlace",
+  "share_copied": "Enlace copiado",
+  "share_copy_failed": "No se pudo copiar — selecciona el enlace de abajo",
+  "share_import_invalid": "Este enlace compartido parece dañado — tu cerradura quedó sin cambios.",
+  "share_import_version": "Este enlace necesita una versión más nueva de la herramienta.",
+  "share_import_dismiss": "Cerrar",
+
   "plate_name": "Placa {n}",
   "plate_short": "P{n}",
   "plate_position_aria": "Posición de la placa {n}",
@@ -78,6 +85,17 @@
   "help_step4": "Repite con cada placa. Si has hecho una pasada honesta, volviendo atrás cada vez, y el solucionador sigue diciendo que no tiene solución, seguramente no es culpa de lo que has metido. La habilidad de forzar cerraduras es un atajo muy útil: elimina una conexión al azar para facilitar la apertura, pero lo hace a ciegas y, de vez en cuando, elimina justo la conexión que necesitaba esta cerradura.",
   "help_step5": "Si, al contrario, el solucionador sí te dio una solución, pero sus etiquetas de «derecha/izquierda» no cuadran con el juego (te pide derecha donde ya no hay hacia dónde ir), tus datos no están mal. Es solo que el interruptor «Desde dónde contar» no está ajustado a tu sistema de referencia. Cámbialo, pulsa «Resolver» otra vez y no tendrás que volver a meter nada.",
   "help_step6": "El solucionador nunca propone un movimiento en el que una placa conectada se quede atascada. En el juego eso bloquea absolutamente todo, incluida la placa que estás moviendo directamente, y solo desgasta la ganzúa para nada. Esos movimientos no mueven nada, así que una solución se compone solo de movimientos que de verdad funcionan.",
+
+  "history_summary": "Cerraduras guardadas ({count})",
+  "history_empty": "Las cerraduras que resuelvas se guardan aquí.",
+  "history_restore_aria": "Restaurar esta cerradura",
+  "history_entry_label": "{plates} placas",
+  "history_rename": "Renombrar",
+  "history_name_placeholder": "Ponle un nombre a esta cerradura",
+  "history_pin": "Fijar",
+  "history_unpin": "Fijado",
+  "history_delete": "Eliminar",
+  "history_delete_confirm": "¿Eliminar?",
 
   "language_label": "Idioma"
 }
