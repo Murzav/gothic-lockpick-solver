@@ -101,5 +101,7 @@
   "history_delete": "Supprimer",
   "history_delete_confirm": "Supprimer ?",
 
-  "language_label": "Langue"
+  "language_label": "Langue",
+
+  "footer_cracked": "Serrures crochetées avec cet outil : {count}"
 }

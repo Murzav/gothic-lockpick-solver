@@ -101,5 +101,7 @@
   "history_delete": "Видалити",
   "history_delete_confirm": "Видалити?",
 
-  "language_label": "Мова"
+  "language_label": "Мова",
+
+  "footer_cracked": "Замків зламано цим інструментом: {count}"
 }

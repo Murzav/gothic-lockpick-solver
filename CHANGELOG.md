@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- A global "locks cracked with this tool" counter in the footer. Every time you replay a solution all the way to "Lock open", one crack is added to a shared, worldwide total, shown as a muted line next to the GitHub link and grouped in your own language's number format. Stepping back and forth over the last step never double-counts, and if you are offline (or an ad blocker eats the request) the tool just carries on — the number quietly stays put or hides itself, nothing breaks.
+
 ## [0.7.0] - 2026-07-10
 
 ### Added

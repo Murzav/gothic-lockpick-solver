@@ -101,5 +101,7 @@
   "history_delete": "Odstrániť",
   "history_delete_confirm": "Odstrániť?",
 
-  "language_label": "Jazyk"
+  "language_label": "Jazyk",
+
+  "footer_cracked": "Zámky otvorené týmto nástrojom: {count}"
 }

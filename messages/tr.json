@@ -101,5 +101,7 @@
   "history_delete": "Kaldır",
   "history_delete_confirm": "Kaldırılsın mı?",
 
-  "language_label": "Dil"
+  "language_label": "Dil",
+
+  "footer_cracked": "Bu araçla açılan kilitler: {count}"
 }

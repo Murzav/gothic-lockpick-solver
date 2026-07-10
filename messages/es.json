@@ -101,5 +101,7 @@
   "history_delete": "Eliminar",
   "history_delete_confirm": "¿Eliminar?",
 
-  "language_label": "Idioma"
+  "language_label": "Idioma",
+
+  "footer_cracked": "Cerraduras abiertas con esta herramienta: {count}"
 }

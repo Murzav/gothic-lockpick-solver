@@ -101,5 +101,7 @@
   "history_delete": "移除",
   "history_delete_confirm": "移除？",
 
-  "language_label": "语言"
+  "language_label": "语言",
+
+  "footer_cracked": "用此工具破解的锁：{count}"
 }

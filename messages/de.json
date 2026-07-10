@@ -101,5 +101,7 @@
   "history_delete": "Entfernen",
   "history_delete_confirm": "Entfernen?",
 
-  "language_label": "Sprache"
+  "language_label": "Sprache",
+
+  "footer_cracked": "Mit diesem Tool geknackte Schlösser: {count}"
 }

@@ -17,6 +17,7 @@
     "test:unit": "vitest run --project unit --passWithNoTests"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260710.1",
     "@fontsource/cinzel": "^5.2.8",
     "@fontsource/inter": "^5.2.8",
     "@fontsource/jetbrains-mono": "^5.2.8",

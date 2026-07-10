@@ -101,5 +101,7 @@
   "history_delete": "Eltávolítás",
   "history_delete_confirm": "Eltávolítod?",
 
-  "language_label": "Nyelv"
+  "language_label": "Nyelv",
+
+  "footer_cracked": "Ezzel a programmal feltört zárak: {count}"
 }

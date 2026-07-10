@@ -12,7 +12,7 @@ Lockpicking in _Gothic 1 Remake_ is a little sliding-plate puzzle. A lock is a s
 
 This tool does the puzzle for you. You tell it how many plates there are, where each pin starts, and how the plates are linked. It works out the shortest safe way to line them all up. If a lock genuinely can't be solved — it happens — it says so, instead of sending you round in circles.
 
-Everything runs in your browser. No account, no ads, nothing is uploaded anywhere.
+Everything runs in your browser. No account, no ads. The solver never sends your lock anywhere; the only thing that ever leaves the page is an anonymous "+1" to the global locks-cracked counter in the footer.
 
 ## How to use it
 

@@ -2,6 +2,7 @@
   import "../app.css";
   import { getLocale } from "$lib/paraglide/runtime.js";
   import LanguageSwitcher from "$lib/features/switch-language/ui/LanguageSwitcher.svelte";
+  import CrackCounter from "$lib/features/solve-lock/ui/CrackCounter.svelte";
 
   let { children } = $props();
 
@@ -38,6 +39,7 @@
     </svg>
     <span>GitHub</span>
   </a>
+  <CrackCounter />
 </footer>
 
 <style>
@@ -57,7 +59,10 @@
 
   .site-footer {
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
+    gap: 0.5rem 1rem;
     padding: 1.5rem 1rem 2.5rem;
   }
 

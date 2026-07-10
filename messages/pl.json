@@ -101,5 +101,7 @@
   "history_delete": "Usuń",
   "history_delete_confirm": "Usunąć?",
 
-  "language_label": "Język"
+  "language_label": "Język",
+
+  "footer_cracked": "Zamki otwarte tym narzędziem: {count}"
 }

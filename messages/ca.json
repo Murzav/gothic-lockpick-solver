@@ -101,5 +101,7 @@
   "history_delete": "Elimina",
   "history_delete_confirm": "Eliminar?",
 
-  "language_label": "Idioma"
+  "language_label": "Idioma",
+
+  "footer_cracked": "Panys oberts amb aquesta eina: {count}"
 }

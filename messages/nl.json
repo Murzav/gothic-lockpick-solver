@@ -101,5 +101,7 @@
   "history_delete": "Verwijderen",
   "history_delete_confirm": "Verwijderen?",
 
-  "language_label": "Taal"
+  "language_label": "Taal",
+
+  "footer_cracked": "Sloten gekraakt met deze tool: {count}"
 }

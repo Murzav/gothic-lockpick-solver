@@ -101,5 +101,7 @@
   "history_delete": "Remove",
   "history_delete_confirm": "Remove?",
 
-  "language_label": "Language"
+  "language_label": "Language",
+
+  "footer_cracked": "{count} locks cracked with this tool"
 }

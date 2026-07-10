@@ -6,7 +6,14 @@ declare global {
     // interface Locals {}
     // interface PageData {}
     // interface PageState {}
-    // interface Platform {}
+
+    // adapter-cloudflare exposes the worker's bindings to endpoints as
+    // `platform.env`. Only the D1 counter binding is declared here.
+    interface Platform {
+      env: {
+        DB: import("@cloudflare/workers-types").D1Database;
+      };
+    }
   }
 }
 

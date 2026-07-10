@@ -8,4 +8,14 @@
     "binding": "ASSETS",
     "directory": ".svelte-kit/cloudflare",
   },
+  // Global "locks cracked with this tool" vanity counter. Asset-first routing
+  // serves the prerendered SPA and falls through to the worker for the
+  // unmatched /api/cracked path, which reads/increments this D1 row.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "gls-counter",
+      "database_id": "96c45b15-6b06-4621-bb71-cee60852891d",
+    },
+  ],
 }

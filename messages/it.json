@@ -101,5 +101,7 @@
   "history_delete": "Rimuovi",
   "history_delete_confirm": "Rimuovere?",
 
-  "language_label": "Lingua"
+  "language_label": "Lingua",
+
+  "footer_cracked": "Serrature aperte con questo strumento: {count}"
 }

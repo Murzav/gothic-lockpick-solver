@@ -101,5 +101,7 @@
   "history_delete": "Elimină",
   "history_delete_confirm": "Elimini?",
 
-  "language_label": "Limbă"
+  "language_label": "Limbă",
+
+  "footer_cracked": "Încuietori sparte cu acest instrument: {count}"
 }
