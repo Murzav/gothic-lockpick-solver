@@ -54,6 +54,7 @@ export function createSpeaker(): Speaker {
     typeof SpeechSynthesisUtterance !== "undefined";
 
   let voices: SpeechSynthesisVoice[] = [];
+  let voicesSignature = "";
   let voicesInitialized = false;
   let pendingTimer: ReturnType<typeof setTimeout> | null = null;
   const subscribers = new Set<() => void>();
@@ -66,10 +67,13 @@ export function createSpeaker(): Speaker {
     if (!supported) return;
     try {
       const list = window.speechSynthesis.getVoices();
-      // Surface a change only when the list actually grows or shrinks: both
-      // the fallback timer and the 'voiceschanged' event can fire for the
-      // same population and we do not want to re-notify for nothing.
-      if (list.length !== voices.length) {
+      // Compare by identity, not length: engines can swap entries in place
+      // (e.g. a remote voice replaced by a local one of the same language),
+      // while the fallback timer and 'voiceschanged' can also re-fire for the
+      // same population — only a genuine change should re-notify.
+      const signature = list.map((v) => v.voiceURI).join("|");
+      if (signature !== voicesSignature) {
+        voicesSignature = signature;
         voices = list;
         notify();
       }
@@ -133,20 +137,22 @@ export function createSpeaker(): Speaker {
 
   function speak(req: SpeakRequest): void {
     if (!supported) return;
-    const voice = resolveVoice(req.langs);
-    // No voice for this chain → say nothing (never let the engine read foreign
-    // text with an English default).
-    if (!voice) return;
-
-    // Cancel current + any pending speech, then schedule the real one: a fresh
-    // speak() or cancel() in the window clears this timer, so rapid-fire calls
-    // coalesce to the last one.
+    // A new request always supersedes the previous one — cancel current and
+    // pending speech FIRST, even if this request turns out unspeakable: a
+    // stale instruction firing later is worse guidance than silence. A fresh
+    // speak() or cancel() in the 80ms window clears the timer, so rapid-fire
+    // calls coalesce to the last one.
     clearPending();
     try {
       window.speechSynthesis.cancel();
     } catch {
       return;
     }
+
+    const voice = resolveVoice(req.langs);
+    // No voice for this chain → say nothing (never let the engine read foreign
+    // text with an English default).
+    if (!voice) return;
     const { text } = req;
     const rate = req.rate ?? 0.9;
     pendingTimer = setTimeout(() => {
