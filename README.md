@@ -19,7 +19,7 @@ Everything runs in your browser. No account, no ads, nothing is uploaded anywher
 1. **Pick the number of plates** (4 to 7, depending on the lock).
 2. **Set each plate's starting position** — where its pin sits the moment you open the lock (1 to 7; the centre, and the goal, is 4).
 3. **Enter the links.** For each plate, mark how the _other_ plates react when you move it — the same way (`»`), the opposite way (`⇄`), or not at all (`—`). Each link is one button that cycles through the three states.
-4. **Press Solve.** You get a numbered list of moves. Step through them and watch the right plate light up on the board as you go.
+4. **Press Solve.** You get a numbered list of moves. Step through them and watch the right plate light up on the board as you go — or tick "Speak steps" and have each move read to you aloud.
 
 The app has a short "Where to count from" note near the top. Read it before you start — a mismatched frame of reference is the usual reason a lock "looks right but won't solve."
 
@@ -29,6 +29,7 @@ The app has a short "Where to count from" note near the top. Read it before you 
 - **Honest about impossible locks.** Some locks really can't be opened (at Master level the skill can strip out a link you needed). The tool tells you rather than pretending.
 - **Two ways to enter a lock:** a visual board you click, or a compact table. Switch whenever you like, nothing is lost.
 - **Step-by-step playback** that highlights the plate being moved.
+- **Voice announcements.** Tick "Speak steps" on the playback bar and every step is read aloud in your language — "Plate 6. Right, 3 times." — so you can enter the combination by ear without looking away from the game. It uses the voices built into your browser, works offline, and the counts are grammatically correct in every language.
 - **20 languages,** picked automatically from your browser and switchable in the top-right corner. Your language and the lock you are building are both remembered.
 
 ## Languages
