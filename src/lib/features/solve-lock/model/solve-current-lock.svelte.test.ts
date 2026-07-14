@@ -18,4 +18,24 @@ describe("solveCurrentLock", () => {
     expect(lockStore.result).not.toBeNull();
     expect(lockStore.result?.solvable).toBe(true);
   });
+
+  it("a superseded solve returns quietly and lets the successor finish the job", async () => {
+    lockStore.reset();
+
+    // Two overlapping solves: the second synchronously supersedes the first
+    // (kills its worker, rejects it). Everything up to the first `await` is
+    // synchronous, so the successor is already in flight when the first settles.
+    const first = solveCurrentLock();
+    const second = solveCurrentLock();
+
+    // The superseded call resolves — it must not surface the supersede as an
+    // error — and must NOT clear `solving`: the successor still owns it.
+    await expect(first).resolves.toBeUndefined();
+    expect(lockStore.solving).toBe(true);
+
+    // The successor completes the job: clears solving and writes its result.
+    await second;
+    expect(lockStore.solving).toBe(false);
+    expect(lockStore.result?.solvable).toBe(true);
+  });
 });

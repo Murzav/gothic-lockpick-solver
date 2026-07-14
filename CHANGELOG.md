@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Solutions are now ordered to minimize plate switches among all equally-short solutions, so you spend more time working the same plate back-to-back instead of hopping around the board. The move count itself is unchanged — it's still the shortest solve possible — but the ordering of those moves is now the one that switches plates the fewest times (on the reference lock: 26 → 8 switches across 27 → 9 grouped steps, with zero extra key presses). The "states explored" figure may read slightly differently than before, since the search now also tracks which plate was last touched.
+
+### Fixed
+
+- A stale solver worker from a previous, still-running solve is now terminated the moment a new solve starts, instead of being left to finish in the background.
+
 ## [0.8.1] - 2026-07-10
 
 ### Fixed

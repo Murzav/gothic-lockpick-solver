@@ -1,6 +1,6 @@
 # Gothic 1 Remake — Lockpick Solver
 
-Crack any lock in _Gothic 1 Remake_. Describe the lock in front of you and get the exact, shortest set of moves that opens it — or an honest "this one can't be picked."
+Crack any lock in _Gothic 1 Remake_. Describe the lock in front of you and get the exact, shortest set of moves that opens it — arranged to keep you on the same plate as long as possible — or an honest "this one can't be picked."
 
 **▶ Use it now: [gothic-lockpick-solver.v-be8.workers.dev](https://gothic-lockpick-solver.v-be8.workers.dev)**
 
@@ -10,7 +10,7 @@ Crack any lock in _Gothic 1 Remake_. Describe the lock in front of you and get t
 
 Lockpicking in _Gothic 1 Remake_ is a little sliding-plate puzzle. A lock is a stack of plates, each plate has a pin, and you nudge plates left or right to line every pin up on the centre hole. The twist: the plates are linked, so moving one drags others along, and forcing a plate into a wall just wears your lockpick down. It turns into a small logic puzzle, and a tricky lock can eat a fistful of picks.
 
-This tool does the puzzle for you. You tell it how many plates there are, where each pin starts, and how the plates are linked. It works out the shortest safe way to line them all up. If a lock genuinely can't be solved — it happens — it says so, instead of sending you round in circles.
+This tool does the puzzle for you. You tell it how many plates there are, where each pin starts, and how the plates are linked. It works out the shortest safe way to line them all up — and, of every ordering that is equally short, the one that has you jumping between plates the fewest times. If a lock genuinely can't be solved — it happens — it says so, instead of sending you round in circles.
 
 Everything runs in your browser. No account, no ads. The solver never sends your lock anywhere; the only thing that ever leaves the page is an anonymous "+1" to the global locks-cracked counter in the footer.
 
@@ -25,7 +25,7 @@ The app has a short "Where to count from" note near the top. Read it before you 
 
 ## Features
 
-- **Shortest solution, guaranteed.** It searches every reachable state, so the move list is as short as it can be, and it never suggests a move that jams the lock or wastes a pick.
+- **Shortest solution, guaranteed — and light on plate-switching.** It searches every reachable state, so the move list is as short as it can be, and it never suggests a move that jams the lock or wastes a pick. Among every ordering that reaches that same shortest length, it then picks the one that switches plates the fewest times, so you spend less time hopping around the board and more pressing the same plate in a row.
 - **Honest about impossible locks.** Some locks really can't be opened (at Master level the skill can strip out a link you needed). The tool tells you rather than pretending.
 - **Two ways to enter a lock:** a visual board you click, or a compact table. Switch whenever you like, nothing is lost.
 - **Keyboard-fast entry.** On the board: ↑/↓ picks a plate, 1–7 sets its position, Shift+1–7 cycles its links, Enter solves — a whole lock in under twenty keystrokes.
